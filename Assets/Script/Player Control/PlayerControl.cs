@@ -9,24 +9,40 @@ public class PlayerControl : MonoBehaviour
     private readonly float speed = 6f;
     private PlayerInputSystem playerInputSystem;
     private Vector2 moveVector;
+    private bool moving;
+    private float lastRotation;
+    private readonly float rotateSpeed = 15;
     [SerializeField]
     private ContactFilter2D moveFilter;
     [SerializeField]
     private float collisionOffset = 0.1f;
     private void Awake()
     {
+        //Get component
         rigidBody = GetComponent<Rigidbody2D>();
+
+        //Active input
         playerInputSystem = new PlayerInputSystem();
         playerInputSystem.Player.Enable();
         playerInputSystem.Player.Move.performed += Move_performed;
         playerInputSystem.Player.Move.canceled += Move_canceled;
+        playerInputSystem.Player.Move.started += Move_started;
+        //Initialize rotation
     }
 
+    private void Move_started(InputAction.CallbackContext context)
+    {
+        moving = true;
+    }
+
+    //Stop when no input
     private void Move_canceled(InputAction.CallbackContext context)
     {
         moveVector.Set(0f, 0f);
+        moving = false;
     }
 
+    //Get input direction
     private void Move_performed(InputAction.CallbackContext context)
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
@@ -36,6 +52,62 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Rotate
+        float rotation = (float)( System.Math.Atan2(moveVector.x, moveVector.y) / System.Math.PI * -180f);
+        if (rotation < 0)
+        {
+            rotation += 360;
+        }
+        if(rotation != lastRotation && moving)
+        {
+            float moveTo;
+            if(rigidBody.rotation > rotation)
+            {
+                if(rigidBody.rotation - rotation > 180)
+                {
+                    moveTo = rigidBody.rotation + rotateSpeed;
+                    if(moveTo > 360 + rotation)
+                    {
+                        moveTo = rotation;
+                    }
+
+                }
+                else
+                {
+                    moveTo = rigidBody.rotation - rotateSpeed;
+                }
+                rigidBody.MoveRotation(Mathf.Max(moveTo, rotation));
+            }
+            if(rigidBody.rotation < rotation)
+            {
+                if (rotation - rigidBody.rotation > 180)
+                {
+                    moveTo = rigidBody.rotation - rotateSpeed;
+                    if (moveTo < rotation - 360)
+                    {
+                        moveTo = rotation;
+                    }
+
+                }
+                else
+                {
+                    moveTo = rigidBody.rotation + rotateSpeed;
+                }
+                rigidBody.MoveRotation(Mathf.Min(moveTo, rotation));
+            }
+            if (rigidBody.rotation > 360)
+            {
+                rigidBody.rotation -= 360;
+            }
+            if (rigidBody.rotation < 0)
+            {
+                rigidBody.rotation += 360;
+            }
+            lastRotation = rigidBody.rotation;
+            Debug.Log(lastRotation + " " + rotation);
+        }
+
+        //Move
         if (!Move(moveVector))
         {
             if(!Move(new Vector2(moveVector.x, 0)))
@@ -44,6 +116,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
 
     private bool Move(Vector2 moveVector)
     {
