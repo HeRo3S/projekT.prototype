@@ -54,6 +54,7 @@ public class PlayerControl : MonoBehaviour
     {
         //Rotate
         float rotation = (float)( System.Math.Atan2(moveVector.x, moveVector.y) / System.Math.PI * -180f);
+        rotation += 90;
         if (rotation < 0)
         {
             rotation += 360;
