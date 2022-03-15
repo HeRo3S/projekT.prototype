@@ -40,12 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: ground
     uniqueID: 3800281547
     locked: 0
-  - name: weapon
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2920990213
+    locked: 0
+  - name: Weapon
     uniqueID: 4118906867
     locked: 0
