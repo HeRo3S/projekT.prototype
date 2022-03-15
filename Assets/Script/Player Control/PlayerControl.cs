@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private readonly float speed = 4.5f;
+    private readonly float speed = 6f;
     private PlayerInputSystem playerInputSystem;
     private Vector2 moveVector;
-    private Vector2 lastMoveVector;
+    [SerializeField]
+    private ContactFilter2D moveFilter;
+    [SerializeField]
+    private float collisionOffset = 0.1f;
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -33,12 +36,27 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(moveVector != lastMoveVector)
+        if (!Move(moveVector))
         {
-            rigidBody.velocity = moveVector * speed;
-            lastMoveVector = moveVector;
-            Debug.Log(moveVector);
+            if(!Move(new Vector2(moveVector.x, 0)))
+            {
+                Move(new Vector2(0, moveVector.y));
+            }
         }
+    }
 
+    private bool Move(Vector2 moveVector)
+    {
+        int count = rigidBody.Cast(
+            moveVector,
+            moveFilter,
+            new List<RaycastHit2D>(),
+            speed * Time.fixedDeltaTime + collisionOffset);
+        if (count == 0)
+        {
+            rigidBody.MovePosition(rigidBody.position + speed * Time.fixedDeltaTime * moveVector);
+            return true;
+        }
+        return false;
     }
 }
