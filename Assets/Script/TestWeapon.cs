@@ -27,11 +27,10 @@ public class TestWeapon : MonoBehaviour
         GameObject hitEntity = collision.gameObject;
         if (hitEntity.CompareTag("Enemy"))
         {
-            Debug.Log("HIT");
             if (!hitList.Contains(hitEntity))
             {
                 hitList.Add(hitEntity);
-                hitEntity.GetComponent<SpriteRenderer>().color = Color.red;
+                hitEntity.GetComponent<EntityBase>().TakeDamage(100);
             }
         }
     }

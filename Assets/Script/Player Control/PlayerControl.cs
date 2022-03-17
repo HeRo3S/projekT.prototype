@@ -6,10 +6,17 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private readonly float speed = 6f;
     private PlayerInputSystem playerInputSystem;
+    //Movement
+    private readonly float speed = 6f;
     private Vector2 moveVector;
     private bool moving;
+    //Target Lock
+    [SerializeField]
+    private GameObject target;
+    //Rotation
+    private Vector2 targetRotationLocation;
+    private float rotation;
     private float lastRotation;
     private readonly float rotateSpeed = 15;
     [SerializeField]
@@ -52,14 +59,29 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Rotate
-        float rotation = (float)( System.Math.Atan2(moveVector.x, moveVector.y) / System.Math.PI * -180f);
+        //Calculate rotation angle
+        if (moving)
+        {
+            targetRotationLocation = moveVector;
+        }
+        else
+        {
+            if (target != null)
+            {
+                targetRotationLocation = target.transform.position - transform.position;
+            }
+        }
+
+
+
+        //Rotating to predefined angle
+        rotation = (float)(System.Math.Atan2(targetRotationLocation.x, targetRotationLocation.y) / System.Math.PI * -180f);
         rotation += 90;
         if (rotation < 0)
         {
             rotation += 360;
         }
-        if(rotation != lastRotation && moving)
+        if(rotation != lastRotation)
         {
             float moveTo;
             if(rigidBody.rotation > rotation)
@@ -105,7 +127,6 @@ public class PlayerControl : MonoBehaviour
                 rigidBody.rotation += 360;
             }
             lastRotation = rigidBody.rotation;
-            Debug.Log(lastRotation + " " + rotation);
         }
 
         //Move
