@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LockTarget",
+                    "type": "Value",
+                    "id": "1fe35b52-b139-4bdf-826a-6f9734b35670",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ReleaseLock",
+                    "type": "Button",
+                    "id": "35ddb706-0187-48f4-9c35-28637ea25c3a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -93,11 +111,44 @@
                 },
                 {
                     "name": "",
-                    "id": "842e5ca1-cee8-425d-a92e-91684abbb452",
-                    "path": "<Mouse>/leftButton",
+                    "id": "a078f422-2295-47ed-9aff-9f023e974e62",
+                    "path": "<Touchscreen>/primaryTouch/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard & mouse",
+                    "groups": "",
+                    "action": "LockTarget",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de4c0c4a-91c6-4d1c-977a-baeb9fa99c8c",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReleaseLock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75a43623-7eee-4d1f-b6aa-bb61e61b87ba",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReleaseLock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07f6d5f4-9bd6-4339-b91a-355b54ffd6f8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false

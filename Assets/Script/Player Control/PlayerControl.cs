@@ -5,14 +5,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
+    //General Component
     private Rigidbody2D rigidBody;
     private PlayerInputSystem playerInputSystem;
+    private Camera mainCam;
     //Movement
     private readonly float speed = 6f;
     private Vector2 moveVector;
     private bool moving;
     //Target Lock
     [SerializeField]
+    private GameObject pfTargetIndicator;
+    private GameObject targetIndicator;
+    [SerializeField]
+    private float targetRadius;
     private GameObject target;
     //Rotation
     private Vector2 targetRotationLocation;
@@ -27,14 +33,48 @@ public class PlayerControl : MonoBehaviour
     {
         //Get component
         rigidBody = GetComponent<Rigidbody2D>();
-
+        mainCam = Camera.main;
         //Active input
         playerInputSystem = new PlayerInputSystem();
         playerInputSystem.Player.Enable();
         playerInputSystem.Player.Move.performed += Move_performed;
         playerInputSystem.Player.Move.canceled += Move_canceled;
         playerInputSystem.Player.Move.started += Move_started;
-        //Initialize rotation
+        playerInputSystem.Player.LockTarget.performed += LockTarget_performed;
+        playerInputSystem.Player.ReleaseLock.performed += ReleaseLock_performed;
+        //Initialize Value
+        moveVector.Set(0f, 0f);
+        targetRotationLocation.Set(0f, 0f);
+
+    }
+
+    private void ReleaseLock_performed(InputAction.CallbackContext context)
+    {
+        target = null;
+        targetIndicator.SetActive(false);
+    }
+
+    //Subcribe to event
+    private void LockTarget_performed(InputAction.CallbackContext context)
+    {
+        //Read touch input and convert to world position
+        Vector2 touchPos = context.ReadValue<Vector2>();
+        Vector2 targetLocation = mainCam.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y));
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(targetLocation, targetRadius))
+        {
+            if (collider != null && collider.gameObject.GetComponent<ITargetable>() != null)
+            {
+                if(targetIndicator == null)
+                {
+                    targetIndicator = Instantiate(pfTargetIndicator);
+                }
+                targetIndicator.SetActive(true);
+                target = collider.gameObject;
+                targetIndicator.transform.SetParent(target.transform, false);
+                break;
+            }
+        }
+
     }
 
     private void Move_started(InputAction.CallbackContext context)
@@ -72,24 +112,51 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
+        //Rotating to target point
+        Rotate();
+        //Move
+        if (!Move(moveVector))
+        {
+            if(!Move(new Vector2(moveVector.x, 0)))
+            {
+                Move(new Vector2(0, moveVector.y));
+            }
+        }
+    }
 
 
-        //Rotating to predefined angle
+    private bool Move(Vector2 moveVector)
+    {
+        int count = rigidBody.Cast(
+            moveVector,
+            moveFilter,
+            new List<RaycastHit2D>(),
+            speed * Time.fixedDeltaTime + collisionOffset);
+        if (count == 0)
+        {
+            rigidBody.MovePosition(rigidBody.position + speed * Time.fixedDeltaTime * moveVector);
+            return true;
+        }
+        return false;
+    }
+
+    private void Rotate()
+    {
         rotation = (float)(System.Math.Atan2(targetRotationLocation.x, targetRotationLocation.y) / System.Math.PI * -180f);
         rotation += 90;
         if (rotation < 0)
         {
             rotation += 360;
         }
-        if(rotation != lastRotation)
+        if (rotation != lastRotation)
         {
             float moveTo;
-            if(rigidBody.rotation > rotation)
+            if (rigidBody.rotation > rotation)
             {
-                if(rigidBody.rotation - rotation > 180)
+                if (rigidBody.rotation - rotation > 180)
                 {
                     moveTo = rigidBody.rotation + rotateSpeed;
-                    if(moveTo > 360 + rotation)
+                    if (moveTo > 360 + rotation)
                     {
                         moveTo = rotation;
                     }
@@ -101,7 +168,7 @@ public class PlayerControl : MonoBehaviour
                 }
                 rigidBody.MoveRotation(Mathf.Max(moveTo, rotation));
             }
-            if(rigidBody.rotation < rotation)
+            if (rigidBody.rotation < rotation)
             {
                 if (rotation - rigidBody.rotation > 180)
                 {
@@ -129,29 +196,6 @@ public class PlayerControl : MonoBehaviour
             lastRotation = rigidBody.rotation;
         }
 
-        //Move
-        if (!Move(moveVector))
-        {
-            if(!Move(new Vector2(moveVector.x, 0)))
-            {
-                Move(new Vector2(0, moveVector.y));
-            }
-        }
-    }
 
-
-    private bool Move(Vector2 moveVector)
-    {
-        int count = rigidBody.Cast(
-            moveVector,
-            moveFilter,
-            new List<RaycastHit2D>(),
-            speed * Time.fixedDeltaTime + collisionOffset);
-        if (count == 0)
-        {
-            rigidBody.MovePosition(rigidBody.position + speed * Time.fixedDeltaTime * moveVector);
-            return true;
-        }
-        return false;
     }
 }

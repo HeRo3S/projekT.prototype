@@ -10,12 +10,8 @@ public class TextPopUp : MonoBehaviour
     private TextMeshPro textMesh;
     public static TextPopUp Create(string text, Vector3 position, int frameToLive)
     {
-        var op = Addressables.LoadAssetAsync<GameObject>("PFTextPopUp");
-        GameObject popUpPrefab = op.WaitForCompletion();
-        TextPopUp target = Instantiate(popUpPrefab, position, Quaternion.identity).GetComponent<TextPopUp>();
-        Addressables.Release(op);
+        TextPopUp target = Instantiate(AssetManager.Instance.pfTextPopUp, position, Quaternion.identity).GetComponent<TextPopUp>();
         target.SetUp(text, frameToLive);
-        Debug.Log(target.transform.position);
         return target;
     }
     public void Awake()

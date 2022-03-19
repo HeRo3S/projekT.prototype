@@ -44,6 +44,24 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LockTarget"",
+                    ""type"": ""Value"",
+                    ""id"": ""1fe35b52-b139-4bdf-826a-6f9734b35670"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ReleaseLock"",
+                    ""type"": ""Button"",
+                    ""id"": ""35ddb706-0187-48f4-9c35-28637ea25c3a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -115,11 +133,44 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""842e5ca1-cee8-425d-a92e-91684abbb452"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""a078f422-2295-47ed-9aff-9f023e974e62"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard & mouse"",
+                    ""groups"": """",
+                    ""action"": ""LockTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de4c0c4a-91c6-4d1c-977a-baeb9fa99c8c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReleaseLock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75a43623-7eee-4d1f-b6aa-bb61e61b87ba"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReleaseLock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07f6d5f4-9bd6-4339-b91a-355b54ffd6f8"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""LightAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -161,6 +212,8 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_LightAttack = m_Player.FindAction("LightAttack", throwIfNotFound: true);
+        m_Player_LockTarget = m_Player.FindAction("LockTarget", throwIfNotFound: true);
+        m_Player_ReleaseLock = m_Player.FindAction("ReleaseLock", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -222,12 +275,16 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_LightAttack;
+    private readonly InputAction m_Player_LockTarget;
+    private readonly InputAction m_Player_ReleaseLock;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
         public PlayerActions(@PlayerInputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @LightAttack => m_Wrapper.m_Player_LightAttack;
+        public InputAction @LockTarget => m_Wrapper.m_Player_LockTarget;
+        public InputAction @ReleaseLock => m_Wrapper.m_Player_ReleaseLock;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -243,6 +300,12 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @LightAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLightAttack;
                 @LightAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLightAttack;
                 @LightAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLightAttack;
+                @LockTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
+                @LockTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
+                @LockTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
+                @ReleaseLock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReleaseLock;
+                @ReleaseLock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReleaseLock;
+                @ReleaseLock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReleaseLock;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -253,6 +316,12 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @LightAttack.started += instance.OnLightAttack;
                 @LightAttack.performed += instance.OnLightAttack;
                 @LightAttack.canceled += instance.OnLightAttack;
+                @LockTarget.started += instance.OnLockTarget;
+                @LockTarget.performed += instance.OnLockTarget;
+                @LockTarget.canceled += instance.OnLockTarget;
+                @ReleaseLock.started += instance.OnReleaseLock;
+                @ReleaseLock.performed += instance.OnReleaseLock;
+                @ReleaseLock.canceled += instance.OnReleaseLock;
             }
         }
     }
@@ -279,5 +348,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
+        void OnLockTarget(InputAction.CallbackContext context);
+        void OnReleaseLock(InputAction.CallbackContext context);
     }
 }

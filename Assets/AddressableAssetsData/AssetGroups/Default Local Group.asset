@@ -21,6 +21,14 @@ MonoBehaviour:
     m_Address: PFTextPopUp
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: ba77fb06444a3454f8580a5bc69cfede
+    m_Address: Assets/Resources_Addressable/Prefab/Enemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 45f339d145175a943892b8ba21edcb8f
+    m_Address: PrefabAssetManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:
