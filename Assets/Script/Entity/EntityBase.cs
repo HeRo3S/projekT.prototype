@@ -2,16 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityBase : MonoBehaviour, ITargetable
+public abstract class EntityBase : MonoBehaviour, ITargetable, IMovable
 {
     //Stat related value
     protected int maxHealth;
     protected int healthPts;
+    protected float speed;
     //Damage frame related value
     protected readonly int damageFrame = 3;
     protected int currentDamageFrame;
     protected readonly int invincibleFrame;
     protected int currentIFrame;
+    //GameObject component mapping
+    protected Rigidbody2D rBody;
+    //Movement
+    //private ContactFilter2D moveFilter;
+    //private readonly float collisionOffset = 0.05f;
+
+    public void Awake()
+    {
+        rBody = gameObject.GetComponent<Rigidbody2D>();
+        //moveFilter = InstanceManager.Instance.groundEntityFilter;
+    }
+
 
     //Start damage frame (damaged indicator)
     protected void StartDamageFrame()
@@ -30,4 +43,20 @@ public class EntityBase : MonoBehaviour, ITargetable
         TextPopUp.Create(damage.ToString(),popUpPos , 30);
     }
 
+    public bool Move(Vector2 moveVector)
+    {
+        //int count = rBody.Cast(
+        //    moveVector,
+        //    moveFilter,
+        //    new List<RaycastHit2D>(),
+        //    speed * Time.fixedDeltaTime + collisionOffset);
+        //if (count == 0)
+        //{
+        //    rBody.MovePosition(rBody.position + speed * Time.fixedDeltaTime * moveVector);
+        //    return true;
+        //}
+        //return false;
+        rBody.velocity = moveVector * speed;
+        return true;
+    }
 }

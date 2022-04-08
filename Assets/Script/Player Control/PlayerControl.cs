@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     private readonly float speed = 6f;
     private Vector2 moveVector;
     private bool moving;
+    //private ContactFilter2D moveFilter;
+    //private readonly float collisionOffset = 0.05f;
     //Target Lock
     [SerializeField]
     private GameObject pfTargetIndicator;
@@ -25,12 +27,10 @@ public class PlayerControl : MonoBehaviour
     private float rotation;
     private float lastRotation;
     private readonly float rotateSpeed = 15;
-    [SerializeField]
-    private ContactFilter2D moveFilter;
-    [SerializeField]
-    private float collisionOffset = 0.1f;
     private void Awake()
     {
+        //Register to manager
+        InstanceManager.Instance.player = gameObject;
         //Get component
         rigidBody = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour
         //Initialize Value
         moveVector.Set(0f, 0f);
         targetRotationLocation.Set(0f, 0f);
-
+        //moveFilter = InstanceManager.Instance.groundEntityFilter;
     }
 
     private void ReleaseLock_performed(InputAction.CallbackContext context)
@@ -57,6 +57,7 @@ public class PlayerControl : MonoBehaviour
     //Subcribe to event
     private void LockTarget_performed(InputAction.CallbackContext context)
     {
+        Debug.Log(context);
         //Read touch input and convert to world position
         Vector2 touchPos = context.ReadValue<Vector2>();
         Vector2 targetLocation = mainCam.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y));
@@ -93,8 +94,8 @@ public class PlayerControl : MonoBehaviour
     private void Move_performed(InputAction.CallbackContext context)
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
-        float inputVectorMag = inputVector.magnitude;
-        moveVector.Set(inputVector.x / inputVectorMag, inputVector.y / inputVectorMag);
+        float inputVectorAbs = Mathf.Abs(inputVector.x) + Mathf.Abs(inputVector.y);
+        moveVector.Set(inputVector.x / inputVectorAbs, inputVector.y / inputVectorAbs);
     }
 
     private void FixedUpdate()
@@ -127,17 +128,19 @@ public class PlayerControl : MonoBehaviour
 
     private bool Move(Vector2 moveVector)
     {
-        int count = rigidBody.Cast(
-            moveVector,
-            moveFilter,
-            new List<RaycastHit2D>(),
-            speed * Time.fixedDeltaTime + collisionOffset);
-        if (count == 0)
-        {
-            rigidBody.MovePosition(rigidBody.position + speed * Time.fixedDeltaTime * moveVector);
-            return true;
-        }
-        return false;
+        //int count = rigidBody.Cast(
+        //    moveVector,
+        //    moveFilter,
+        //    new List<RaycastHit2D>(),
+        //    speed * Time.fixedDeltaTime + collisionOffset);
+        //if (count == 0)
+        //{
+        //    rigidBody.MovePosition(rigidBody.position + speed * Time.fixedDeltaTime * moveVector);
+        //    return true;
+        //}
+        //return false;
+        rigidBody.velocity = moveVector * speed;
+        return true;
     }
 
     private void Rotate()

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class TestWeapon : MonoBehaviour
 {
-    private HashSet<GameObject> hitList = new HashSet<GameObject>();
+    private HashSet<EnemyBase> hitList = new HashSet<EnemyBase>();
     Animator anim;
 
 
@@ -21,23 +21,22 @@ public class TestWeapon : MonoBehaviour
     {
         anim.SetTrigger("LightAttack");
     }
-
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject hitEntity = collision.gameObject;
-        if (hitEntity.CompareTag("Enemy"))
+        EnemyBase hitEntity = collision.gameObject.GetComponent<EnemyBase>();
+        if (hitEntity != null)
         {
             if (!hitList.Contains(hitEntity))
             {
                 hitList.Add(hitEntity);
-                hitEntity.GetComponent<EntityBase>().TakeDamage(100);
+                hitEntity.TakeDamage(100);
             }
         }
     }
-    public void OnCollisionExit2D(Collision2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
-        GameObject hitEntity = collision.gameObject;
-        if (hitEntity.CompareTag("Enemy"))
+        EnemyBase hitEntity = collision.gameObject.GetComponent<EnemyBase>();
+        if (hitEntity != null)
         {
             if (hitList.Contains(hitEntity))
             {
