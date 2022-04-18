@@ -27,6 +27,8 @@ public class PlayerControl : MonoBehaviour
     private float rotation;
     private float lastRotation;
     private readonly float rotateSpeed = 15;
+    //Animator
+    public Animator anim;
     private void Awake()
     {
         //Register to manager
@@ -114,7 +116,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         //Rotating to target point
-        Rotate();
+        //Rotate();
         //Move
         if (!Move(moveVector))
         {
@@ -140,6 +142,10 @@ public class PlayerControl : MonoBehaviour
         //}
         //return false;
         rigidBody.velocity = moveVector * speed;
+        //animation setup
+        anim.SetFloat("SpeedX", moveVector.x);
+        anim.SetFloat("SpeedY", moveVector.y);
+
         return true;
     }
 
