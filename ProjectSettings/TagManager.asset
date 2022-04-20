@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Entity
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Weapon
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -39,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ground
+    uniqueID: 3800281547
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2920990213
+    locked: 0
+  - name: Weapon
+    uniqueID: 4118906867
     locked: 0

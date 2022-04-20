@@ -16,7 +16,23 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 750685f4cb04f6043a85b8ed7048c4dc
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: c9d0484b507417c49bc043cd6292e4e3
+    m_Address: PFTextPopUp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ba77fb06444a3454f8580a5bc69cfede
+    m_Address: Assets/Resources_Addressable/Prefab/Enemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 45f339d145175a943892b8ba21edcb8f
+    m_Address: PrefabAssetManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f28265deca4c3c94f8973ec839290f17
+    m_Address: PrefabInstanceManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:
