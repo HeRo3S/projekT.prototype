@@ -5,8 +5,11 @@ using UnityEngine;
 public abstract class EntityBase : MonoBehaviour, ITargetable, IMovable
 {
     //Stat related value
-    protected int maxHealth;
-    protected int healthPts;
+    [SerializeField]
+    protected float maxHealth;
+    [SerializeField]
+    protected float healthPts;
+    [SerializeField]
     protected float speed;
     //Damage frame related value
     protected readonly int damageFrame = 3;
@@ -58,5 +61,13 @@ public abstract class EntityBase : MonoBehaviour, ITargetable, IMovable
         //return false;
         rBody.velocity = moveVector * speed;
         return true;
+    }
+    public float GetHealth()
+    {
+        return healthPts;
+    }
+    public float GetMaxHP()
+    {
+        return maxHealth;
     }
 }

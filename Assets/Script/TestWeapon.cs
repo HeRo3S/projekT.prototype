@@ -6,7 +6,7 @@ public class TestWeapon : MonoBehaviour
 {
     private HashSet<EnemyBase> hitList = new HashSet<EnemyBase>();
     Animator anim;
-
+    private Player player;
 
     public void Start()
     {
@@ -15,11 +15,14 @@ public class TestWeapon : MonoBehaviour
         weaponInput.Player.LightAttack.Enable();
         weaponInput.Player.LightAttack.performed += LightAttack_performed;
         anim = gameObject.GetComponent<Animator>();
+        player = InstanceManager.Instance.player.GetComponent<Player>();
     }
 
     private void LightAttack_performed(InputAction.CallbackContext obj)
     {
         anim.SetTrigger("LightAttack");
+        player.ConsumeStamina(100);
+        
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

@@ -174,6 +174,17 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""LightAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5e460e6-fce0-4fe6-b8f2-50f57ae60faf"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
