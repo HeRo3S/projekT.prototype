@@ -7,6 +7,7 @@ public class TestWeapon : MonoBehaviour
     private HashSet<EnemyBase> hitList = new HashSet<EnemyBase>();
     Animator anim;
     private Player player;
+    private PlayerControl playerControl;
 
     public void Start()
     {
@@ -16,13 +17,14 @@ public class TestWeapon : MonoBehaviour
         weaponInput.Player.LightAttack.performed += LightAttack_performed;
         anim = gameObject.GetComponent<Animator>();
         player = InstanceManager.Instance.player.GetComponent<Player>();
+        playerControl = InstanceManager.Instance.player.GetComponent<PlayerControl>();
     }
 
     private void LightAttack_performed(InputAction.CallbackContext obj)
     {
         anim.SetTrigger("LightAttack");
+        anim.SetFloat("Angle", playerControl.getRotation());
         player.ConsumeStamina(100);
-        
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

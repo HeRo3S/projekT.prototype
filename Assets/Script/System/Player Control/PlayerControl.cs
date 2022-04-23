@@ -96,13 +96,13 @@ public class PlayerControl : MonoBehaviour
     private void Move_performed(InputAction.CallbackContext context)
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
-        float inputVectorAbs = Mathf.Abs(inputVector.x) + Mathf.Abs(inputVector.y);
-        moveVector.Set(inputVector.x / inputVectorAbs, inputVector.y / inputVectorAbs);
+        moveVector.Set(inputVector.x, inputVector.y);
     }
 
     private void FixedUpdate()
     {
         //Calculate rotation angle
+        rotation = (float)(System.Math.Atan2(targetRotationLocation.y, targetRotationLocation.x) / System.Math.PI * 180f);
         if (moving)
         {
             targetRotationLocation = moveVector;
@@ -151,7 +151,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Rotate()
     {
-        rotation = (float)(System.Math.Atan2(targetRotationLocation.x, targetRotationLocation.y) / System.Math.PI * -180f);
+        rotation = (float)(System.Math.Atan2(targetRotationLocation.y, targetRotationLocation.x) / System.Math.PI * 180f);
         rotation += 90;
         if (rotation < 0)
         {
@@ -206,5 +206,10 @@ public class PlayerControl : MonoBehaviour
         }
 
 
+    }
+    //return the angle made by player's viewpoint and Ox in [0;1]
+    public float getRotation()
+    {
+        return (this.rotation / 180);
     }
 }
