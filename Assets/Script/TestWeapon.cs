@@ -22,8 +22,8 @@ public class TestWeapon : MonoBehaviour
 
     private void LightAttack_performed(InputAction.CallbackContext obj)
     {
-        anim.SetTrigger("LightAttack");
         anim.SetFloat("Angle", playerControl.getRotation());
+        anim.SetTrigger("LightAttack");
         player.ConsumeStamina(100);
     }
     public void OnTriggerEnter2D(Collider2D collision)
