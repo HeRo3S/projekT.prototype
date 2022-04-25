@@ -51,4 +51,8 @@ public class TestWeapon : MonoBehaviour
         }
     }
 
+    public void afterAnimation()
+    {
+        Debug.Log("Animation Finished Handler");
+    }
 }
