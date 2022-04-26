@@ -50,7 +50,7 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         TextPopUp.Create(damage.ToString(),popUpPos , 30);
     }
 
-    public bool Move(Vector2 moveVector)
+    public virtual bool Move(Vector2 moveVector)
     {
         //int count = rBody.Cast(
         //    moveVector,

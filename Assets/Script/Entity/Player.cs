@@ -28,6 +28,13 @@ public class Player : EntityBase
     {
         stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.deltaTime);
     }
+
+    public override bool Move(Vector2 moveVector)
+    {
+        anim.SetFloat("SpeedX", moveVector.x);
+        anim.SetFloat("SpeedY", moveVector.y);
+        return base.Move(moveVector);
+    }
     public float GetStamina()
     {
         return stamina;
