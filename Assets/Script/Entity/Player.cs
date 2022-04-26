@@ -11,6 +11,18 @@ public class Player : EntityBase
     protected float stamina;
     [SerializeField]
     protected float staminaRegen;
+    //Weapon Object
+    [SerializeField]
+    protected GameObject currentWeaponObject;
+    protected WeaponBase currentWeapon;
+    public override void Awake()
+    {
+        base.Awake();
+        //Register to manager
+        InstanceManager.Instance.player = this;
+        currentWeapon = currentWeaponObject.GetComponent<WeaponBase>();
+        anim = gameObject.GetComponent<Animator>();
+    }
 
     public void FixedUpdate()
     {
@@ -24,4 +36,9 @@ public class Player : EntityBase
     {
         stamina = Mathf.Max(0, stamina - value);
     }
+    public WeaponBase GetCurrentWeapon()
+    {
+        return currentWeapon;
+    }
+
 }

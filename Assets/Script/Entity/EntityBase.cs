@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EntityBase : MonoBehaviour, ITargetable, IMovable
+public abstract class EntityBase : MonoBehaviour, IMovable
 {
     //Stat related value
     [SerializeField]
@@ -21,8 +21,12 @@ public abstract class EntityBase : MonoBehaviour, ITargetable, IMovable
     //Movement
     //private ContactFilter2D moveFilter;
     //private readonly float collisionOffset = 0.05f;
-
-    public void Awake()
+    //Rendering
+    protected float rotation;
+    //Animator
+    [SerializeField]
+    protected Animator anim;
+    public virtual void Awake()
     {
         rBody = gameObject.GetComponent<Rigidbody2D>();
         //moveFilter = InstanceManager.Instance.groundEntityFilter;
@@ -69,5 +73,14 @@ public abstract class EntityBase : MonoBehaviour, ITargetable, IMovable
     public float GetMaxHP()
     {
         return maxHealth;
+    }
+    public float GetRotation()
+    {
+        return (rotation / 180);
+    }
+
+    public void SetRotation(float value)
+    {
+        rotation = Mathf.Clamp(value,-180,180);
     }
 }

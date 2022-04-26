@@ -20,6 +20,6 @@ public class InstanceManager : MonoBehaviour
         }
     }
 
-    public GameObject player;
+    public Player player;
     public ContactFilter2D groundEntityFilter;
 }

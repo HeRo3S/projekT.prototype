@@ -7,7 +7,7 @@ public static class Enumeration
     };
     public enum Weapon
     {
-        SWORD,
+        BROADSWORD,
         BOW
     };
 }
