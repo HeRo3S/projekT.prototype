@@ -6,6 +6,10 @@ public class Player : EntityBase
 {
     //Stat related value
     [SerializeField]
+    protected float maxMana;
+    [SerializeField]
+    protected float mana;
+    [SerializeField]
     protected float maxStamina;
     [SerializeField]
     protected float stamina;
@@ -35,10 +39,6 @@ public class Player : EntityBase
         anim.SetFloat("SpeedY", moveVector.y);
         return base.Move(moveVector);
     }
-    public float GetStamina()
-    {
-        return stamina;
-    }
     public void ConsumeStamina(int value)
     {
         stamina = Mathf.Max(0, stamina - value);
@@ -47,5 +47,20 @@ public class Player : EntityBase
     {
         return currentWeapon;
     }
-
+    public float GetStamina()
+    {
+        return stamina;
+    }
+    public float GetMaxStamina()
+    {
+        return maxStamina;
+    }
+    public float GetMana()
+    {
+        return mana;
+    }
+    public float GetMaxMana()
+    {
+        return maxMana;
+    }
 }
