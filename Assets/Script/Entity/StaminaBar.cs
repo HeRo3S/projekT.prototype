@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
     private Image Stamina;
-    public float CurrentStamina;
-    public float MaxStamina;
     Player player;
 
     private void Start()
@@ -18,9 +16,6 @@ public class StaminaBar : MonoBehaviour
 
     private void Update()
     {
-        CurrentStamina = player.GetStamina();
-        MaxStamina = player.GetMaxStamina();
-        Stamina.fillAmount = CurrentStamina / MaxStamina;
     }
 }
 
