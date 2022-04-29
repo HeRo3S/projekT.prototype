@@ -63,7 +63,10 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         //    return true;
         //}
         //return false;
-        rBody.velocity = moveVector * speed;
+        if (rBody.velocity != moveVector * speed)
+        {
+            rBody.velocity = moveVector * speed;
+        }
         return true;
     }
     public float GetHealth()
@@ -78,17 +81,16 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     //calculate and roundup rotation angle into 8 fixed angles only
     public float GetRotation()
     {
-        //rotation value is in the range [-180;180]
-        //discreet transform all the rotation value into 8 values below:
-        // [-135    -90    -45  0   45   90   135   180]
-        // [   -3    -2     -1  0    1    2     3     4]: divided by 45 to get the int number
-        // [-0.75  -0.5  -0.25  0 0.25  0.5  0.75     1]: divided by 4 to get the float number in the range [-1;1]
-        float roundedAngle = ( (int)rotation / 45 )/ 4.0f;
-        return roundedAngle;
+        return rotation;
     }
 
     public void SetRotation(float value)
     {
         rotation = Mathf.Clamp(value,-180,180);
+    }
+    public Vector2 GetDirection()
+    {
+        float rAngle = rotation * Mathf.Deg2Rad;
+        return new Vector2(Mathf.Cos(rAngle), Mathf.Sin(rAngle));
     }
 }

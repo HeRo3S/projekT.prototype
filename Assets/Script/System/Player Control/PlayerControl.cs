@@ -46,13 +46,20 @@ public class PlayerControl : MonoBehaviour
 
     private void LightAttack_performed(InputAction.CallbackContext obj)
     {
+        moving = false;
+        FixedUpdate();
         player.GetCurrentWeapon().DoAttack();
+        moving = true;
     }
 
     private void ReleaseLock_performed(InputAction.CallbackContext context)
     {
         target = null;
-        targetIndicator.SetActive(false);
+        if(targetIndicator != null)
+        {
+            targetIndicator.SetActive(false);
+        }
+
     }
 
     //Subcribe to event
@@ -100,7 +107,6 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         //Calculate rotation angle
-        rotation = (float)(System.Math.Atan2(targetRotationLocation.y, targetRotationLocation.x) / System.Math.PI * 180f);
         if (moving)
         {
             targetRotationLocation = moveVector;
@@ -112,6 +118,7 @@ public class PlayerControl : MonoBehaviour
                 targetRotationLocation = target.transform.position - transform.position;
             }
         }
+        rotation = (float)(System.Math.Atan2(targetRotationLocation.y, targetRotationLocation.x) / System.Math.PI * 180f);
         player.Move(moveVector);
         player.SetRotation(rotation);
     }

@@ -24,7 +24,7 @@ public class Player : EntityBase
         base.Awake();
         //Register to manager
         InstanceManager.Instance.player = this;
-        currentWeapon = currentWeaponObject.GetComponent<WeaponBase>();
+        currentWeapon = currentWeaponObject.GetComponentInChildren<WeaponBase>();
         anim = gameObject.GetComponent<Animator>();
     }
 

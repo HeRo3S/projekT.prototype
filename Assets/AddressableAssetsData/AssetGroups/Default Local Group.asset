@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: PrefabInstanceManager
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 3c3f1d070735d9a41b763305a921b4f1
+    m_Address: PrefabArrow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:

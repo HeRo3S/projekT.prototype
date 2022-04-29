@@ -13,12 +13,12 @@ public class EnemyBase : EntityBase, ITargetable
     public new void Awake()
     {
         base.Awake();
-        speed = 3.5f;
     }
 
     public void Start()
     {
         target = InstanceManager.Instance.player.gameObject;
+
     }
     public void FixedUpdate()
     {
