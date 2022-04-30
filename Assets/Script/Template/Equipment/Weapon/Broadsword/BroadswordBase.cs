@@ -28,13 +28,7 @@ public abstract class BroadswordBase : WeaponBase
         if (canAttack)
         {
             canAttack = false;
-            //rotation value is in the range [-180;180]
-            //discreet transform all the rotation value into 8 values below:
-            // [-135    -90    -45  0   45   90   135   180]
-            // [   -3    -2     -1  0    1    2     3     4]: divided by 45 to get the int number
-            // [-0.75  -0.5  -0.25  0 0.25  0.5  0.75     1]: divided by 4 to get the float number in the range [-1;1]
-            float roundedAngle = ((int)player.GetRotation() / 45) / 4.0f;
-            anim.SetFloat("Angle", roundedAngle);
+            anim.SetFloat("AttackAngle", player.SplitRotationAngleInto8());
             anim.SetTrigger("LightAttack");
             player.ConsumeStamina(100);
         }

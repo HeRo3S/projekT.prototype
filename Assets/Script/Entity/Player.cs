@@ -40,12 +40,12 @@ public class Player : EntityBase
     public void FixedUpdate()
     {
         stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.deltaTime);
+        anim.SetFloat("LatestAngle", SplitRotationAngleInto4());
     }
 
     public override bool Move(Vector2 moveVector)
-    {
-        anim.SetFloat("SpeedX", moveVector.x);
-        anim.SetFloat("SpeedY", moveVector.y);
+    {  
+        anim.SetBool("IsRunning", moveVector != Vector2.zero);
         return base.Move(moveVector);
     }
     public void ConsumeStamina(int value)

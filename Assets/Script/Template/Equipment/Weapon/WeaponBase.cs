@@ -24,6 +24,11 @@ public abstract class WeaponBase : MonoBehaviour
         canAttack = true;
     }
 
+    public void FixedUpdate()
+    {
+        anim.SetFloat("LatestAngle", player.SplitRotationAngleInto4());
+    }
+
     public abstract void DoAttack();
 
     public abstract void EndAttack();

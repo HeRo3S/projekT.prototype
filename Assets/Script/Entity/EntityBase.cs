@@ -78,10 +78,25 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         return maxHealth;
     }
 
-    //calculate and roundup rotation angle into 8 fixed angles only
     public float GetRotation()
     {
         return rotation;
+    }
+
+    //calculate and roundup rotation angle into 8 fixed angles only
+    public float SplitRotationAngleInto4()
+    {
+        //rotation value is in the range [-180;180]
+        //discreet transform all the rotation value into 8 values below:
+        // [-135    -i90    -45  0   45   90   135   180]
+        // [   -3    -2     -1  0    1    2     3     4]: divided by 45 to get the int number
+        // [-0.75  -0.5  -0.25  0 0.25  0.5  0.75     1]: divided by 4 to get the float number in the range [-1;1]
+        return ((int)GetRotation() / 45) / 4.0f;
+    }
+
+    public float SplitRotationAngleInto8()
+    {
+        return ((int)GetRotation() / 90) / 2.0f;
     }
 
     public void SetRotation(float value)
