@@ -19,13 +19,22 @@ public class Player : EntityBase
     [SerializeField]
     protected GameObject currentWeaponObject;
     protected WeaponBase currentWeapon;
+    protected List<GameObject> weaponList;
+    protected int currentWeaponIndex;
     public override void Awake()
     {
         base.Awake();
         //Register to manager
         InstanceManager.Instance.player = this;
-        currentWeapon = currentWeaponObject.GetComponentInChildren<WeaponBase>();
         anim = gameObject.GetComponent<Animator>();
+        //Weapon Initilization
+        weaponList = new List<GameObject>
+        {
+            AssetManager.Instance.pfBroadSword,
+            AssetManager.Instance.pfBow
+        };
+        currentWeaponIndex = 1;
+        SwitchNextWeapon();
     }
 
     public void FixedUpdate()
@@ -62,5 +71,16 @@ public class Player : EntityBase
     public float GetMaxMana()
     {
         return maxMana;
+    }
+    public void SwitchNextWeapon()
+    {
+        if(currentWeapon != null)
+        {
+            Destroy(currentWeapon.gameObject);
+        }
+        currentWeaponIndex = (currentWeaponIndex + 1) % weaponList.Count;
+        GameObject weapon = Instantiate(weaponList[currentWeaponIndex]);
+        weapon.transform.SetParent(currentWeaponObject.transform, false);
+        currentWeapon = weapon.GetComponent<WeaponBase>();
     }
 }

@@ -38,10 +38,16 @@ public class PlayerControl : MonoBehaviour
         playerInputSystem.Player.LockTarget.performed += LockTarget_performed;
         playerInputSystem.Player.ReleaseLock.performed += ReleaseLock_performed;
         playerInputSystem.Player.LightAttack.performed += LightAttack_performed;
+        playerInputSystem.Player.SwitchWeapon.performed += SwitchWeapon_performed;
         //Initialize Value
         moveVector.Set(0f, 0f);
         targetRotationLocation.Set(0f, 0f);
         //moveFilter = InstanceManager.Instance.groundEntityFilter;
+    }
+
+    private void SwitchWeapon_performed(InputAction.CallbackContext obj)
+    {
+        player.SwitchNextWeapon();
     }
 
     private void LightAttack_performed(InputAction.CallbackContext obj)
