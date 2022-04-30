@@ -9,6 +9,14 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 755c10b0559bc044eaf9e449104b3434, type: 2}
+    m_Threshold: -1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: LatestAngle
+    m_Mirror: 0
+  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: e159b1261e9524b41b91485635a3f76a, type: 2}
     m_Threshold: -0.5
     m_Position: {x: 0, y: -1}
@@ -42,7 +50,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: LatestAngle
   m_BlendParameterY: SpeedY
-  m_MinThreshold: -0.5
+  m_MinThreshold: -1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
@@ -61,13 +69,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsRunning
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -92,10 +100,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 2463167732395331573}
-    m_Position: {x: 30, y: 230, z: 0}
+    m_Position: {x: 430, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7091588150745160705}
-    m_Position: {x: 280, y: 140, z: 0}
+    m_Position: {x: 40, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -194,6 +202,14 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 3b2bb8e84da336149a01595e1fc45947, type: 2}
+    m_Threshold: -1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: LatestAngle
+    m_Mirror: 0
+  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 89e730e7f2045d84ab43453cf05cc52c, type: 2}
     m_Threshold: -0.5
     m_Position: {x: 0, y: 0}
@@ -227,7 +243,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: LatestAngle
   m_BlendParameterY: SpeedX
-  m_MinThreshold: -0.5
+  m_MinThreshold: -1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0

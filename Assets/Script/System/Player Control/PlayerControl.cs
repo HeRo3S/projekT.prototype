@@ -122,6 +122,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
         rotation = (float)(System.Math.Atan2(targetRotationLocation.y, targetRotationLocation.x) / System.Math.PI * 180f);
+        Debug.Log(rotation + " " + targetRotationLocation.y + " " + targetRotationLocation.x);
         player.Move(moveVector);
         player.SetRotation(rotation);
     }
