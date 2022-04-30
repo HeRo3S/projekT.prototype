@@ -199,45 +199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90370130}
   m_CullTransparentMesh: 1
---- !u!1 &381927911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4638452193346188741, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
-  m_PrefabInstance: {fileID: 4638452194185212299}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &381927912
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381927911}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.125, y: 0.34375}
-      - {x: -0.15625, y: 0.34375}
-      - {x: -0.34375, y: 0.28125}
-      - {x: -0.34375, y: -0.28125}
-      - {x: -0.28125, y: -0.5}
-      - {x: 0.125, y: -0.5}
-      - {x: 0.34375, y: -0.4375}
-      - {x: 0.40625, y: -0.15625}
-      - {x: 0.40625, y: 0}
 --- !u!1 &420591892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,7 +2033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188741, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188760, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_RootOrder
@@ -2120,7 +2081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188762, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_Mass
-      value: 0.5522461
+      value: 1.1044922
       objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188762, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_BodyType

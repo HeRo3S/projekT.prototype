@@ -52,10 +52,7 @@ public class PlayerControl : MonoBehaviour
 
     private void LightAttack_performed(InputAction.CallbackContext obj)
     {
-        moving = false;
-        FixedUpdate();
         player.GetCurrentWeapon().DoAttack();
-        moving = true;
     }
 
     private void ReleaseLock_performed(InputAction.CallbackContext context)

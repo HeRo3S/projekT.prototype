@@ -4,11 +4,12 @@ using UnityEngine;
 public abstract class BroadswordBase : WeaponBase
 {
     protected HashSet<EnemyBase> hitList = new HashSet<EnemyBase>();
-
+    protected Collider2D hitBox;
     public override void Start()
     {
         base.Start();
         weaponType = Enumeration.Weapon.BROADSWORD;
+        hitBox = gameObject.GetComponent<Collider2D>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +29,7 @@ public abstract class BroadswordBase : WeaponBase
         if (canAttack)
         {
             canAttack = false;
+            hitBox.enabled = true;
             anim.SetFloat("AttackAngle", player.SplitRotationAngleInto8());
             anim.SetTrigger("LightAttack");
             player.ConsumeStamina(100);

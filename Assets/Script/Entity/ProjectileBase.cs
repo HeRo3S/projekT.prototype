@@ -10,7 +10,7 @@ public abstract class ProjectileBase : EntityBase
         this.speed = speed;
         this.rotation = rotation;
         Move(direction);
-        rBody.MoveRotation(rotation);
+        rBody.MoveRotation(rotation - 90);
         this.frameToLive = frameToLive;
     }
 
