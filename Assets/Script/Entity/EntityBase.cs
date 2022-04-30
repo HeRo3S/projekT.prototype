@@ -91,12 +91,12 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         // [-135    -i90    -45  0   45   90   135   180]
         // [   -3    -2     -1  0    1    2     3     4]: divided by 45 to get the int number
         // [-0.75  -0.5  -0.25  0 0.25  0.5  0.75     1]: divided by 4 to get the float number in the range [-1;1]
-        return ((int)GetRotation() / 45) / 4.0f;
+        return Mathf.RoundToInt(GetRotation() / 45) / 4.0f;
     }
 
     public float SplitRotationAngleInto8()
     {
-        return ((int)GetRotation() / 90) / 2.0f;
+        return Mathf.RoundToInt(GetRotation() / 90) / 2.0f;
     }
 
     public void SetRotation(float value)

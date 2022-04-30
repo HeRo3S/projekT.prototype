@@ -28,6 +28,7 @@ public abstract class BroadswordBase : WeaponBase
         if (canAttack)
         {
             canAttack = false;
+            Debug.Log(player.SplitRotationAngleInto8());
             anim.SetFloat("AttackAngle", player.SplitRotationAngleInto8());
             anim.SetTrigger("LightAttack");
             player.ConsumeStamina(100);
