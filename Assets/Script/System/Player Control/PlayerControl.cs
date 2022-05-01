@@ -11,7 +11,6 @@ public class PlayerControl : MonoBehaviour
     private Player player;
     //Movement
     private Vector2 moveVector;
-    private bool moving;
     //private ContactFilter2D moveFilter;
     //private readonly float collisionOffset = 0.05f;
     //Target Lock
@@ -23,7 +22,6 @@ public class PlayerControl : MonoBehaviour
     private GameObject target;
     //Rotation
     private Vector2 targetRotationLocation;
-    private float rotation;
     private void Start()
     {
         //Get component
@@ -34,7 +32,6 @@ public class PlayerControl : MonoBehaviour
         playerInputSystem.Player.Enable();
         playerInputSystem.Player.Move.performed += Move_performed;
         playerInputSystem.Player.Move.canceled += Move_canceled;
-        playerInputSystem.Player.Move.started += Move_started;
         playerInputSystem.Player.LockTarget.performed += LockTarget_performed;
         playerInputSystem.Player.ReleaseLock.performed += ReleaseLock_performed;
         playerInputSystem.Player.LightAttack.performed += LightAttack_performed;
@@ -58,6 +55,7 @@ public class PlayerControl : MonoBehaviour
     private void ReleaseLock_performed(InputAction.CallbackContext context)
     {
         target = null;
+        player.target = null;
         if(targetIndicator != null)
         {
             targetIndicator.SetActive(false);
@@ -81,6 +79,8 @@ public class PlayerControl : MonoBehaviour
                 }
                 targetIndicator.SetActive(true);
                 target = collider.gameObject;
+                player.target = target;
+                player.UpdateRotation();
                 targetIndicator.transform.SetParent(target.transform, false);
                 break;
             }
@@ -88,45 +88,21 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void Move_started(InputAction.CallbackContext context)
-    {
-        moving = true;
-    }
-
     //Stop when no input
     private void Move_canceled(InputAction.CallbackContext context)
     {
-        moveVector.Set(0f, 0f);
-        moving = false;
+        moveVector = Vector2.zero;
     }
 
     //Get input direction
     private void Move_performed(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
-        moveVector.Set(inputVector.x, inputVector.y);
+        moveVector = context.ReadValue<Vector2>();
     }
-
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
-        //Calculate rotation angle
-        if (moving)
-        {
-            targetRotationLocation = moveVector;
-        }
-        else
-        {
-            if (target != null)
-            {
-                targetRotationLocation = target.transform.position - transform.position;
-            }
-        }
-        rotation = (float)(System.Math.Atan2(targetRotationLocation.y, targetRotationLocation.x) / System.Math.PI * 180f);
-        Debug.Log(rotation + " " + targetRotationLocation.y + " " + targetRotationLocation.x);
         player.Move(moveVector);
-        player.SetRotation(rotation);
     }
-
 
 
 }

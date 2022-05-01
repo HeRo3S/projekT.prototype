@@ -7,7 +7,6 @@ public abstract class WeaponBase : MonoBehaviour
     //GameObject Component
     protected Animator anim;
     protected Player player;
-    protected bool canAttack;
 
     //Stat related value
 
@@ -21,7 +20,6 @@ public abstract class WeaponBase : MonoBehaviour
         //setup animation controller
         anim = gameObject.GetComponent<Animator>();
         player = InstanceManager.Instance.player;
-        canAttack = true;
     }
 
     public void FixedUpdate()
@@ -29,8 +27,19 @@ public abstract class WeaponBase : MonoBehaviour
         anim.SetFloat("LatestAngle", player.SplitRotationAngleInto4());
     }
 
-    public abstract void DoAttack();
+    public virtual void DoAttack()
+    {
+        if (!player.inAttackAnimation)
+        {
+            player.Move(Vector2.zero);
+            player.inAttackAnimation = true;
+            player.UpdateRotation();
+        }
+    }
 
-    public abstract void EndAttack();
+    public virtual void EndAttack()
+    {
+        player.inAttackAnimation = false;
+    }
 
 }

@@ -19,17 +19,18 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     //GameObject component mapping
     protected Rigidbody2D rBody;
     //Movement
-    //private ContactFilter2D moveFilter;
-    //private readonly float collisionOffset = 0.05f;
-    //Rendering
+    protected Vector2 moveVector;
+
+    //direction only used to calculate rotation and won't be update if rotation get modified
     protected float rotation;
+    protected Vector2 direction;
     //Animator
     [SerializeField]
     protected Animator anim;
     public virtual void Awake()
     {
         rBody = gameObject.GetComponent<Rigidbody2D>();
-        //moveFilter = InstanceManager.Instance.groundEntityFilter;
+        direction = new Vector2(1f, 0f);
     }
 
 
@@ -50,24 +51,25 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         TextPopUp.Create(damage.ToString(),popUpPos , 30);
     }
 
-    public virtual bool Move(Vector2 moveVector)
-    {
-        //int count = rBody.Cast(
-        //    moveVector,
-        //    moveFilter,
-        //    new List<RaycastHit2D>(),
-        //    speed * Time.fixedDeltaTime + collisionOffset);
-        //if (count == 0)
-        //{
-        //    rBody.MovePosition(rBody.position + speed * Time.fixedDeltaTime * moveVector);
-        //    return true;
-        //}
-        //return false;
-        if (rBody.velocity != moveVector * speed)
+    public virtual bool Move(Vector2 moveDirection)
+    {   
+        //Check if move vector have changed
+        if (moveVector != moveDirection * speed)
         {
-            rBody.velocity = moveVector * speed;
+            moveVector = moveDirection * speed;
+            rBody.velocity = moveVector;
+            UpdateRotation();
         }
         return true;
+    }
+
+    public virtual void UpdateRotation()
+    {
+        if (moveVector != Vector2.zero)
+        {
+            direction = moveVector / moveVector.magnitude;
+        }
+        rotation = (float)(System.Math.Atan2(direction.y, direction.x) / System.Math.PI * 180f);
     }
     public float GetHealth()
     {
@@ -105,7 +107,6 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     }
     public Vector2 GetDirection()
     {
-        float rAngle = rotation * Mathf.Deg2Rad;
-        return new Vector2(Mathf.Cos(rAngle), Mathf.Sin(rAngle));
+        return direction;
     }
 }

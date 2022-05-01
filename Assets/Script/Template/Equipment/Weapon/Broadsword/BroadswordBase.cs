@@ -26,9 +26,9 @@ public abstract class BroadswordBase : WeaponBase
     }
     public override void DoAttack()
     {
-        if (canAttack)
+        if (!player.inAttackAnimation)
         {
-            canAttack = false;
+            base.DoAttack();
             hitBox.enabled = true;
             anim.SetFloat("AttackAngle", player.SplitRotationAngleInto8());
             anim.SetTrigger("LightAttack");
@@ -38,8 +38,8 @@ public abstract class BroadswordBase : WeaponBase
 
     public override void EndAttack()
     {
+        base.EndAttack();
         hitList.Clear();
-        canAttack = true;
     }
     public void AfterAnimation()
     {
