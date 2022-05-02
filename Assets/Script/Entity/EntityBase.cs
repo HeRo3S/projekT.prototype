@@ -24,6 +24,10 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     //direction only used to calculate rotation and won't be update if rotation get modified
     protected float rotation;
     protected Vector2 direction;
+
+    //Status (sorta)
+    public bool inAttackAnimation;
+
     //Animator
     [SerializeField]
     protected Animator anim;
@@ -45,6 +49,7 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     public void TakeDamage(int damage)
     {
         StartDamageFrame();
+        healthPts -= damage;
         Vector3 popUpPos = new Vector3( transform.position.x + Random.Range(-1.5f, 1.5f),
                                         transform.position.y + Random.Range(-1.5f, 1.5f),
                                         transform.position.z);
@@ -84,21 +89,19 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     {
         return rotation;
     }
-
-    //calculate and roundup rotation angle into 8 fixed angles only
-    public float SplitRotationAngleInto4()
+    public float SplitRotationAngleInto(int howManyParts)
     {
-        //rotation value is in the range [-180;180]
-        //discreet transform all the rotation value into 8 values below:
-        // [-135    -i90    -45  0   45   90   135   180]
-        // [   -3    -2     -1  0    1    2     3     4]: divided by 45 to get the int number
-        // [-0.75  -0.5  -0.25  0 0.25  0.5  0.75     1]: divided by 4 to get the float number in the range [-1;1]
-        return Mathf.RoundToInt(GetRotation() / 45) / 4.0f;
-    }
+        //eachPartVolumne: the range each part hold
+        //  ex: for each part of 8 would hold 360/8 = 45 degree
+        //      for each part of 4 would hold 360/4 = 90 degree
+        int eachPartVolume = 360 / howManyParts;
 
-    public float SplitRotationAngleInto8()
-    {
-        return Mathf.RoundToInt(GetRotation() / 90) / 2.0f;
+        //the result will be in the range of int:[-biggestValueAfterRounded; biggestValueAfterRounded]
+        float biggestValueAfterRounded = howManyParts / 2f;
+
+        //we need to divide current rotation by eachPartVolume so we can roundup every angle that in-between 2 part.
+        //we divide by biggestValueAfterRounded to return the value in float:[-1;1] range 
+        return Mathf.RoundToInt(GetRotation() / eachPartVolume) / biggestValueAfterRounded; 
     }
 
     public void SetRotation(float value)

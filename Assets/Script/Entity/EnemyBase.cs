@@ -10,7 +10,7 @@ public class EnemyBase : EntityBase, ITargetable
     {
         return target;
     }
-    public new void Awake()
+    public override void Awake()
     {
         base.Awake();
     }
@@ -20,10 +20,10 @@ public class EnemyBase : EntityBase, ITargetable
         target = InstanceManager.Instance.player.gameObject;
 
     }
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         Vector2 moveDirection = target.transform.position - transform.position;
-        if (moveDirection.magnitude > attackRange)
+        if (moveDirection.magnitude > attackRange && inAttackAnimation != false)
         {
             moveDirection /= moveDirection.magnitude;
             Move(moveDirection);

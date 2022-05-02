@@ -2027,6 +2027,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 129294091973392750, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188741, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_Name
       value: Golem
@@ -2081,7 +2085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188762, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_Mass
-      value: 1.1044922
+      value: 0.5522461
       objectReference: {fileID: 0}
     - target: {fileID: 4638452193346188762, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
       propertyPath: m_BodyType

@@ -37,6 +37,26 @@ MonoBehaviour:
     m_Address: PrefabArrow
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: c05b85a64c132904c8766eb308ac7177
+    m_Address: Assets/Resources_Addressable/Prefab/Weapon/Bow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c9bab3216fdcd4a4199f6e8496b3a4dd
+    m_Address: Assets/Resources_Addressable/Prefab/Weapon/Broadsword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2b8cefb5bc618634ca3100f9a520ad27
+    m_Address: Assets/Resources_Addressable/Prefab/Weapon/Golem's attack.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5450a19ebc472aa4d89b70a5541ef308
+    m_Address: Assets/Resources_Addressable/Prefab/Char/Golem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 85523fbf966bd754e95c9973bf264580
+    m_Address: Assets/Resources_Addressable/Prefab/Char/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:

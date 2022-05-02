@@ -24,9 +24,6 @@ public class Player : EntityBase
     //Targeting
     public GameObject target;
 
-    //Status (sorta)
-    public bool inAttackAnimation;
-
     public override void Awake()
     {
         base.Awake();
@@ -47,7 +44,7 @@ public class Player : EntityBase
     public void FixedUpdate()
     {
         stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.deltaTime);
-        anim.SetFloat("LatestAngle", SplitRotationAngleInto4());
+        anim.SetFloat("LatestAngle", SplitRotationAngleInto(4));
     }
 
     public override bool Move(Vector2 moveDirection)

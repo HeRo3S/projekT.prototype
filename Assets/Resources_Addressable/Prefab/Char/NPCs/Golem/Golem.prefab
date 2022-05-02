@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4638452193346188760}
   - component: {fileID: 4638452193346188761}
   - component: {fileID: 4638452193346188762}
-  - component: {fileID: 4638452193346188740}
   - component: {fileID: 4638452193346188767}
   - component: {fileID: 6188696531601216899}
+  - component: {fileID: 129294091973392750}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Enemy
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -494685749
-  m_SortingLayer: -1
+  m_SortingLayerID: -1373977083
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4628221225906215552, guid: fa4670cbd6a590e4d8522220e3e10199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -107,22 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4638452193346188740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4638452193346188741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0640d439d1370af498e7fe656581403c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  healthPts: 0
-  speed: 0
-  anim: {fileID: 0}
 --- !u!95 &4638452193346188767
 Animator:
   serializedVersion: 3
@@ -176,3 +160,20 @@ PolygonCollider2D:
       - {x: 0.34375, y: -0.4375}
       - {x: 0.40625, y: -0.15625}
       - {x: 0.40625, y: 0}
+--- !u!114 &129294091973392750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638452193346188741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33580ee66c39b4e40b7ea18c5ea28cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  healthPts: 0
+  speed: 1
+  inAttackAnimation: 0
+  anim: {fileID: 0}

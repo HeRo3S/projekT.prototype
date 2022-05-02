@@ -24,4 +24,5 @@ public class AssetManager : MonoBehaviour
     public GameObject pfArrow;
     public GameObject pfBroadSword;
     public GameObject pfBow;
+    public GameObject pfGolemAttack;
 }

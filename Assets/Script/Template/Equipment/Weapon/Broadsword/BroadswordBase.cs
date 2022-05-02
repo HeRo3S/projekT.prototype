@@ -30,7 +30,7 @@ public abstract class BroadswordBase : WeaponBase
         {
             base.DoAttack();
             hitBox.enabled = true;
-            anim.SetFloat("AttackAngle", player.SplitRotationAngleInto8());
+            anim.SetFloat("AttackAngle", player.SplitRotationAngleInto(8));
             anim.SetTrigger("LightAttack");
             player.ConsumeStamina(100);
         }

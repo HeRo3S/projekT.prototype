@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd683017e89d3dd41bd18a8499b9774e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1986144657990992834, guid: 85523fbf966bd754e95c9973bf264580, type: 3}
   groundEntityFilter:
     useTriggers: 0
     useLayerMask: 1
