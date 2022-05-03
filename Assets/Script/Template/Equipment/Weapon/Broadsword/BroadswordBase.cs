@@ -20,22 +20,20 @@ public abstract class BroadswordBase : WeaponBase
             if (!hitList.Contains(hitEntity))
             {
                 hitList.Add(hitEntity);
-                hitEntity.TakeDamage(100);
+                hitEntity.TakeDamage(attackPwr);
             }
         }
     }
     public override void DoAttack()
     {
-        if (!player.inAttackAnimation)
+        if (CanAttack())
         {
             base.DoAttack();
             hitBox.enabled = true;
             anim.SetFloat("AttackAngle", player.SplitRotationAngleInto(8));
             anim.SetTrigger("LightAttack");
-            player.ConsumeStamina(100);
         }
     }
-
     public override void EndAttack()
     {
         base.EndAttack();

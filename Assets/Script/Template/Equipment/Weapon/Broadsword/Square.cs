@@ -6,7 +6,8 @@ public class Square : BroadswordBase
 {
     public override void Start()
     {
+        baseAttackPwr = 420;
+        baseStaminaCost = 60;
         base.Start();
-        attackPwr = 500;
     }
 }

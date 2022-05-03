@@ -43,7 +43,7 @@ public class Player : EntityBase
 
     public void FixedUpdate()
     {
-        stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.deltaTime);
+        stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.fixedDeltaTime);
         anim.SetFloat("LatestAngle", SplitRotationAngleInto(4));
     }
 
@@ -76,9 +76,17 @@ public class Player : EntityBase
     }
 
 
-    public void ConsumeStamina(int value)
+    public void ConsumeStamina(float value)
     {
         stamina = Mathf.Max(0, stamina - value);
+    }
+    public void ConsumeMana(float value)
+    {
+        mana = Mathf.Max(0, mana - value);
+    }
+    public void Heal(float value)
+    {
+        healthPts = Mathf.Min(maxHealth, healthPts + value);
     }
     public WeaponBase GetCurrentWeapon()
     {

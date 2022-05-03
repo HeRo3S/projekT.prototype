@@ -9,8 +9,12 @@ public abstract class WeaponBase : MonoBehaviour
     protected Player player;
 
     //Stat related value
-
-    protected int attackPwr;
+    [SerializeField]
+    protected int baseAttackPwr;
+    [SerializeField]
+    protected int baseStaminaCost;
+    protected float staminaCost;
+    protected float attackPwr;
     protected Enumeration.Weapon weaponType;
 
     //Put extra start call handler in ExtraStart instead of overwrite
@@ -20,6 +24,8 @@ public abstract class WeaponBase : MonoBehaviour
         //setup animation controller
         anim = gameObject.GetComponent<Animator>();
         player = InstanceManager.Instance.player;
+        staminaCost = baseStaminaCost;
+        attackPwr = baseAttackPwr;
     }
 
     public void FixedUpdate()
@@ -29,14 +35,15 @@ public abstract class WeaponBase : MonoBehaviour
 
     public virtual void DoAttack()
     {
-        if (!player.inAttackAnimation)
-        {
-            player.Move(Vector2.zero);
-            player.inAttackAnimation = true;
-            player.UpdateRotation();
-        }
+        player.Move(Vector2.zero);
+        player.inAttackAnimation = true;
+        player.UpdateRotation();
+        player.ConsumeStamina(staminaCost);
     }
-
+    public virtual bool CanAttack()
+    {
+        return (!player.inAttackAnimation && staminaCost <= player.GetStamina());
+    }
     public virtual void EndAttack()
     {
         player.inAttackAnimation = false;

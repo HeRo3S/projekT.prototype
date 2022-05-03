@@ -46,14 +46,14 @@ public abstract class EntityBase : MonoBehaviour, IMovable
             currentDamageFrame = damageFrame;
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         StartDamageFrame();
         healthPts -= damage;
         Vector3 popUpPos = new Vector3( transform.position.x + Random.Range(-1.5f, 1.5f),
                                         transform.position.y + Random.Range(-1.5f, 1.5f),
                                         transform.position.z);
-        TextPopUp.Create(damage.ToString(),popUpPos , 30);
+        TextPopUp.Create(((int)damage).ToString(),popUpPos , 30);
     }
 
     public virtual bool Move(Vector2 moveDirection)

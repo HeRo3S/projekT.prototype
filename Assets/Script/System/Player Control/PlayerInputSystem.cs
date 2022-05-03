@@ -49,7 +49,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""name"": ""LockTarget"",
                     ""type"": ""Value"",
                     ""id"": ""1fe35b52-b139-4bdf-826a-6f9734b35670"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Touch"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -186,8 +186,8 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c5e460e6-fce0-4fe6-b8f2-50f57ae60faf"",
-                    ""path"": ""<Touchscreen>/Press"",
+                    ""id"": ""40b6baf9-b4c2-44c5-bbdd-89cf51234872"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -199,6 +199,17 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""9ddc33d8-b67d-4912-be81-c5e1059f9d0c"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""053b5932-5bb4-4d71-9e77-2cea3389ce7c"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
