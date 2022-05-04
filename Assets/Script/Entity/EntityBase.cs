@@ -53,7 +53,18 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         Vector3 popUpPos = new Vector3( transform.position.x + Random.Range(-1.5f, 1.5f),
                                         transform.position.y + Random.Range(-1.5f, 1.5f),
                                         transform.position.z);
-        TextPopUp.Create(((int)damage).ToString(),popUpPos , 30);
+        TextPopUp.Create(((int)damage).ToString(), popUpPos, 30);
+        DestructWhenDead();
+    }
+
+    public void SelfDestruct()
+    {
+        Destroy(gameObject);
+    }
+
+    public virtual void DestructWhenDead()
+    {
+        if (healthPts <= 0) { SelfDestruct(); }
     }
 
     public virtual bool Move(Vector2 moveDirection)

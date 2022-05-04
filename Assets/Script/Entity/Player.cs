@@ -123,4 +123,13 @@ public class Player : EntityBase
         }
 
     }
+
+    public override void DestructWhenDead()
+    {
+        if (healthPts <= 0)
+        {
+            SelfDestruct();
+            ScenesController.Instance.ReloadScene();
+        }
+    }
 }
