@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
     {
         //Get component
         player = InstanceManager.Instance.player;
-        mainCam = Camera.main;
+        mainCam = InstanceManager.Instance.mainCamera;
         //Active input
         playerInputSystem = new PlayerInputSystem();
         playerInputSystem.Player.Enable();
@@ -104,5 +104,16 @@ public class PlayerControl : MonoBehaviour
         player.Move(moveVector);
     }
 
+    //Clean up
+    public void OnDisable()
+    {
+        //Unsubcribe from all event
+        playerInputSystem.Player.Move.performed -= Move_performed;
+        playerInputSystem.Player.Move.canceled -= Move_canceled;
+        playerInputSystem.Player.LockTarget.performed -= LockTarget_performed;
+        playerInputSystem.Player.ReleaseLock.performed -= ReleaseLock_performed;
+        playerInputSystem.Player.LightAttack.performed -= LightAttack_performed;
+        playerInputSystem.Player.SwitchWeapon.performed -= SwitchWeapon_performed;
+    }
 
 }

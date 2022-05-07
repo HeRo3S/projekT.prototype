@@ -19,7 +19,16 @@ public class InstanceManager : MonoBehaviour
             return _instance;
         }
     }
+    public void Awake()
+    {
+        mainCamera = Camera.main;
+    }
 
+    public void Reload()
+    {
+        _instance = null;
+    }
+    public Camera mainCamera;
     public Player player;
     public ContactFilter2D groundEntityFilter;
 }

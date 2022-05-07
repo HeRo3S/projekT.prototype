@@ -57,7 +57,7 @@ public abstract class EntityBase : MonoBehaviour, IMovable
         DestructWhenDead();
     }
 
-    public void SelfDestruct()
+    public virtual void SelfDestruct()
     {
         Destroy(gameObject);
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScenesController : MonoBehaviour
+public class ScenesController
 {
     private static ScenesController _instance;
     public static ScenesController Instance
@@ -17,6 +17,7 @@ public class ScenesController : MonoBehaviour
 
     public void ReloadScene()
     {
+        InstanceManager.Instance.Reload();
         Scene thisScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(thisScene.name);
     }
