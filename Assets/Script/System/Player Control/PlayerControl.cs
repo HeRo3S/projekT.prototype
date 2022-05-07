@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
         player = InstanceManager.Instance.player;
         mainCam = InstanceManager.Instance.mainCamera;
         //Active input
-        playerInputSystem = new PlayerInputSystem();
+        playerInputSystem = InstanceManager.Instance.inputSystem;
         playerInputSystem.Player.Enable();
         playerInputSystem.Player.Move.performed += Move_performed;
         playerInputSystem.Player.Move.canceled += Move_canceled;

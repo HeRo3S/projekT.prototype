@@ -71,6 +71,42 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkillPalette1"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb1255e8-8935-432f-a822-35243925f541"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SkillPalette2"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c3ef4a1-b2cb-4a34-8ada-5d637def1c04"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SkillPalette3"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba3fa519-1647-43eb-93af-9e7187cb1a49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SkillPalette4"",
+                    ""type"": ""Button"",
+                    ""id"": ""67c60193-3744-4c1b-ae08-4346e142691d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -153,8 +189,8 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""de4c0c4a-91c6-4d1c-977a-baeb9fa99c8c"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""id"": ""75a43623-7eee-4d1f-b6aa-bb61e61b87ba"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -164,8 +200,8 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""75a43623-7eee-4d1f-b6aa-bb61e61b87ba"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""a10a9378-c14c-4318-87d5-6072a650154b"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -216,6 +252,50 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""SwitchWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1c53733-94a9-4c3c-b074-d72fc96d5444"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillPalette1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d8e974e-33bb-4425-b7ee-bebf991d2b0e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillPalette2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdf2f8f4-25e7-4bff-894c-cf1807c829c2"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillPalette3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84bf9497-acd9-4c20-9f15-5bb1dbc68f84"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillPalette4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -257,6 +337,10 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         m_Player_LockTarget = m_Player.FindAction("LockTarget", throwIfNotFound: true);
         m_Player_ReleaseLock = m_Player.FindAction("ReleaseLock", throwIfNotFound: true);
         m_Player_SwitchWeapon = m_Player.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_Player_SkillPalette1 = m_Player.FindAction("SkillPalette1", throwIfNotFound: true);
+        m_Player_SkillPalette2 = m_Player.FindAction("SkillPalette2", throwIfNotFound: true);
+        m_Player_SkillPalette3 = m_Player.FindAction("SkillPalette3", throwIfNotFound: true);
+        m_Player_SkillPalette4 = m_Player.FindAction("SkillPalette4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -321,6 +405,10 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LockTarget;
     private readonly InputAction m_Player_ReleaseLock;
     private readonly InputAction m_Player_SwitchWeapon;
+    private readonly InputAction m_Player_SkillPalette1;
+    private readonly InputAction m_Player_SkillPalette2;
+    private readonly InputAction m_Player_SkillPalette3;
+    private readonly InputAction m_Player_SkillPalette4;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -330,6 +418,10 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         public InputAction @LockTarget => m_Wrapper.m_Player_LockTarget;
         public InputAction @ReleaseLock => m_Wrapper.m_Player_ReleaseLock;
         public InputAction @SwitchWeapon => m_Wrapper.m_Player_SwitchWeapon;
+        public InputAction @SkillPalette1 => m_Wrapper.m_Player_SkillPalette1;
+        public InputAction @SkillPalette2 => m_Wrapper.m_Player_SkillPalette2;
+        public InputAction @SkillPalette3 => m_Wrapper.m_Player_SkillPalette3;
+        public InputAction @SkillPalette4 => m_Wrapper.m_Player_SkillPalette4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,6 +446,18 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @SwitchWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
                 @SwitchWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
                 @SwitchWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
+                @SkillPalette1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette1;
+                @SkillPalette1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette1;
+                @SkillPalette1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette1;
+                @SkillPalette2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette2;
+                @SkillPalette2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette2;
+                @SkillPalette2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette2;
+                @SkillPalette3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette3;
+                @SkillPalette3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette3;
+                @SkillPalette3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette3;
+                @SkillPalette4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette4;
+                @SkillPalette4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette4;
+                @SkillPalette4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette4;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,6 +477,18 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @SwitchWeapon.started += instance.OnSwitchWeapon;
                 @SwitchWeapon.performed += instance.OnSwitchWeapon;
                 @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+                @SkillPalette1.started += instance.OnSkillPalette1;
+                @SkillPalette1.performed += instance.OnSkillPalette1;
+                @SkillPalette1.canceled += instance.OnSkillPalette1;
+                @SkillPalette2.started += instance.OnSkillPalette2;
+                @SkillPalette2.performed += instance.OnSkillPalette2;
+                @SkillPalette2.canceled += instance.OnSkillPalette2;
+                @SkillPalette3.started += instance.OnSkillPalette3;
+                @SkillPalette3.performed += instance.OnSkillPalette3;
+                @SkillPalette3.canceled += instance.OnSkillPalette3;
+                @SkillPalette4.started += instance.OnSkillPalette4;
+                @SkillPalette4.performed += instance.OnSkillPalette4;
+                @SkillPalette4.canceled += instance.OnSkillPalette4;
             }
         }
     }
@@ -402,5 +518,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         void OnLockTarget(InputAction.CallbackContext context);
         void OnReleaseLock(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnSkillPalette1(InputAction.CallbackContext context);
+        void OnSkillPalette2(InputAction.CallbackContext context);
+        void OnSkillPalette3(InputAction.CallbackContext context);
+        void OnSkillPalette4(InputAction.CallbackContext context);
     }
 }

@@ -22,12 +22,14 @@ public class InstanceManager : MonoBehaviour
     public void Awake()
     {
         mainCamera = Camera.main;
+        inputSystem = new PlayerInputSystem();
     }
 
     public void Reload()
     {
         _instance = null;
     }
+    public PlayerInputSystem inputSystem;
     public Camera mainCamera;
     public Player player;
     public ContactFilter2D groundEntityFilter;

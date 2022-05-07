@@ -18,7 +18,7 @@ public class Golem : EnemyBase
         anim.SetFloat("AttackAngle", SplitRotationAngleInto(2));
         //set trigger isAttack
         anim.SetTrigger("isAttack");
-        GolemAttack golemAttack = Instantiate(AssetManager.Instance.pfGolemAttack, target.transform.position, Quaternion.identity).GetComponent<GolemAttack>();
+        Instantiate(AssetManager.Instance.pfGolemAttack, target.transform.position, Quaternion.identity);
     }
 
     public override void FixedUpdate()

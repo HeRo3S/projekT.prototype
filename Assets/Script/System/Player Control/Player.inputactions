@@ -49,6 +49,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkillPalette1",
+                    "type": "Button",
+                    "id": "fb1255e8-8935-432f-a822-35243925f541",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SkillPalette2",
+                    "type": "Button",
+                    "id": "4c3ef4a1-b2cb-4a34-8ada-5d637def1c04",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SkillPalette3",
+                    "type": "Button",
+                    "id": "ba3fa519-1647-43eb-93af-9e7187cb1a49",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SkillPalette4",
+                    "type": "Button",
+                    "id": "67c60193-3744-4c1b-ae08-4346e142691d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -131,8 +167,8 @@
                 },
                 {
                     "name": "",
-                    "id": "de4c0c4a-91c6-4d1c-977a-baeb9fa99c8c",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "75a43623-7eee-4d1f-b6aa-bb61e61b87ba",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -142,8 +178,8 @@
                 },
                 {
                     "name": "",
-                    "id": "75a43623-7eee-4d1f-b6aa-bb61e61b87ba",
-                    "path": "<Keyboard>/q",
+                    "id": "a10a9378-c14c-4318-87d5-6072a650154b",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -192,6 +228,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1c53733-94a9-4c3c-b074-d72fc96d5444",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkillPalette1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d8e974e-33bb-4425-b7ee-bebf991d2b0e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkillPalette2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdf2f8f4-25e7-4bff-894c-cf1807c829c2",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkillPalette3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84bf9497-acd9-4c20-9f15-5bb1dbc68f84",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkillPalette4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
