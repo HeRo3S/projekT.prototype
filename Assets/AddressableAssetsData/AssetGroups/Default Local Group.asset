@@ -57,6 +57,14 @@ MonoBehaviour:
     m_Address: Assets/Resources_Addressable/Prefab/Char/Player.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f6fb87f28c8e2884596cd20c202fc5c7
+    m_Address: Ability/Sorcery/HealIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 99e9a48f4c0e3ac409704f4c1221d6c8
+    m_Address: Ability/Sorcery/Heal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
+[CreateAssetMenu]
 public class Heal : AbilityBase
 {
     public override void Awake()
@@ -16,7 +18,7 @@ public class Heal : AbilityBase
         if (CanActive())
         {
             base.Active();
-            player.Heal(curePotency);
+            InstanceManager.Instance.player.Heal(curePotency);
         }
     }
 }

@@ -29,12 +29,9 @@ public abstract class AbilityBase : ScriptableObject
     protected Enumeration.Weapon weaponType;
     //Skill display
     [SerializeField]
-    protected Image icon;
-    //Needed references
-    protected Player player;
+    protected Sprite icon;
     public virtual void Awake()
     {
-        player = InstanceManager.Instance.player;
     }
     public virtual bool IsValid()
     {
@@ -43,12 +40,13 @@ public abstract class AbilityBase : ScriptableObject
     public virtual bool CanActive()
     {
         return (
-                manaCost <= player.GetMana() &&
-                staminaCost <= player.GetStamina() &&
-                healthCost < player.GetHealth()
-                );
+                manaCost <= InstanceManager.Instance.player.GetMana() &&
+                staminaCost <= InstanceManager.Instance.player.GetStamina() &&
+                healthCost < InstanceManager.Instance.player.GetHealth() &&
+                currentCD <= 0
+                ) ;
     }
-    public Image GetIcon()
+    public Sprite GetIcon()
     {
         return icon;
     }
@@ -62,8 +60,16 @@ public abstract class AbilityBase : ScriptableObject
     }
     public virtual void Active()
     {
-        player.ConsumeStamina(staminaCost);
-        player.TakeDamage(healthCost);
-        player.ConsumeMana(manaCost);
+        InstanceManager.Instance.player.ConsumeStamina(staminaCost);
+        InstanceManager.Instance.player.AdjustHealth(-healthCost);
+        InstanceManager.Instance.player.ConsumeMana(manaCost);
+        currentCD = cooldown;
+    }
+    public virtual void DoUpdate()
+    {
+        if(currentCD > 0)
+        {
+            currentCD -= Time.fixedDeltaTime;
+        }
     }
 }

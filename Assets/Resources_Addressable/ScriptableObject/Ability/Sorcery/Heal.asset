@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23cba2ba07710df4986ae7aaf4122287, type: 3}
+  m_Name: Heal
+  m_EditorClassIdentifier: 
+  abilityName: Heal
+  abilityDescription: Heal for 100 HP
+  curePotency: 100
+  strikePotency: 0
+  manaCost: 100
+  healthCost: 0
+  staminaCost: 200
+  cooldown: 3
+  abilityType: 1
+  weaponType: 0
+  icon: {fileID: 21300000, guid: f6fb87f28c8e2884596cd20c202fc5c7, type: 3}

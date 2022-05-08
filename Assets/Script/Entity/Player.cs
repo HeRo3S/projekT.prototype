@@ -86,7 +86,7 @@ public class Player : EntityBase
     }
     public void Heal(float value)
     {
-        healthPts = Mathf.Min(maxHealth, healthPts + value);
+        AdjustHealth(value);
     }
     public WeaponBase GetCurrentWeapon()
     {

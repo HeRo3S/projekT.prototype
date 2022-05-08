@@ -10,7 +10,7 @@ public class PaletteControl : MonoBehaviour
     protected List<AbilityBase> skillList = new List<AbilityBase>();
     public void Start()
     {
-        skillList.Add(ScriptableObject.CreateInstance<Heal>());
+        skillList.Add((AbilityBase)AssetLoader.LoadScriptable("Ability/Sorcery/Heal"));
         foreach(GameObject palette in skillObjList)
         {
             PaletteSlot paletteSlot = palette.GetComponent<PaletteSlot>();

@@ -46,10 +46,15 @@ public abstract class EntityBase : MonoBehaviour, IMovable
             currentDamageFrame = damageFrame;
         }
     }
+
+    public virtual void AdjustHealth(float amount)
+    {
+        healthPts = Mathf.Clamp(healthPts +amount, 0, maxHealth);
+    }
     public void TakeDamage(float damage)
     {
         StartDamageFrame();
-        healthPts -= damage;
+        AdjustHealth(-damage);
         Vector3 popUpPos = new Vector3( transform.position.x + Random.Range(-1.5f, 1.5f),
                                         transform.position.y + Random.Range(-1.5f, 1.5f),
                                         transform.position.z);
