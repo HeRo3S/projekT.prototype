@@ -23,7 +23,6 @@ public class Player : EntityBase
     protected int currentWeaponIndex;
     //Targeting
     public GameObject target;
-
     public override void Awake()
     {
         base.Awake();
@@ -44,9 +43,11 @@ public class Player : EntityBase
     public void FixedUpdate()
     {
         stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.fixedDeltaTime);
+    }
+    public void Update()
+    {
         anim.SetFloat("LatestAngle", SplitRotationAngleInto(4));
     }
-
     public override bool Move(Vector2 moveDirection)
     {
         if (!inAttackAnimation)

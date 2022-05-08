@@ -99,7 +99,7 @@ public class PlayerControl : MonoBehaviour
     {
         moveVector = context.ReadValue<Vector2>();
     }
-    public void FixedUpdate()
+    public void Update()
     {
         player.Move(moveVector);
     }

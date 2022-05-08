@@ -28,7 +28,7 @@ public abstract class WeaponBase : MonoBehaviour
         attackPwr = baseAttackPwr;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         anim.SetFloat("LatestAngle", player.SplitRotationAngleInto(4));
     }

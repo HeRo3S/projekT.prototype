@@ -43,4 +43,14 @@ public class PaletteControl : MonoBehaviour
     {
         paletteList[3].currentSkill.Active();
     }
+
+
+    //Update skill list
+    public void FixedUpdate()
+    {
+        foreach(AbilityBase ability in skillList)
+        {
+            ability.DoUpdate();
+        }
+    }
 }

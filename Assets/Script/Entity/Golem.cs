@@ -21,7 +21,7 @@ public class Golem : EnemyBase
         Instantiate(AssetManager.Instance.pfGolemAttack, target.transform.position, Quaternion.identity);
     }
 
-    public override void FixedUpdate()
+    public override void Update()
     {
         if (!inAttackAnimation)
         {

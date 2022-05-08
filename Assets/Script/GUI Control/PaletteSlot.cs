@@ -7,11 +7,13 @@ public class PaletteSlot : MonoBehaviour
 {
     public AbilityBase currentSkill { get; private set; }
     private Image display;
-    private TextMeshPro cooldownDisplay;
+    private TextMeshProUGUI cooldownNumber;
+    private Image cooldownOverlay;
     public void Awake()
     {
         display = GetComponent<Image>();
-        cooldownDisplay = GetComponentInChildren<TextMeshPro>();
+        cooldownNumber = GetComponentInChildren<TextMeshProUGUI>();
+        cooldownOverlay = transform.GetChild(0).GetComponent<Image>();
     }
     public void Reload()
     {
@@ -21,10 +23,6 @@ public class PaletteSlot : MonoBehaviour
     {
         currentSkill = target;
         Reload();
-    }
-    public void FixedUpdate()
-    {
-        currentSkill.DoUpdate();
     }
     public void Update()
     {
@@ -38,11 +36,12 @@ public class PaletteSlot : MonoBehaviour
         }
         if(currentSkill.GetCurrentCD() > 0)
         {
-            cooldownDisplay.text = ((int)currentSkill.GetCurrentCD()).ToString();
+            cooldownNumber.text = ((int)currentSkill.GetCurrentCD() + 1).ToString();
         }
         else
         {
-            //cooldownDisplay.text = null;
+            cooldownNumber.text = null;
         }
+        cooldownOverlay.fillAmount = currentSkill.GetCurrentCD() / currentSkill.GetCooldown();
     }
 }

@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Heal
   abilityDescription: Heal for 100 HP
-  curePotency: 100
+  curePotency: 30
   strikePotency: 0
   manaCost: 100
   healthCost: 0
   staminaCost: 200
-  cooldown: 3
+  cooldown: 5
+  currentCD: 0
   abilityType: 1
   weaponType: 0
   icon: {fileID: 21300000, guid: f6fb87f28c8e2884596cd20c202fc5c7, type: 3}

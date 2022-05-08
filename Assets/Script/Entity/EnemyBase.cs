@@ -20,7 +20,7 @@ public class EnemyBase : EntityBase, ITargetable
         target = InstanceManager.Instance.player.gameObject;
 
     }
-    public virtual void FixedUpdate()
+    public virtual void Update()
     {
         Vector2 moveDirection = target.transform.position - transform.position;
         if (moveDirection.magnitude > attackRange && inAttackAnimation != false)
