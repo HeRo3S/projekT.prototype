@@ -86,19 +86,39 @@ public class Player : EntityBase
 
     }
 
-
+    //Adjust recovery stats algorithm
+    public virtual void AdjustMana(float amount)
+    { 
+        mana = Mathf.Clamp(mana +amount, 0, maxMana);
+    }
+    public virtual void AdjustStamina(float amount)
+    { 
+        stamina = Mathf.Clamp(stamina +amount, 0, maxStamina);
+    }
+    //Consume recovery stats
     public void ConsumeStamina(float value)
     {
-        stamina = Mathf.Max(0, stamina - value);
+        AdjustStamina(-value);
     }
     public void ConsumeMana(float value)
     {
-        mana = Mathf.Max(0, mana - value);
+        AdjustMana(-value);
     }
+    //Recover recovery stats
     public void Heal(float value)
     {
         AdjustHealth(value);
     }
+    public void RefillMana(float value)
+    {
+        AdjustMana(value);
+    }
+    public void RefillStamina(float value)
+    {
+        AdjustStamina(value);
+    }
+
+    //Getter, setter
     public WeaponBase GetCurrentWeapon()
     {
         return currentWeapon;

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: HealthPotion
+  m_EditorClassIdentifier: Assembly-CSharp::RefillPotion
+  itemID: 
+  itemName: 
+  itemDescription: 
+  price: 100
+  quantityCarrying: 0
+  quantityLimit: 99
+  icon: {fileID: 0}
+  healthRefillPotency: 100
+  manaRefillPotency: 0
+  staminaRefillPotency: 0
