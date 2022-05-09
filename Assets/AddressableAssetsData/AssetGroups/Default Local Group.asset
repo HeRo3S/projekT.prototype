@@ -65,6 +65,18 @@ MonoBehaviour:
     m_Address: Ability/Sorcery/Heal
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 05c405ef8e4bd0d40ac7e472e8ab0e19
+    m_Address: Ability/Mastery/Dash
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd313a5ab369d5245b3166a5e6a895b4
+    m_Address: Ability/Mastery/ArrowWave
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b48e2b04d5487d14da99bda42b81262d
+    m_Address: Ability/Sorcery/Rumble
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:

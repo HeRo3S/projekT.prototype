@@ -6,30 +6,30 @@ using UnityEngine.AddressableAssets;
 
 public class TextPopUp : MonoBehaviour
 {
-    private int frameToLive;
+    private float timeToLive;
     private TextMeshPro textMesh;
-    public static TextPopUp Create(string text, Vector3 position, int frameToLive)
+    public static TextPopUp Create(string text, Vector3 position, float timeToLive)
     {
         TextPopUp target = Instantiate(AssetManager.Instance.pfTextPopUp, position, Quaternion.identity).GetComponent<TextPopUp>();
-        target.SetUp(text, frameToLive);
+        target.SetUp(text, timeToLive);
         return target;
     }
     public void Awake()
     {
         textMesh = gameObject.GetComponent<TextMeshPro>();
     }
-    private void SetUp(string text, int frameToLive)
+    private void SetUp(string text, float timeToLive)
     {
         textMesh.text = text;
-        this.frameToLive = frameToLive;
+        this.timeToLive = timeToLive;
     }
 
     private void FixedUpdate()
     {
-        if(frameToLive <= 0)
+        if(timeToLive <= 0)
         {
             Destroy(gameObject);
         }
-        frameToLive--;
+        timeToLive-= Time.fixedDeltaTime;
     }
 }

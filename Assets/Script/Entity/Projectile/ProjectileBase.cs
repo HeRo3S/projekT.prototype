@@ -4,23 +4,25 @@ using UnityEngine;
 
 public abstract class ProjectileBase : EntityBase
 {
-    protected int frameToLive;
-    public virtual void InitValue(Vector2 direction, float speed, float rotation, int frameToLive)
+    protected float timeToLive;
+    public virtual void InitValue(float speed, float rotation, float timeToLive)
     {
         this.speed = speed;
         this.rotation = rotation;
-        Move(direction);
+        float rAngle = rotation * Mathf.Deg2Rad;
+        Move(new Vector2(Mathf.Cos(rAngle), Mathf.Sin(rAngle)));
+        //Caliberate rotation cuz sprite placement :shrug:
         rBody.MoveRotation(rotation - 90);
-        this.frameToLive = frameToLive;
+        this.timeToLive = timeToLive;
     }
 
     public virtual void FixedUpdate()
     {
-        if(frameToLive <= 0)
+        if(timeToLive <= 0)
         {
             Destroy(gameObject);
         }
-        frameToLive--;
+        timeToLive -= Time.fixedDeltaTime;
     }
 
 }

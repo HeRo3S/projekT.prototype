@@ -11,10 +11,13 @@ public class PaletteControl : MonoBehaviour
     public void Start()
     {
         skillList.Add((AbilityBase)AssetLoader.LoadScriptable("Ability/Sorcery/Heal"));
-        foreach(GameObject palette in skillObjList)
+        skillList.Add((AbilityBase)AssetLoader.LoadScriptable("Ability/Mastery/Dash"));
+        skillList.Add((AbilityBase)AssetLoader.LoadScriptable("Ability/Mastery/ArrowWave"));
+        skillList.Add((AbilityBase)AssetLoader.LoadScriptable("Ability/Sorcery/Rumble"));
+        for (int i = 0; i < skillObjList.Capacity; i++)
         {
-            PaletteSlot paletteSlot = palette.GetComponent<PaletteSlot>();
-            paletteSlot.SetSkill(skillList[0]);
+            PaletteSlot paletteSlot = skillObjList[i].GetComponent<PaletteSlot>();
+            paletteSlot.SetSkill(skillList[i]);
             paletteList.Add(paletteSlot);
         }
         //Subscrible to control event

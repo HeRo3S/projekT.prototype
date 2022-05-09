@@ -23,6 +23,10 @@ public class Player : EntityBase
     protected int currentWeaponIndex;
     //Targeting
     public GameObject target;
+    //Phasing
+    private Collider2D collisionBorder;
+    bool endingPhasing = false;
+
     public override void Awake()
     {
         base.Awake();
@@ -38,11 +42,17 @@ public class Player : EntityBase
         currentWeaponIndex = 1;
         SwitchNextWeapon();
         inAttackAnimation = false;
+        //Phasing
+        collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
     }
 
     public void FixedUpdate()
     {
         stamina = Mathf.Min(maxStamina, stamina + staminaRegen*Time.fixedDeltaTime);
+        if (endingPhasing)
+        {
+            EndPhasing();
+        }
     }
     public void Update()
     {
@@ -128,6 +138,34 @@ public class Player : EntityBase
     public override void SelfDestruct()
     {
         ScenesController.Instance.ReloadScene();
+    }
+
+    //Phasing make player ignore all collision
+    public void StartPhasing()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Phasing");
+        collisionBorder.isTrigger = true;
+    }
+
+    public void EndPhasing()
+    {
+        //Find a suitable position before ending phasing
+        Collider2D[] dumpResult = new Collider2D[1];
+        collisionBorder.OverlapCollider(InstanceManager.Instance.groundEntityFilter, dumpResult);
+        if(dumpResult[0] != null)
+        {
+            inAttackAnimation = true;
+            Move(direction);
+            endingPhasing = true;
+        }
+        else
+        {
+            endingPhasing = false;
+            inAttackAnimation = false;
+            Move(Vector2.zero);
+            gameObject.layer = LayerMask.NameToLayer("Player");
+            collisionBorder.isTrigger = false;
+        }
     }
 
 }

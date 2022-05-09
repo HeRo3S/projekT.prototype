@@ -32,6 +32,7 @@ public abstract class AbilityBase : ScriptableObject
     protected Sprite icon;
     public virtual void Awake()
     {
+        currentCD = 0;
     }
     public virtual bool IsValid()
     {
