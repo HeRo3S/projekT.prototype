@@ -9,6 +9,7 @@ public class Golem : EnemyBase
         attackRange = 3f;
         anim = gameObject.GetComponent<Animator>();
         base.Awake();
+        
     }
     public void DoAttack()
     {
@@ -26,22 +27,36 @@ public class Golem : EnemyBase
         if (!inAttackAnimation)
         {
             Vector2 moveDirection = target.transform.position - transform.position;
-            if (moveDirection.magnitude > attackRange)
+            if (moveDirection.magnitude <= detectionRange)
             {
-                moveDirection /= moveDirection.magnitude;
-                Move(moveDirection);
-                anim.SetBool("isMoving", true);
-                anim.SetFloat("LatestAngle", SplitRotationAngleInto(2));
+                if (moveDirection.magnitude > attackRange)
+                {
+                    moveDirection /= moveDirection.magnitude;
+                    Move(moveDirection);
+                    anim.SetBool("isMoving", true);
+                    anim.SetFloat("LatestAngle", SplitRotationAngleInto(2));
+                }
+                else
+                {
+                    Move(Vector2.zero);
+                    DoAttack();
+                }
             }
             else
             {
-                rBody.velocity = Vector2.zero;
-                anim.SetBool("isMoving", false);
-                DoAttack();
+                Move(Vector2.zero);
             }
         }
     }
-    
+
+    public override bool Move(Vector2 moveDirection)
+    {
+        if(moveDirection == Vector2.zero)
+        {
+            anim.SetBool("isMoving", false);
+        }
+        return base.Move(moveDirection);
+    }
     public void AfterAttackAnimation()
     {
         inAttackAnimation = false;

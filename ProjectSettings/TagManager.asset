@@ -16,7 +16,7 @@ TagManager:
   - Player
   - Ground
   - Phasing
-  - 
+  - Wall
   - CollisionBorder
   - 
   - 
@@ -46,12 +46,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Layer1
+    uniqueID: 3213043735
+    locked: 0
+  - name: Layer2
+    uniqueID: 1969888347
+    locked: 0
+  - name: Layer3
+    uniqueID: 2452724431
+    locked: 0
   - name: Player
     uniqueID: 2920990213
     locked: 0
-  - name: Weapon
-    uniqueID: 4118906867
-    locked: 0
   - name: Effect
     uniqueID: 3216616423
+    locked: 0
+  - name: Weapon
+    uniqueID: 4118906867
     locked: 0

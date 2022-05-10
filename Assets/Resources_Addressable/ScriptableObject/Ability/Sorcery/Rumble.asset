@@ -16,8 +16,8 @@ MonoBehaviour:
   abilityDescription: 
   curePotency: 0
   strikePotency: 0
-  manaCost: 0
-  healthCost: 50
+  manaCost: -500
+  healthCost: 400
   staminaCost: -300
   cooldown: 30
   abilityType: 1

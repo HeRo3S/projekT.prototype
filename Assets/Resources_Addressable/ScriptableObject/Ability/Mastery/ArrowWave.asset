@@ -23,7 +23,7 @@ MonoBehaviour:
   abilityType: 0
   weaponType: 1
   icon: {fileID: 21300000, guid: f6fb87f28c8e2884596cd20c202fc5c7, type: 3}
-  arrowAmount: 5
-  firingArc: 60
+  arrowAmount: 10
+  firingArc: 30
   timeToLive: 1.5
   speed: 10

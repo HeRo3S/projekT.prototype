@@ -20,6 +20,7 @@ public class PaletteControl : MonoBehaviour
             paletteSlot.SetSkill(skillList[i]);
             paletteList.Add(paletteSlot);
         }
+        InstanceManager.Instance.currentSkillList = skillList;
         //Subscrible to control event
         PlayerInputSystem inputSytem = InstanceManager.Instance.inputSystem;
         inputSytem.Enable();

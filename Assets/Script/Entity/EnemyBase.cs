@@ -6,6 +6,7 @@ public class EnemyBase : EntityBase, ITargetable
 {
     protected float attackRange = 1.2f;
     protected GameObject target;
+    protected float detectionRange = 8f;
     public GameObject GetTarget()
     {
         return target;

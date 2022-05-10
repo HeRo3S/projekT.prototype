@@ -49,6 +49,7 @@ MonoBehaviour:
   maxHealth: 0
   healthPts: 0
   speed: 0
+  inAttackAnimation: 0
   anim: {fileID: 0}
 --- !u!50 &2251249932493275510
 Rigidbody2D:
@@ -134,9 +135,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -176060429
+  m_SortingLayer: 6
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6890301164988981815, guid: a83787ad2d05ab94b973e53151f5e079, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

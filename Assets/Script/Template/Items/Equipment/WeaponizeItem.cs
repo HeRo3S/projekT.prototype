@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponizeItem : ItemBase
 {
     [SerializeField]
-    protected GameObject weaponObject;
+    protected WeaponBase weaponImplementation;
 
 }
 

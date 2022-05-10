@@ -33,4 +33,5 @@ public class InstanceManager : MonoBehaviour
     public Camera mainCamera;
     public Player player;
     public ContactFilter2D groundEntityFilter;
+    public List<AbilityBase> currentSkillList;
 }
