@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a75b14133f5b56542ad4ccae4d847b9b, type: 3}
   m_Name: HealthPotion
-  m_EditorClassIdentifier: Assembly-CSharp::RefillPotion
+  m_EditorClassIdentifier: 
   itemID: 
   itemName: 
   itemDescription: 
   price: 100
-  quantityCarrying: 0
+  quantityCarrying: 1
   quantityLimit: 99
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ba04e67696224ed4d8884216fc6ed230, type: 3}
   healthRefillPotency: 100
   manaRefillPotency: 0
   staminaRefillPotency: 0

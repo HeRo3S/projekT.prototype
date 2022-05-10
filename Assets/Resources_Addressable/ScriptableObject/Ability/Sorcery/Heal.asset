@@ -22,4 +22,4 @@ MonoBehaviour:
   cooldown: 5
   abilityType: 1
   weaponType: 0
-  icon: {fileID: 21300000, guid: 1b71f67806e685344a742acaf4ccd905, type: 3}
+  icon: {fileID: 21300000, guid: 66c8be61f6b50734a81993b1ceeb163d, type: 3}

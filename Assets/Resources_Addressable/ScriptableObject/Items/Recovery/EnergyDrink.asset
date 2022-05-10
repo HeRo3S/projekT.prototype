@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a75b14133f5b56542ad4ccae4d847b9b, type: 3}
-  m_Name: ManaPotion
+  m_Script: {fileID: 11500000, guid: d8a459556ee18514a8d64321e0199e62, type: 3}
+  m_Name: EnergyDrink
   m_EditorClassIdentifier: 
   itemID: 
   itemName: 
@@ -18,7 +18,7 @@ MonoBehaviour:
   price: 0
   quantityCarrying: 1
   quantityLimit: 99
-  icon: {fileID: 21300000, guid: a145404056f518e43bb5a232ff7e66fa, type: 3}
-  healthRefillPotency: 0
-  manaRefillPotency: 100
-  staminaRefillPotency: 0
+  icon: {fileID: 21300000, guid: 38639592b3259474aabdc0b8fa0f9947, type: 3}
+  healthRecoverSpeedBoostRate: 0
+  manaRecoverSpeedBoostRate: 0
+  staminaRecoverSpeedBoostRate: 0.75

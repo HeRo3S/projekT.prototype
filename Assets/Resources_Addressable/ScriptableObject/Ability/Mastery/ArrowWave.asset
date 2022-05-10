@@ -22,7 +22,7 @@ MonoBehaviour:
   cooldown: 7
   abilityType: 0
   weaponType: 1
-  icon: {fileID: 21300000, guid: f6fb87f28c8e2884596cd20c202fc5c7, type: 3}
+  icon: {fileID: 21300000, guid: 37ff98eeedc9cb745a354bf2d0e66a88, type: 3}
   arrowAmount: 10
   firingArc: 30
   timeToLive: 1.5
