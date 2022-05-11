@@ -77,6 +77,10 @@ MonoBehaviour:
     m_Address: Ability/Sorcery/Rumble
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 06381d241f58ec840a86f0c32d3537f1
+    m_Address: Assets/Resources_Addressable/Prefab/AudioManager.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:

@@ -20434,117 +20434,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1227406766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1227406768}
-  - component: {fileID: 1227406767}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1227406767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227406766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6385653e101accc40995919f497c3826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSounds:
-  - clip: {fileID: 8300000, guid: 180f35aef2ea2654086bcbb52d58ec0b, type: 3}
-    name: broadsword_attack
-    volume: 0.69
-    pitch: 1
-    roll: 0
-    speed: 1
-    pitchSpeed: 0
-    rollSpeed: 0
-    speedSpeed: 0
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: f9cfc0e6ef7909a4fa3f8663ac5f3034, type: 3}
-    name: arrow_fired
-    volume: 0.69
-    pitch: 1
-    roll: 0
-    speed: 1
-    pitchSpeed: 0
-    rollSpeed: 0
-    speedSpeed: 0
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: d08c773f94f3afc4695531d74f341087, type: 3}
-    name: arrow_hit
-    volume: 0.69
-    pitch: 1
-    roll: 0
-    speed: 1
-    pitchSpeed: 0
-    rollSpeed: 0
-    speedSpeed: 0
-    loop: 0
-    source: {fileID: 0}
-  sceneSounds:
-  - clip: {fileID: 8300000, guid: bf20fe844e525b24c842ea968358dcdf, type: 3}
-    name: maintheme
-    volume: 0.15
-    pitch: 1
-    roll: 0
-    speed: 1
-    pitchSpeed: 0
-    rollSpeed: 0
-    speedSpeed: 0
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 2cbeb5b18dd7a4940801811781c0e0d8, type: 3}
-    name: ambient_cicadas
-    volume: 0.3
-    pitch: 1
-    roll: 0
-    speed: 1
-    pitchSpeed: 0
-    rollSpeed: 0
-    speedSpeed: 0
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 18e761ff5ef14fd4588d9283fcc9b829, type: 3}
-    name: player_run_grass
-    volume: 1
-    pitch: 1
-    roll: 0
-    speed: 1
-    pitchSpeed: 0
-    rollSpeed: 0
-    speedSpeed: 0
-    loop: 0
-    source: {fileID: 0}
---- !u!4 &1227406768
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227406766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 502.66205, y: 175.69147, z: -57.47561}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242351950
 GameObject:
   m_ObjectHideFlags: 0
@@ -22102,3 +21991,60 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4638452193346188763, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5450a19ebc472aa4d89b70a5541ef308, type: 3}
+--- !u!1001 &8092196533486424302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8092196532531735872, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 502.66205
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 175.69147
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -57.47561
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
