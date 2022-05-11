@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5803823635038381645}
   - component: {fileID: 7866074695009732484}
   - component: {fileID: 2372295162259715295}
-  - component: {fileID: 1730407955049677713}
+  - component: {fileID: 5764881063187459984}
   m_Layer: 10
   m_Name: CollisionBorder
   m_TagString: Untagged
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4638452193346188741}
   border: {fileID: 4447625533476515262}
---- !u!60 &1730407955049677713
-PolygonCollider2D:
+--- !u!58 &5764881063187459984
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -81,31 +81,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.15981436, y: 0.48030472}
-      - {x: -0.29335928, y: 0.4352295}
-      - {x: -0.36693382, y: 0.40227345}
-      - {x: -0.37897635, y: 0.31476635}
-      - {x: -0.38276577, y: 0.24613595}
-      - {x: -0.34375, y: -0.28125}
-      - {x: -0.29391575, y: -0.40632355}
-      - {x: -0.06913471, y: -0.42196882}
-      - {x: 0.14450788, y: -0.4219687}
-      - {x: 0.37106085, y: -0.34386247}
-      - {x: 0.445199, y: -0.022816502}
-      - {x: 0.4251113, y: 0.12921005}
-      - {x: 0.13357162, y: 0.47502154}
+  m_Offset: {x: -0.018769503, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5093849
 --- !u!1 &4638452193346188741
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ MonoBehaviour:
   strikePotency: 100
   manaCost: 0
   healthCost: 0
-  staminaCost: 300
+  staminaCost: 250
   cooldown: 7
   abilityType: 0
   weaponType: 1
