@@ -43,6 +43,10 @@ public class Inventory : MonoBehaviour
         {
             items.Add(item);
         }
+        else
+        {
+            return false;
+        }
 
         if(onItemChangedCallBack != null)
         {
