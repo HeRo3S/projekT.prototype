@@ -32,6 +32,7 @@ public abstract class BroadswordBase : WeaponBase
             hitBox.enabled = true;
             anim.SetFloat("AttackAngle", player.SplitRotationAngleInto(8));
             anim.SetTrigger("LightAttack");
+            FindObjectOfType<AudioManager>().Play("broadsword_attack");
         }
     }
     public override void EndAttack()

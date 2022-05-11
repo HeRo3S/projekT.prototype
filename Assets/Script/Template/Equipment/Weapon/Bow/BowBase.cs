@@ -16,6 +16,7 @@ public class BowBase : WeaponBase
             base.DoAttack();
             Arrow arrow = Instantiate(AssetManager.Instance.pfArrow, player.transform.position, Quaternion.identity).GetComponent<Arrow>();
             arrow.InitValue(5, player.GetRotation(), 1.5f);
+            FindObjectOfType<AudioManager>().Play("arrow_fired");
             base.EndAttack();
         }
 

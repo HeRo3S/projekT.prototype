@@ -31,6 +31,7 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     //Animator
     [SerializeField]
     protected Animator anim;
+
     public virtual void Awake()
     {
         rBody = gameObject.GetComponent<Rigidbody2D>();

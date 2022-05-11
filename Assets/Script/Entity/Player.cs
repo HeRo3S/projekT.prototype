@@ -26,6 +26,8 @@ public class Player : EntityBase
     //Phasing
     private Collider2D collisionBorder;
     bool endingPhasing = false;
+    //Audio Manager
+    private AudioManager audioManager;
 
     public override void Awake()
     {
@@ -44,6 +46,8 @@ public class Player : EntityBase
         inAttackAnimation = false;
         //Phasing
         collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
+        //Audio Manager
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void FixedUpdate()
@@ -64,7 +68,18 @@ public class Player : EntityBase
         {
             base.Move(moveDirection);
         }
+        //animation
         anim.SetBool("IsRunning", moveVector != Vector2.zero);
+        //audio
+        if (moveVector == Vector2.zero)
+        {
+            audioManager.Stop("player_run_grass");
+        }
+        else
+        {
+            audioManager.LoopAudioInUpdateFunction("player_run_grass");
+        }
+
         return true;
     }
     public override void UpdateRotation()

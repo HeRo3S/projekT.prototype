@@ -11,6 +11,7 @@ public class Arrow : ProjectileBase
         if (hitEntity != null)
         {
             hitEntity.TakeDamage(damage);
+            FindObjectOfType<AudioManager>().Play("arrow_hit");
             Destroy(gameObject);
         }
     }
