@@ -37,8 +37,24 @@ public abstract class ItemBase : ScriptableObject
         return icon;
     }
 
+    public void SetQuantity(int quantityCarrying)
+    {
+        this.quantityCarrying = quantityCarrying;
+    }
+
+    public int GetQuantity()
+    {
+        return quantityCarrying;
+    }
+
     public virtual void OnActive()
     {
         quantityCarrying -= 1;
+    }
+
+    public virtual void Use()
+    {
+        //abcxyz
+        Debug.Log("Using Item");
     }
 }
