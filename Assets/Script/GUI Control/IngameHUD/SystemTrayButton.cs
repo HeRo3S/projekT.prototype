@@ -21,6 +21,8 @@ public class SystemTrayButton : MonoBehaviour
             Debug.Log("There isn't any canvas linked to this button. Check this button prefab.");
             return;
         }
-        CanvasController.GetInstance().EnableCanvas(linkedCanvas);
+        CanvasController.GetInstance().EnableOnlyCanvas(linkedCanvas);
+        Time.timeScale = 0f;
     }
+
 }

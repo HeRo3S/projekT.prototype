@@ -22,7 +22,13 @@ public class CanvasController: MonoBehaviour
         return _instance;
     }
 
+    //Enable Canvas without turn all the others off
     public void EnableCanvas(Canvas target)
+    {
+        target.gameObject.SetActive(true);
+    }
+    //Enable Canvas and turn all the others off
+    public void EnableOnlyCanvas(Canvas target)
     {
         foreach (Canvas c in canvasList)
         {

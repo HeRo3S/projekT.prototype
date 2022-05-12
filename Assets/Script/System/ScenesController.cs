@@ -15,6 +15,16 @@ public class ScenesController
         }
     }
 
+    public IEnumerable LoadScene(string name)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
+        //Wait until the scene is loaded
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
     public void ReloadScene()
     {
         InstanceManager.Instance.Reload();
