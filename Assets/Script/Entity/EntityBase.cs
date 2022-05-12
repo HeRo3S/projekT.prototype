@@ -76,7 +76,7 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     public virtual bool Move(Vector2 moveDirection)
     {   
         //Check if move vector have changed
-        if (moveVector != moveDirection * speed)
+        if (rBody.velocity != moveDirection * speed)
         {
             moveVector = moveDirection * speed;
             rBody.velocity = moveVector;
