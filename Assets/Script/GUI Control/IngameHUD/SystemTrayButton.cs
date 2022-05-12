@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SystemTrayButton : MonoBehaviour
+{
+    private Button button;
+    public Canvas linkedCanvas;
+
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+        button.onClick.AddListener(OpenCanvas);
+    }
+
+    private void OpenCanvas()
+    {
+        if (linkedCanvas == null)
+        {
+            Debug.Log("There isn't any canvas linked to this button. Check this button prefab.");
+            return;
+        }
+        CanvasController.GetInstance().EnableCanvas(linkedCanvas);
+    }
+}
