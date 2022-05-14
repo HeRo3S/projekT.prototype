@@ -111,3 +111,4 @@ MonoBehaviour:
     speedSpeed: 0
     loop: 0
     source: {fileID: 0}
+  audioMixer: {fileID: 24300002, guid: d9dbb70eaadb2d940a465daa29491f8a, type: 2}
