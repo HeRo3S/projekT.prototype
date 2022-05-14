@@ -15,14 +15,14 @@ public class ScenesController
         }
     }
 
-    public IEnumerable LoadScene(string name)
+    public string CurrentSceneName()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
-        //Wait until the scene is loaded
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
+        return SceneManager.GetActiveScene().name;
+    }
+
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadSceneAsync(name);
     }
 
     public void ReloadScene()
