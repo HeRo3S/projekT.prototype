@@ -116,7 +116,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -138,7 +138,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -149,7 +149,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -160,7 +160,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -171,7 +171,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -193,7 +193,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""ReleaseLock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -204,7 +204,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""ReleaseLock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -215,7 +215,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""LightAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -226,7 +226,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""LightAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -237,7 +237,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""SwitchWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -248,7 +248,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""SwitchWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -259,7 +259,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""SkillPalette1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -270,7 +270,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""SkillPalette1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -281,7 +281,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""SkillPalette2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -292,7 +292,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""SkillPalette2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -303,7 +303,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""SkillPalette3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -314,7 +314,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""SkillPalette3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -325,7 +325,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Joystick"",
                     ""action"": ""SkillPalette4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -336,7 +336,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & mouse"",
                     ""action"": ""SkillPalette4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
