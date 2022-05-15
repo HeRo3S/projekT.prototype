@@ -34,4 +34,5 @@ public class InstanceManager : MonoBehaviour
     public Player player;
     public ContactFilter2D groundEntityFilter;
     public List<AbilityBase> currentSkillList;
+    public Inventory currentInventory;
 }
