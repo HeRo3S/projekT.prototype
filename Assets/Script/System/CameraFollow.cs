@@ -14,6 +14,10 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private Vector3 targetPos;
 
+        public void Awake()
+        {
+            InstanceManager.Instance.mainCamera = GetComponent<Camera>();
+        }
         private void Start()
         {
             if (target == null) return;

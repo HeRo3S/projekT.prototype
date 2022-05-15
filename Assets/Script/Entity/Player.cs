@@ -46,8 +46,11 @@ public class Player : EntityBase
         inAttackAnimation = false;
         //Phasing
         collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
+    }
+    public void Start()
+    {
         //Audio Manager
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = InstanceManager.Instance.audioManager;
     }
 
     public void FixedUpdate()

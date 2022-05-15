@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMapUpdate
+public interface IIteractable
 {
-    public void MapUpdate();
+    public void OnInteract();
 }

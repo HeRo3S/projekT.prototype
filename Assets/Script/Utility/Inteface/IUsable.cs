@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChunkManager : MonoBehaviour
+public interface IUsable
 {
-    
+    public bool CanUse();
+    public void Use();
 }

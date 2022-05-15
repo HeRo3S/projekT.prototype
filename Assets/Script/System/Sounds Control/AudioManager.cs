@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         _instance = this;
+        InstanceManager.Instance.audioManager = this;
         MergeSoundsArray();
         LoadAudioSourceIntoGameobject();
     }

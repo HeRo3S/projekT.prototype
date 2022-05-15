@@ -19,6 +19,10 @@ public class AssetManager : MonoBehaviour
             return _instance;
         }
     }
+    public void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public GameObject pfTextPopUp;
     public GameObject pfArrow;

@@ -23,6 +23,7 @@ public class InstanceManager : MonoBehaviour
     {
         mainCamera = Camera.main;
         inputSystem = new PlayerInputSystem();
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Reload()
@@ -35,4 +36,5 @@ public class InstanceManager : MonoBehaviour
     public ContactFilter2D groundEntityFilter;
     public List<AbilityBase> currentSkillList;
     public Inventory currentInventory;
+    public AudioManager audioManager;
 }
