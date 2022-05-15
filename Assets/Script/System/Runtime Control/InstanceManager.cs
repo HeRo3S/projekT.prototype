@@ -37,4 +37,6 @@ public class InstanceManager : MonoBehaviour
     public List<AbilityBase> currentSkillList;
     public Inventory currentInventory;
     public AudioManager audioManager;
+    public GameStateManager gameStateManager;
+    public CanvasController canvasController;
 }

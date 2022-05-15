@@ -105,6 +105,10 @@ MonoBehaviour:
     m_Address: Items/Square
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 44a6d06972ddefa4ebe5685c99eb65cc
+    m_Address: PrefabGameStateManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 94df554c6855dac4aba3c03e36c6e150, type: 2}
   m_SchemaSet:

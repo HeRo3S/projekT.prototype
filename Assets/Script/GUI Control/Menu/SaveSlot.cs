@@ -28,24 +28,25 @@ public class SaveSlot : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        switch (ScenesController.Instance.CurrentSceneName())
+        //Game state code: 0 - inTitleMenu, 1 - inGame, 2 - ingameMenuOpened
+        switch(InstanceManager.Instance.gameStateManager.GetGameState())
         {
-            case "TitleScene":
+            case 0:
                 if (SaveSystem.DataExist(slotIndex))
                 {
                     SaveSystem.LoadFromSlot(slotIndex);
                     ScenesController.Instance.LoadScene("Ingame");
                 }
                 break;
-            case "Ingame":
+            case 2:
                 SaveSystem.SaveToSlot(slotIndex);
                 RefreshDisplay();
                 break;
             default:
-                Debug.Log("Can't find Scene this Canvas is attached to.");
+                Debug.Log("Something's wrong with game state.");
                 break;
         }
-
+        
     }
 
 }

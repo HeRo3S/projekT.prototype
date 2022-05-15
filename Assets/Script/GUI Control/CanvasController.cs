@@ -16,6 +16,7 @@ public class CanvasController: MonoBehaviour
         {
             Destroy(gameObject);
         }
+        InstanceManager.Instance.canvasController = this;
         AttachAllCanvasIntoList();
     }
 

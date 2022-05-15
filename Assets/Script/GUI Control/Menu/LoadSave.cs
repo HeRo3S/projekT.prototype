@@ -29,19 +29,19 @@ public class LoadSave : MonoBehaviour
     private void BackButtonOnClick()
     {
         gameObject.SetActive(false);
-        switch(ScenesController.Instance.CurrentSceneName())
+        //Game state code: 0 - inTitleMenu, 1 - inGame, 2 - ingameMenuOpened
+        switch(InstanceManager.Instance.gameStateManager.GetGameState())
         {
-            case "TitleScene":
-                //transform.parent.Find("OptionsList").gameObject.SetActive(true);
+            case 0:
                 CanvasController.GetInstance().EnableOnlyCanvas("OptionsList");
+                InstanceManager.Instance.gameStateManager.SwitchToStateTitleScreen();
                 break;
-            case "Ingame":
-                //transform.parent.Find("IngameHUDCanvas").gameObject.SetActive(true);
+            case 2:
                 CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
-                Time.timeScale = 1f;
+                InstanceManager.Instance.gameStateManager.SwitchToStateIngame();
                 break;
             default:
-                Debug.Log("Can't find Scene this Canvas is attached to.");
+                Debug.Log("Something's wrong with game state.");
                 break;
         }
     }

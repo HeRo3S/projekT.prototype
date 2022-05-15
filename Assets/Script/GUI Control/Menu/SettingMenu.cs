@@ -9,9 +9,11 @@ public class SettingMenu : MonoBehaviour
 {
     [SerializeField]
     private AudioMixer audioMixer;
-    Resolution[] resolutions;
     [SerializeField]
     private TMP_Dropdown resolutionDropdown;
+
+    private Resolution[] resolutions;
+    private Button backBtn;
 
     private void Start()
     {
@@ -33,6 +35,10 @@ public class SettingMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        backBtn = transform.Find("Panel").Find("BackButton").GetComponent<Button>();
+        backBtn.onClick.AddListener(BackButtonOnClick);
+
     }
 
     public void SetResolution (int resolutionIndex)
@@ -49,4 +55,24 @@ public class SettingMenu : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(qualityIndex, true);
     }
+    private void BackButtonOnClick()
+    {
+        gameObject.SetActive(false);
+        //Game state code: 0 - inTitleMenu, 1 - inGame, 2 - ingameMenuOpened
+        switch(InstanceManager.Instance.gameStateManager.GetGameState())
+        {
+            case 0:
+                CanvasController.GetInstance().EnableOnlyCanvas("OptionsList");
+                InstanceManager.Instance.gameStateManager.SwitchToStateTitleScreen();
+                break;
+            case 2:
+                CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
+                InstanceManager.Instance.gameStateManager.SwitchToStateIngame();
+                break;
+            default:
+                Debug.Log("Something's wrong with game state.");
+                break;
+        }
+    }
+
 }
