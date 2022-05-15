@@ -8,12 +8,14 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
-            Debug.LogWarning("More than one instance of Inventory! Fix pls");
+            Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(this);
         instance = this;
+        InstanceManager.Instance.currentInventory = this;
     }
 
     public int space = 21;
@@ -23,16 +25,6 @@ public class Inventory : MonoBehaviour
 
     public List<ItemBase> items = new List<ItemBase>();
 
-    private void Start()
-    {
-        items.Add((ItemBase)AssetLoader.LoadScriptable("Items/Recovery/HealthPotion"));
-        items.Add((ItemBase)AssetLoader.LoadScriptable("Items/Recovery/ManaPotion"));
-        items.Add((ItemBase)AssetLoader.LoadScriptable("Items/Recovery/EnergyDrink"));
-        items.Add((ItemBase)AssetLoader.LoadScriptable("Items/Equipment/Arrow"));
-        items.Add((ItemBase)AssetLoader.LoadScriptable("Items/Equipment/Shortbow"));
-        items.Add((ItemBase)AssetLoader.LoadScriptable("Items/Equipment/Square"));
-        InstanceManager.Instance.currentInventory = gameObject.GetComponent<Inventory>();
-    }
     public bool Add (ItemBase item)
     {
         if(items.Count >= space )

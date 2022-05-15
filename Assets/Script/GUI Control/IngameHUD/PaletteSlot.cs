@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PaletteSlot : MonoBehaviour
 {
-    public AbilityBase currentSkill { get; private set; }
+    public AbilityBase CurrentSkill { get; private set; }
     private Image display;
     private TextMeshProUGUI cooldownNumber;
     private Image cooldownOverlay;
@@ -17,16 +17,16 @@ public class PaletteSlot : MonoBehaviour
     }
     public void Reload()
     {
-        display.sprite = currentSkill.GetIcon() as Sprite;
+        display.sprite = CurrentSkill.GetIcon() as Sprite;
     }
     public void SetSkill(AbilityBase target)
     {
-        currentSkill = target;
+        CurrentSkill = target;
         Reload();
     }
     public void Update()
     {
-        if (currentSkill.CanActive())
+        if (CurrentSkill.CanActive())
         {
             display.color = Color.white;
         }
@@ -34,14 +34,14 @@ public class PaletteSlot : MonoBehaviour
         {
             display.color = Color.grey;
         }
-        if(currentSkill.GetCurrentCD() > 0)
+        if(CurrentSkill.GetCurrentCD() > 0)
         {
-            cooldownNumber.text = ((int)currentSkill.GetCurrentCD() + 1).ToString();
+            cooldownNumber.text = ((int)CurrentSkill.GetCurrentCD() + 1).ToString();
         }
         else
         {
             cooldownNumber.text = null;
         }
-        cooldownOverlay.fillAmount = currentSkill.GetCurrentCD() / currentSkill.GetCooldown();
+        cooldownOverlay.fillAmount = CurrentSkill.GetCurrentCD() / CurrentSkill.GetCooldown();
     }
 }

@@ -6,11 +6,24 @@ using UnityEngine.UI;
 public class LoadSave : MonoBehaviour
 {
     private Button backBtn;
-
+    [SerializeField]
+    private SaveSlot[] saveSlots;
     private void Awake()
     {
         backBtn = transform.Find("BackButton").GetComponent<Button>();
         backBtn.onClick.AddListener(BackButtonOnClick);
+        saveSlots = GetComponentsInChildren<SaveSlot>(true);
+        for(int i = 0; i < saveSlots.Length; i++)
+        {
+            saveSlots[i].slotIndex = i + 1;
+        }
+    }
+    public void OnEnable()
+    {
+        foreach(SaveSlot slot in saveSlots)
+        {
+            slot.RefreshDisplay();
+        }
     }
 
     private void BackButtonOnClick()

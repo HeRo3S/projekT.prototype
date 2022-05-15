@@ -22710,4 +22710,5 @@ PrefabInstance:
     - {fileID: 0}
     - {fileID: 3255036062886723921, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
     - {fileID: 5437622676074005294, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+    - {fileID: 5677757809702577855, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}

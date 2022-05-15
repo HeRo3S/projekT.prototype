@@ -33,19 +33,19 @@ public class PaletteControl : MonoBehaviour
 
     private void SkillPalette1_started(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        paletteList[0].currentSkill.Active();
+        paletteList[0].CurrentSkill.Active();
     }
     private void SkillPalette2_started(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        paletteList[1].currentSkill.Active();
+        paletteList[1].CurrentSkill.Active();
     }
     private void SkillPalette3_started(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        paletteList[2].currentSkill.Active();
+        paletteList[2].CurrentSkill.Active();
     }
     private void SkillPalette4_started(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        paletteList[3].currentSkill.Active();
+        paletteList[3].CurrentSkill.Active();
     }
 
 

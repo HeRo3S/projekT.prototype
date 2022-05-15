@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dde145107549b541bdd92e811acac05, type: 3}
   m_Name: Shortbow
   m_EditorClassIdentifier: 
-  itemID: shortbow_basic
+  itemID: Shortbow
   itemName: Shortbow
   itemDescription: 
   price: 0
   quantityCarrying: 0
   quantityLimit: 1
   icon: {fileID: -964882512270274799, guid: a83787ad2d05ab94b973e53151f5e079, type: 3}
-  weaponObject: {fileID: 4573756891674337669, guid: c05b85a64c132904c8766eb308ac7177, type: 3}
+  weaponImplementation: {fileID: 0}

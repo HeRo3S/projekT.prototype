@@ -20,7 +20,7 @@ public class InventorySlot : MonoBehaviour
     public void AddItem(ItemBase newItem)
     {
         item = newItem;
-        icon.sprite= item.getIcon();
+        icon.sprite= item.GetIcon();
         icon.preserveAspect = true;
         icon.enabled = true;
         removeButton.interactable = true;

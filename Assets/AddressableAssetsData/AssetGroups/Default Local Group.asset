@@ -82,27 +82,27 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 5344b3195a51dd24fbf377d5f3794c92
-    m_Address: Items/Recovery/EnergyDrink
+    m_Address: Items/EnergyDrink
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: ecd4ac1b49962b04b94fe7239134cb76
-    m_Address: Items/Recovery/HealthPotion
+    m_Address: Items/HealthPotion
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: c18d6541c52e26840b8f9edbef0f61ba
-    m_Address: Items/Recovery/ManaPotion
+    m_Address: Items/ManaPotion
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: b8546879e8e4c0a468244f37bd03d370
-    m_Address: Items/Equipment/Arrow
+    m_Address: Items/Arrow
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 6a044001050c14f44b3984bf46ba95c8
-    m_Address: Items/Equipment/Shortbow
+    m_Address: Items/Shortbow
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 1234538fcb26aec448cdf6e13f1727c9
-    m_Address: Items/Equipment/Square
+    m_Address: Items/Square
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

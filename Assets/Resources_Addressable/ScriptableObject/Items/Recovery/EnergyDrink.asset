@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a459556ee18514a8d64321e0199e62, type: 3}
   m_Name: EnergyDrink
   m_EditorClassIdentifier: 
-  itemID: 
+  itemID: EnergyDrink
   itemName: 
   itemDescription: 
   price: 0

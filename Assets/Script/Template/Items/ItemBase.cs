@@ -32,7 +32,7 @@ public abstract class ItemBase : ScriptableObject, IUsable
         return (quantityCarrying < quantityLimit);
     }
 
-    public Sprite getIcon()
+    public Sprite GetIcon()
     {
         return icon;
     }
@@ -56,5 +56,9 @@ public abstract class ItemBase : ScriptableObject, IUsable
     {
         //abcxyz
         Debug.Log("Using Item");
+    }
+    public string GetItemID()
+    {
+        return itemID;
     }
 }

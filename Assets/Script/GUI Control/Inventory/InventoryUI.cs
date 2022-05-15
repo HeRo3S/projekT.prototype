@@ -17,7 +17,7 @@ public class InventoryUI : MonoBehaviour
         backbtn = transform.Find("BackButton").GetComponent<Button>();
         backbtn.onClick.AddListener(BackButtonOnClick);
 
-        inventory = Inventory.instance;
+        inventory = InstanceManager.Instance.currentInventory;
         inventory.onItemChangedCallBack += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>(true);

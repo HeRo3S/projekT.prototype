@@ -35,13 +35,13 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         //Singleton
-        DontDestroyOnLoad(this);
         if (_instance != null)
         {
             Destroy(gameObject);
             return;
         }
         _instance = this;
+        DontDestroyOnLoad(this);
         InstanceManager.Instance.audioManager = this;
         MergeSoundsArray();
         LoadAudioSourceIntoGameobject();

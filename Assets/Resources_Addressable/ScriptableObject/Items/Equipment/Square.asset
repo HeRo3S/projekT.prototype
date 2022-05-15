@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dde145107549b541bdd92e811acac05, type: 3}
   m_Name: Square
   m_EditorClassIdentifier: 
-  itemID: broadsword_square
+  itemID: Square
   itemName: Square
   itemDescription: 
   price: 300
   quantityCarrying: 0
   quantityLimit: 1
   icon: {fileID: 1298246307389038859, guid: a2127c82a20970b43af070277811506f, type: 3}
-  weaponObject: {fileID: 8773443280070863204, guid: c9bab3216fdcd4a4199f6e8496b3a4dd, type: 3}
+  weaponImplementation: {fileID: 0}

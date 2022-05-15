@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dde145107549b541bdd92e811acac05, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  itemID: 
+  itemID: Arrow
   itemName: 
   itemDescription: 
   price: 0
   quantityCarrying: 0
   quantityLimit: 30
   icon: {fileID: -6890301164988981815, guid: a83787ad2d05ab94b973e53151f5e079, type: 3}
-  weaponObject: {fileID: 2303693463792796703, guid: 3c3f1d070735d9a41b763305a921b4f1, type: 3}
+  weaponImplementation: {fileID: 0}
