@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
     private GameObject target;
     //Rotation
     private Vector2 targetRotationLocation;
-    private void Start()
+    private void Awake()
     {
         //Get component
         player = InstanceManager.Instance.player;

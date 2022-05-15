@@ -39,7 +39,8 @@ public class OptionsListButtons : MonoBehaviour
 
     private void SettingsButtonOnClick()
     {
-
+        gameObject.SetActive(false);
+        transform.parent.Find("SettingsCanvas").gameObject.SetActive(true);
     }
 
     private void ExitButtonOnClick()

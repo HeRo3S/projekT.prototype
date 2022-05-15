@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SystemTrayButton : MonoBehaviour
 {
     private Button button;
-    public Canvas linkedCanvas;
+    [SerializeField]
+    private Canvas linkedCanvas;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class SystemTrayButton : MonoBehaviour
             Debug.Log("There isn't any canvas linked to this button. Check this button prefab.");
             return;
         }
-        CanvasController.GetInstance().EnableOnlyCanvas(linkedCanvas);
+        CanvasController.GetInstance().EnableOnlyCanvas(linkedCanvas.name);
         Time.timeScale = 0f;
     }
 

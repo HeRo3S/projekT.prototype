@@ -7,9 +7,11 @@ using TMPro;
 
 public class SettingMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    [SerializeField]
+    private AudioMixer audioMixer;
     Resolution[] resolutions;
-    public TMP_Dropdown resolutionDropdown;
+    [SerializeField]
+    private TMP_Dropdown resolutionDropdown;
 
     private void Start()
     {

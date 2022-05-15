@@ -44,7 +44,7 @@ public class InventoryUI : MonoBehaviour
     private void BackButtonOnClick()
     {
         CanvasController.GetInstance().DisableCanvas(transform.GetComponent<Canvas>());
-        CanvasController.GetInstance().EnableCanvas(this.transform.parent.Find("IngameHUDCanvas").GetComponent<Canvas>());
+        CanvasController.GetInstance().EnableCanvas("IngameHUDCanvas");
         Time.timeScale = 1f;
     }
 
