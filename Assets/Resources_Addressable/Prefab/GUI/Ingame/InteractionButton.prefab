@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8979892651217947640}
   - component: {fileID: 8979892651217947641}
   m_Layer: 5
-  m_Name: Talk Button
+  m_Name: InteractionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

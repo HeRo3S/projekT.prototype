@@ -10,7 +10,7 @@ public class LoadSave : MonoBehaviour
     private SaveSlot[] saveSlots;
     private void Awake()
     {
-        backBtn = transform.Find("BackButton").GetComponent<Button>();
+        backBtn = transform.GetChild(0).Find("BackButton").GetComponent<Button>();
         backBtn.onClick.AddListener(BackButtonOnClick);
         saveSlots = GetComponentsInChildren<SaveSlot>(true);
         for(int i = 0; i < saveSlots.Length; i++)
