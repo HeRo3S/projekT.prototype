@@ -22260,6 +22260,30 @@ PrefabInstance:
       propertyPath: linkedCanvas
       value: 
       objectReference: {fileID: 1505473036}
+    - target: {fileID: 7341987688892439289, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341987688892439289, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341987688892439289, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341987688892439289, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341987688892439289, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341987688892439289, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7341987688892439291, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -22406,11 +22430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8863809109511988299, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 771.08545
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8863809109511988299, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -424
+      value: -313
       objectReference: {fileID: 0}
     - target: {fileID: 8863809109511988299, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
       propertyPath: m_AnchoredPosition.y
