@@ -22260,6 +22260,10 @@ PrefabInstance:
       propertyPath: linkedCanvas
       value: 
       objectReference: {fileID: 1505473036}
+    - target: {fileID: 7341987688892439291, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7560439620962738468, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0

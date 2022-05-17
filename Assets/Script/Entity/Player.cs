@@ -28,6 +28,8 @@ public class Player : EntityBase
     bool endingPhasing = false;
     //Audio Manager
     private AudioManager audioManager;
+    //Interacting
+    private List<IIteractable> interactList = new List<IIteractable>();
 
     public override void Awake()
     {
@@ -205,5 +207,45 @@ public class Player : EntityBase
             collisionBorder.isTrigger = false;
         }
     }
-
+    public void Interact()
+    {
+        if (interactList.Count == 0)
+        {
+            Debug.Log("Invalid Request");
+            return;
+        }
+        IIteractable closestTarget = interactList[0];
+        float shortestDistance = (((MonoBehaviour)closestTarget).transform.position - transform.position).magnitude;
+        foreach (IIteractable target in interactList)
+        {
+            float distance = (((MonoBehaviour)target).transform.position - transform.position).magnitude;
+            if (distance < shortestDistance)
+            {
+                closestTarget = target;
+                shortestDistance = distance;
+            }
+        }
+        closestTarget.OnInteract();
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        IIteractable collideEntity = collision.gameObject.GetComponent<IIteractable>();
+        if(collideEntity != null)
+        {
+            interactList.Add(collideEntity);
+            InstanceManager.Instance.interactButton.gameObject.SetActive(true);
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        IIteractable collideEntity = collision.gameObject.GetComponent<IIteractable>();
+        if (collideEntity != null)
+        {
+            interactList.Remove(collideEntity);
+            if(interactList.Count == 0)
+            {
+                InstanceManager.Instance.interactButton.gameObject.SetActive(false);
+            }
+        }
+    }
 }

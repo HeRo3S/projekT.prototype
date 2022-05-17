@@ -10,4 +10,11 @@ public static class Enumeration
         BROADSWORD,
         BOW
     };
+
+    public enum GameState
+    {
+        IN_MAINMENU,
+        INGAME_NORMAL,
+        INGAME_UI_OPEN
+    }
 }
