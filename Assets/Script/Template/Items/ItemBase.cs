@@ -54,6 +54,10 @@ public abstract class ItemBase : ScriptableObject, IUsable
     {
         return quantityCarrying;
     }
+    public int GetQuantityLimit()
+    {
+        return quantityLimit;
+    }
 
     //Use Item function
     public virtual void OnActive()

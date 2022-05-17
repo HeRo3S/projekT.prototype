@@ -48,8 +48,6 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    
-    // Start is called before the first frame update
     private void OnEnable()
     {
         inventory.onItemChangedCallBack.Invoke();
@@ -103,6 +101,7 @@ public class InventoryUI : MonoBehaviour
             return;
         }
         currentSelectSlot.UseItem();
+        inventory.DestroyItemCheck(currentSelectSlot.GetItem());
         UpdateUI();
     }
 

@@ -25,6 +25,17 @@ public class Inventory : MonoBehaviour
 
     public List<ItemBase> items = new List<ItemBase>();
 
+    public void DestroyItemCheck(ItemBase item)
+    {
+        if (item.GetQuantity() <= 0)
+        {
+            items.Remove(item);
+            Debug.Log(items);
+        }
+        return;
+    }
+
+    //Add item function, if item's limit has been reached, function'll not create more items 
     public bool Add (ItemBase item)
     {
         if(items.Count >= space )
@@ -35,21 +46,24 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].name == item.name)
+            if (items[i].GetItemID() == item.GetItemID())
             {
-                items[i].SetQuantity(items[i].GetQuantity()+1);
+                int addedQuantity = items[i].GetQuantity() + item.GetQuantity();
+                if (addedQuantity > item.GetQuantityLimit())
+                {
+                    addedQuantity = item.GetQuantityLimit();
+                }
+
+                items[i].SetQuantity(addedQuantity);
                 return true;
             }
         }
 
-        if (item.CanGetMore() == true)
+        if (!item.CanGetMore())
         {
-            items.Add(item);
+            item.SetQuantity(item.GetQuantityLimit());
         }
-        else
-        {
-            return false;
-        }
+        items.Add(item);
 
         if(onItemChangedCallBack != null)
         {
