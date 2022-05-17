@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Enumeration;
 
 public class GameStateManager : MonoBehaviour
 {
     private GameStateManager _instance;
-    private enum gameState {inTitleMenu, inGame, ingameMenuOpened}
-    private gameState state;
+    private GameState state;
 
     // Start is called before the first frame update
 
@@ -28,47 +28,41 @@ public class GameStateManager : MonoBehaviour
         UpdateGameState();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void UpdateGameState()
     {
         switch (ScenesController.Instance.CurrentSceneName())
         {
             case "TitleScene":
-                state = gameState.inTitleMenu;
+                state = GameState.IN_MAINMENU;
                 break;
             case "Ingame":
-                state = gameState.inTitleMenu;
+                state = GameState.INGAME_NORMAL;
                 break;
             default:
-                state = gameState.inTitleMenu;
+                state = GameState.IN_MAINMENU;
                 break;
         }
     }
 
     public void SwitchToStateTitleScreen()
     {
-        state = gameState.inTitleMenu;
+        state = GameState.IN_MAINMENU;
     }
 
     public void SwitchToStateIngame()
     {
-        state = gameState.inGame;
+        state = GameState.INGAME_NORMAL;
         Time.timeScale = 1f;
     }
 
     public void SwitchToStateIngameMenuOpened()
     {
-        state = gameState.ingameMenuOpened;
+        state = GameState.INGAME_UI_OPEN;
         Time.timeScale = 0f;
     }
 
-    public int GetGameState()
+    public GameState GetGameState()
     {
-        return (int)state;
+        return state;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Altar : MonoBehaviour
+public class Altar : MonoBehaviour, IIteractable
 {
     [SerializeField]
     protected List<GameObject> runeObjects;
@@ -53,5 +53,11 @@ public class Altar : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void OnInteract()
+    {
+        CanvasController.GetInstance().EnableOnlyCanvas("LoadSave");
+        InstanceManager.Instance.gameStateManager.SwitchToStateIngameMenuOpened();
     }
 }

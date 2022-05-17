@@ -107,6 +107,15 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""a938aa9e-d6fd-411d-a43a-0b96bc583db3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -340,6 +349,28 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""SkillPalette4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdd6620e-76fd-49ef-9c09-00918c28bcc8"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""081db896-1cb9-45de-9b5b-aa30d84838b1"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -385,6 +416,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         m_Player_SkillPalette2 = m_Player.FindAction("SkillPalette2", throwIfNotFound: true);
         m_Player_SkillPalette3 = m_Player.FindAction("SkillPalette3", throwIfNotFound: true);
         m_Player_SkillPalette4 = m_Player.FindAction("SkillPalette4", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -453,6 +485,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SkillPalette2;
     private readonly InputAction m_Player_SkillPalette3;
     private readonly InputAction m_Player_SkillPalette4;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -466,6 +499,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         public InputAction @SkillPalette2 => m_Wrapper.m_Player_SkillPalette2;
         public InputAction @SkillPalette3 => m_Wrapper.m_Player_SkillPalette3;
         public InputAction @SkillPalette4 => m_Wrapper.m_Player_SkillPalette4;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -502,6 +536,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @SkillPalette4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette4;
                 @SkillPalette4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette4;
                 @SkillPalette4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillPalette4;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -533,6 +570,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @SkillPalette4.started += instance.OnSkillPalette4;
                 @SkillPalette4.performed += instance.OnSkillPalette4;
                 @SkillPalette4.canceled += instance.OnSkillPalette4;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -566,5 +606,6 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         void OnSkillPalette2(InputAction.CallbackContext context);
         void OnSkillPalette3(InputAction.CallbackContext context);
         void OnSkillPalette4(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

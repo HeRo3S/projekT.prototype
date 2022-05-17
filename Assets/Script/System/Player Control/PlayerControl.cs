@@ -36,10 +36,16 @@ public class PlayerControl : MonoBehaviour
         playerInputSystem.Player.ReleaseLock.performed += ReleaseLock_performed;
         playerInputSystem.Player.LightAttack.performed += LightAttack_performed;
         playerInputSystem.Player.SwitchWeapon.performed += SwitchWeapon_performed;
+        playerInputSystem.Player.Interact.performed += Interact_performed;
         //Initialize Value
         moveVector.Set(0f, 0f);
         targetRotationLocation.Set(0f, 0f);
         //moveFilter = InstanceManager.Instance.groundEntityFilter;
+    }
+
+    private void Interact_performed(InputAction.CallbackContext obj)
+    {
+        player.Interact();
     }
 
     private void SwitchWeapon_performed(InputAction.CallbackContext obj)
@@ -66,6 +72,10 @@ public class PlayerControl : MonoBehaviour
     //Subcribe to event
     private void LockTarget_performed(InputAction.CallbackContext context)
     {
+        if(InstanceManager.Instance.gameStateManager.GetGameState() == Enumeration.GameState.INGAME_UI_OPEN)
+        {
+            return;
+        }
         //Read touch input and convert to world position
         Vector2 touchPos = context.ReadValue<Vector2>();
         Vector2 targetLocation = mainCam.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y));
@@ -114,6 +124,7 @@ public class PlayerControl : MonoBehaviour
         playerInputSystem.Player.ReleaseLock.performed -= ReleaseLock_performed;
         playerInputSystem.Player.LightAttack.performed -= LightAttack_performed;
         playerInputSystem.Player.SwitchWeapon.performed -= SwitchWeapon_performed;
+        playerInputSystem.Player.Interact.performed -= Interact_performed;
     }
 
 }

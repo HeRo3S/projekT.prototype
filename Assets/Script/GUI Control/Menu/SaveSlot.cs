@@ -31,14 +31,14 @@ public class SaveSlot : MonoBehaviour
         //Game state code: 0 - inTitleMenu, 1 - inGame, 2 - ingameMenuOpened
         switch(InstanceManager.Instance.gameStateManager.GetGameState())
         {
-            case 0:
+            case Enumeration.GameState.IN_MAINMENU:
                 if (SaveSystem.DataExist(slotIndex))
                 {
                     SaveSystem.LoadFromSlot(slotIndex);
                     ScenesController.Instance.LoadScene("Ingame");
                 }
                 break;
-            case 2:
+            case Enumeration.GameState.INGAME_UI_OPEN:
                 SaveSystem.SaveToSlot(slotIndex);
                 RefreshDisplay();
                 break;

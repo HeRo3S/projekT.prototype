@@ -39,4 +39,5 @@ public class InstanceManager : MonoBehaviour
     public AudioManager audioManager;
     public GameStateManager gameStateManager;
     public CanvasController canvasController;
+    public InteractButton interactButton;
 }
