@@ -48,6 +48,7 @@ public static class SaveSystem
             foreach (Item itemData in saveData.inventory)
             {
                 ItemBase item = ScriptableObject.Instantiate(AssetLoader.LoadScriptable("Items/" + itemData.item_id)) as ItemBase;
+                item.SetQuantity(itemData.amount);
                 InstanceManager.Instance.currentInventory.Add(item);
             }
         }

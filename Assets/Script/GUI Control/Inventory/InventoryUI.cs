@@ -50,7 +50,7 @@ public class InventoryUI : MonoBehaviour
 
     
     // Start is called before the first frame update
-    private void Start()
+    private void OnEnable()
     {
         inventory.onItemChangedCallBack.Invoke();
     }
@@ -79,7 +79,7 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        if (currentSelectSlot != null)
+        if (currentSelectSlot != null )
         {
             itemName.text = currentSelectSlot.GetItem().GetItemName();
             desc.text = currentSelectSlot.GetItem().GetDescription();
@@ -113,8 +113,10 @@ public class InventoryUI : MonoBehaviour
             SlotDeselected();
             return;
         }
-
-        currentSelectSlot = slot;
+        if(slot.GetItem() != null)
+        {
+            currentSelectSlot = slot;
+        }
         UpdateUI();    
     }
     public void SlotDeselected()
