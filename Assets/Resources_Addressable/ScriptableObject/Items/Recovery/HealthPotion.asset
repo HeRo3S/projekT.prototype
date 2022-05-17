@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
   itemID: HealthPotion
-  itemName: 
-  itemDescription: 
+  itemName: Health Potion
+  itemDescription: Refill 100 HP
   price: 100
   quantityCarrying: 1
   quantityLimit: 99

@@ -22252,6 +22252,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451121819971252174, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7140499366711935413, guid: d4e2ea97f3c5dcd408385a2ab70c8a4b, type: 3}
       propertyPath: linkedCanvas
       value: 

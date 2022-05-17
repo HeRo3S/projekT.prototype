@@ -2,31 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class InventorySlot : MonoBehaviour
 {
     ItemBase item;
 
     public Image icon;
 
-    public Button removeButton;
+    [SerializeField]
+    private Button removeButton;
+    private Button itemButton;
+    [SerializeField]
+    private TextMeshProUGUI quantity;
 
-    private void Start()
+    private void Awake()
     {
-        icon = transform.GetChild(0).GetComponentInChildren<Image>();
+        itemButton = transform.Find("ItemButton").GetComponent<Button>();
+        itemButton.onClick.AddListener(ItemButtonOnclick);
         removeButton = transform.Find("RemoveButton").GetComponent<Button>();
+        removeButton.onClick.AddListener(OnRemoveButton);
+        icon = itemButton.transform.Find("Icon").GetComponent<Image>();
+        quantity = itemButton.transform.Find("QuantityTextHolder").GetComponent<TextMeshProUGUI>();
     }
 
     public void AddItem(ItemBase newItem)
     {
+        if (newItem == null) return;
         item = newItem;
         icon.sprite= item.GetIcon();
         icon.preserveAspect = true;
         icon.enabled = true;
-        removeButton.interactable = true;
+        quantity.text = item.GetQuantity().ToString();
+        quantity.enabled = true;
+        removeButton.interactable = false;
     }
 
-    public void ClearSlot ()
+    public void ClearSlot()
     {
         item = null;
         icon.sprite = null;
@@ -34,16 +45,33 @@ public class InventorySlot : MonoBehaviour
         removeButton.interactable = false;
     }
 
+    public void BlurSlot()
+    {
+        icon.color = Color.gray;
+    }
+
+    public void UnblurSlot()
+    {
+        icon.color = new Color(255, 255, 255, 100);
+    }
+
+    public void ItemButtonOnclick()
+    {
+        InventoryUI.instance.SlotSelected(this);
+    }
+
     public void OnRemoveButton()
     {
-        Inventory.instance.Remove(item);    
+        InstanceManager.Instance.currentInventory.Remove(item);    
     }
 
     public void UseItem()
     {
-        if (item != null)
-        {
-            item.Use();
-        }
+        item.OnActive();
+    }
+
+    public ItemBase GetItem()
+    {
+        return item;
     }
 }

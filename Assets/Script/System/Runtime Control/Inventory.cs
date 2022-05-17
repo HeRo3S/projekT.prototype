@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         InstanceManager.Instance.currentInventory = this;
     }
 
-    public int space = 21;
+    public int space = 14;
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;

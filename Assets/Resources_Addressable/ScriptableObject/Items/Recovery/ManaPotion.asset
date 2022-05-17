@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ManaPotion
   m_EditorClassIdentifier: 
   itemID: ManaPotion
-  itemName: 
-  itemDescription: 
+  itemName: Mana Potion
+  itemDescription: Refill 100 MP
   price: 0
   quantityCarrying: 1
   quantityLimit: 99

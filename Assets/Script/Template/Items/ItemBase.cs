@@ -24,7 +24,7 @@ public abstract class ItemBase : ScriptableObject, IUsable
 
     public bool CanUse()
     {
-        return quantityCarrying > 0;
+        return (quantityCarrying > 0);
     }
 
     public bool CanGetMore()
@@ -32,6 +32,14 @@ public abstract class ItemBase : ScriptableObject, IUsable
         return (quantityCarrying < quantityLimit);
     }
 
+    public string GetItemName()
+    {
+        return itemName;
+    }
+    public string GetDescription()
+    {
+        return itemDescription;
+    }
     public Sprite GetIcon()
     {
         return icon;
@@ -47,15 +55,10 @@ public abstract class ItemBase : ScriptableObject, IUsable
         return quantityCarrying;
     }
 
+    //Use Item function
     public virtual void OnActive()
     {
         quantityCarrying -= 1;
-    }
-
-    public virtual void Use()
-    {
-        //abcxyz
-        Debug.Log("Using Item");
     }
     public string GetItemID()
     {

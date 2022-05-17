@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IUsable
 {
     public bool CanUse();
-    public void Use();
 }

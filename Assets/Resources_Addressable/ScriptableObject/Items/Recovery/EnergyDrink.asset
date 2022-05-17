@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnergyDrink
   m_EditorClassIdentifier: 
   itemID: EnergyDrink
-  itemName: 
-  itemDescription: 
+  itemName: Energy Drink
+  itemDescription: Boost stamina recovery by 75%
   price: 0
   quantityCarrying: 1
   quantityLimit: 99
