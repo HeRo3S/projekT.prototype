@@ -36,8 +36,7 @@ public class InstanceManager : MonoBehaviour
     public ContactFilter2D groundEntityFilter;
     public List<AbilityBase> currentSkillList;
     public Inventory currentInventory;
-    public AudioManager audioManager;
-    public GameStateManager gameStateManager;
+    public DialogueManager dialogueManager;
     public CanvasController canvasController;
     public InteractButton interactButton;
 }

@@ -60,7 +60,8 @@ public class Player : EntityBase
     public void Start()
     {
         //Audio Manager
-        audioManager = InstanceManager.Instance.audioManager;
+        //audioManager = InstanceManager.Instance.audioManager;
+        audioManager = AudioManager.Instance;
     }
 
     public void FixedUpdate()
@@ -193,7 +194,8 @@ public class Player : EntityBase
 
     public override void SelfDestruct()
     {
-        ScenesController.Instance.ReloadScene();
+        CanvasController.GetInstance().EnableOnlyCanvas("DiedDialogue");
+        base.SelfDestruct();
     }
 
     //Phasing make player ignore all collision

@@ -134,6 +134,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735873, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: sceneSounds.Array.data[0].volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735873, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: weaponSounds.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735873, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: weaponSounds.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092196532531735873, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
+      propertyPath: weaponSounds.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8092196532531735902, guid: 06381d241f58ec840a86f0c32d3537f1, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -2,14 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Enumeration;
+using UnityEngine.AddressableAssets;
 
 public class GameStateManager : MonoBehaviour
 {
-    private GameStateManager _instance;
+    private static GameStateManager _instance;
     private GameState state;
 
     // Start is called before the first frame update
 
+    public static GameStateManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                var op = Addressables.LoadAssetAsync<GameObject>("PrefabGameStateManager");
+                _instance = Instantiate(op.WaitForCompletion()).GetComponent<GameStateManager>();
+                Addressables.Release(op);
+            }
+            return _instance;
+        }
+    }
     private void Awake()
     {
         //Singleton
@@ -20,7 +34,6 @@ public class GameStateManager : MonoBehaviour
         }
         _instance = this;
         DontDestroyOnLoad(this);
-        InstanceManager.Instance.gameStateManager= this;
 
     }
     void Start()

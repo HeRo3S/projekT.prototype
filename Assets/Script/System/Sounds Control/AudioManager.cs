@@ -2,11 +2,25 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using System.Collections;
+using UnityEngine.AddressableAssets;
 using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
+    public static AudioManager Instance 
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                var op = Addressables.LoadAssetAsync<GameObject>("AudioManager.prefab");
+                _instance = Instantiate(op.WaitForCompletion()).GetComponent<AudioManager>();
+                Addressables.Release(op);
+            }
+            return _instance;
+        }
+    }
     private Sound[] sounds;
     public Sound[] weaponSounds;
     public Sound[] sceneSounds;
@@ -42,7 +56,6 @@ public class AudioManager : MonoBehaviour
         }
         _instance = this;
         DontDestroyOnLoad(this);
-        InstanceManager.Instance.audioManager = this;
         MergeSoundsArray();
         LoadAudioSourceIntoGameobject();
     }
@@ -51,10 +64,24 @@ public class AudioManager : MonoBehaviour
     {
         //Play main theme
         Play("maintheme");
-        //Play ambient sound
-        Play("ambient_cicadas");
-        
     }
+
+    private void Update()
+    {
+        if (GameStateManager.Instance.GetGameState() != Enumeration.GameState.INGAME_NORMAL)
+        {
+            if (isPlaying("ambient_cicadas")) { Stop("ambient_cicadas"); }
+            return;
+        }
+        LoopAudioInUpdateFunction("ambient_cicadas");
+    }
+
+    private bool isPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        return s.source.isPlaying;
+    }
+
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

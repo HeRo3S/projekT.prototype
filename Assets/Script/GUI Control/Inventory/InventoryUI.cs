@@ -91,7 +91,7 @@ public class InventoryUI : MonoBehaviour
     {
         CanvasController.GetInstance().DisableCanvas(transform.GetComponent<Canvas>());
         CanvasController.GetInstance().EnableCanvas("IngameHUDCanvas");
-        InstanceManager.Instance.gameStateManager.SwitchToStateIngame();
+        GameStateManager.Instance.SwitchToStateIngame();
     }
 
     private void UseButtonOnClick()
@@ -102,7 +102,7 @@ public class InventoryUI : MonoBehaviour
             return;
         }
         currentSelectSlot.UseItem();
-        inventory.DestroyItemCheck(currentSelectSlot.GetItem());
+        if (inventory.DestroyItemCheck(currentSelectSlot.GetItem()) == true) currentSelectSlot = null;
         UpdateUI();
     }
 

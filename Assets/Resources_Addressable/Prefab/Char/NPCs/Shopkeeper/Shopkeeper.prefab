@@ -184,7 +184,7 @@ MonoBehaviour:
   speed: 0
   inAttackAnimation: 0
   anim: {fileID: 0}
-  inventory: {fileID: 6779722927070382143}
+  hpBar: {fileID: 0}
 --- !u!114 &6779722927070382143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 8906255467902050666}
   - component: {fileID: 2856590758723561480}
   - component: {fileID: 7546087884937437313}
+  - component: {fileID: 2536751762030349864}
   m_Layer: 12
   m_Name: InteractBorder
   m_TagString: Untagged
@@ -261,3 +262,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 6779722927070382143}
+--- !u!114 &2536751762030349864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423170426057696514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d256316de6535489ede71c0d6c0bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkingPerson: Shopkeeper
+  sentences:
+  - Please, feel free to buy anything!

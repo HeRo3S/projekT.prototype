@@ -78,7 +78,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 06381d241f58ec840a86f0c32d3537f1
-    m_Address: Assets/Resources_Addressable/Prefab/AudioManager.prefab
+    m_Address: AudioManager.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 5344b3195a51dd24fbf377d5f3794c92

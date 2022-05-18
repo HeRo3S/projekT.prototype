@@ -35,6 +35,7 @@ public class OptionsListButtons : MonoBehaviour
     private void NewGameButtonOnClick()
     {
         ScenesController.Instance.LoadScene("Ingame");
+        GameStateManager.Instance.SwitchToStateIngame();
     }
 
     private void SettingsButtonOnClick()

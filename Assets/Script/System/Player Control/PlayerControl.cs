@@ -72,7 +72,7 @@ public class PlayerControl : MonoBehaviour
     //Subcribe to event
     private void LockTarget_performed(InputAction.CallbackContext context)
     {
-        if(InstanceManager.Instance.gameStateManager.GetGameState() == Enumeration.GameState.INGAME_UI_OPEN)
+        if(GameStateManager.Instance.GetGameState() == Enumeration.GameState.INGAME_UI_OPEN)
         {
             return;
         }

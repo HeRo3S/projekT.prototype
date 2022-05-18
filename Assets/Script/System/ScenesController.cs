@@ -27,7 +27,6 @@ public class ScenesController
 
     public void ReloadScene()
     {
-        InstanceManager.Instance.Reload();
         Scene thisScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(thisScene.name);
     }

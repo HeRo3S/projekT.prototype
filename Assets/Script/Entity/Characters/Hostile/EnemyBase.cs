@@ -23,6 +23,7 @@ public class EnemyBase : EntityBase, ITargetable
     }
     public virtual void Update()
     {
+        if (target == null) return;
         Vector2 moveDirection = target.transform.position - transform.position;
         if (moveDirection.magnitude > attackRange && inAttackAnimation != false)
         {

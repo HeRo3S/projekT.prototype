@@ -29,7 +29,7 @@ public class SaveSlot : MonoBehaviour
     public void OnButtonClick()
     {
         //Game state code: 0 - inTitleMenu, 1 - inGame, 2 - ingameMenuOpened
-        switch(InstanceManager.Instance.gameStateManager.GetGameState())
+        switch(GameStateManager.Instance.GetGameState())
         {
             case Enumeration.GameState.IN_MAINMENU:
                 if (SaveSystem.DataExist(slotIndex))

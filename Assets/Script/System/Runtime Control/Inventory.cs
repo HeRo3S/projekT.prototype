@@ -25,14 +25,15 @@ public class Inventory : MonoBehaviour
             defaultInventory = null;
         }
     }
-    public void DestroyItemCheck(ItemBase item)
+    public bool DestroyItemCheck(ItemBase item)
     {
         if (item.GetQuantity() <= 0)
         {
             items.Remove(item);
             Debug.Log(items);
+            return true;
         }
-        return;
+        return false;
     }
 
     public void FirstTimeOpenInventoryCheck()

@@ -87,7 +87,7 @@ public class ShopUI: MonoBehaviour
     {
         CanvasController.GetInstance().DisableCanvas(transform.GetComponent<Canvas>());
         CanvasController.GetInstance().EnableCanvas("IngameHUDCanvas");
-        InstanceManager.Instance.gameStateManager.SwitchToStateIngame();
+        GameStateManager.Instance.SwitchToStateIngame();
     }
 
     private void AddButtonOnClick()

@@ -6,10 +6,12 @@ public class ShopkeeperInteract : MonoBehaviour, IIteractable
 {
     [SerializeField]
     private Inventory inventory;
+    private Dialogue dialogue;
 
     private void Awake()
     {
         inventory.FirstTimeOpenInventoryCheck();
+        dialogue = transform.GetComponent<Dialogue>();
     }
     public void OnInteract()
     {
@@ -20,7 +22,7 @@ public class ShopkeeperInteract : MonoBehaviour, IIteractable
     public void SetupShopCanvas()
     {
         CanvasController.GetInstance().EnableOnlyCanvas("ShopCanvas");
-        InstanceManager.Instance.gameStateManager.SwitchToStateIngameMenuOpened();
+        GameStateManager.Instance.SwitchToStateIngameMenuOpened();
         ShopUI.instance.SetupInventory(inventory);
     }
 }

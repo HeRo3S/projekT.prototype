@@ -26,6 +26,7 @@ public class Golem : EnemyBase
 
     public override void Update()
     {
+        if (target == null) return;
         if (!inAttackAnimation)
         {
             Vector2 moveDirection = target.transform.position - transform.position;
@@ -68,7 +69,6 @@ public class Golem : EnemyBase
     protected void UpdateHealthbar()
     {
 
-        Debug.Log(healthPts / maxHealth);
         hpBar.fillAmount = (healthPts / maxHealth);
     }
 }
