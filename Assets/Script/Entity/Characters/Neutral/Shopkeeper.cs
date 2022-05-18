@@ -26,12 +26,16 @@ public class Shopkeeper: EntityBase
     // Update is called once per frame
     public void FixedUpdate()
     {
-        Vector2 moveDirection = target.transform.position - transform.position;
-        if (moveDirection.magnitude <= detectionRange)
+        if (target == null) { return; }
+        else
         {
-            moveDirection /= moveDirection.magnitude;
-            Move(moveDirection);
-            anim.SetFloat("LatestAngle", SplitRotationAngleInto(4));
+            Vector2 moveDirection = target.transform.position - transform.position;
+            if (moveDirection.magnitude <= detectionRange)
+            {
+                moveDirection /= moveDirection.magnitude;
+                Move(moveDirection);
+                anim.SetFloat("LatestAngle", SplitRotationAngleInto(4));
+            }
         }
     }
     public override bool Move(Vector2 moveDirection)
