@@ -251,6 +251,7 @@ MonoBehaviour:
   stamina: 300
   staminaRegen: 20
   currentWeaponObject: {fileID: 1986144659231727230}
+  inventory: {fileID: 4468991148281194235, guid: 645f364da3f116f49aeb93eb2be064be, type: 3}
   target: {fileID: 0}
 --- !u!60 &8243352617867594221
 PolygonCollider2D:

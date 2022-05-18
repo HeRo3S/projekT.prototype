@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class InventoryUI : MonoBehaviour
-{
-    public static InventoryUI instance;
 
-    public Transform itemsParent;
+public class ShopUI: MonoBehaviour
+{
+    public static ShopUI instance;
+
+    private Transform itemsParent;
     private Button backbtn;
-    private Button usebtn;
+    private Button addbtn;
     private TextMeshProUGUI itemName;
     private TextMeshProUGUI desc;
-    private TextMeshProUGUI hp;
-    private TextMeshProUGUI mp;
 
+    Receipts receipts;
     Inventory inventory;
 
-    InventorySlot[] slots;
-    InventorySlot currentSelectSlot;
+    ShopSlot[] slots;
+    ShopSlot currentSelectSlot;
 
     private void Awake()
     {
@@ -28,36 +28,28 @@ public class InventoryUI : MonoBehaviour
             return;
         }
         instance = this;
-        
-        itemsParent = transform.Find("Inventory").Find("ItemParent");
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>(true);
+
+        itemsParent = transform.Find("Shop").Find("ItemParent");
+        slots = itemsParent.GetComponentsInChildren<ShopSlot>(true);
 
         backbtn = transform.Find("BackButton").GetComponent<Button>();
         backbtn.onClick.AddListener(BackButtonOnClick);
-        usebtn = transform.Find("UseButton").GetComponent<Button>();
-        usebtn.onClick.AddListener(UseButtonOnClick);
-
+        addbtn = transform.Find("ItemDesc").Find("AddButton").GetComponent<Button>();
+        addbtn.onClick.AddListener(AddButtonOnClick);
         itemName = transform.Find("ItemDesc").Find("ItemName").GetComponent<TextMeshProUGUI>();
         desc = transform.Find("ItemDesc").Find("Desc").GetComponent<TextMeshProUGUI>();
-        hp = transform.Find("Status").Find("HP").GetComponent<TextMeshProUGUI>();
-        mp = transform.Find("Status").Find("MP").GetComponent<TextMeshProUGUI>();
-
-        inventory = InstanceManager.Instance.currentInventory;
-        inventory.FirstTimeOpenInventoryCheck();
-        inventory.onItemChangedCallBack += UpdateUI;
-
 
     }
 
-    private void OnEnable()
+    public void SetupInventory(Inventory inv)
     {
+        inventory = inv;
+        inventory.onItemChangedCallBack += UpdateUI;
         inventory.onItemChangedCallBack.Invoke();
     }
+
     void UpdateUI()
     {
-        hp.text = InstanceManager.Instance.player.GetHealth() + " / " + InstanceManager.Instance.player.GetMaxHP();
-        mp.text = InstanceManager.Instance.player.GetMana() + " / " + InstanceManager.Instance.player.GetMaxMana();
-
         for (int i = 0; i < slots.Length; i++)
         {
             if (i < inventory.items.Count)
@@ -83,8 +75,6 @@ public class InventoryUI : MonoBehaviour
             itemName.text = currentSelectSlot.GetItem().GetItemName();
             desc.text = currentSelectSlot.GetItem().GetDescription();
         }
-
-        Debug.Log("Updating UI");
     }
 
     private void BackButtonOnClick()
@@ -94,19 +84,25 @@ public class InventoryUI : MonoBehaviour
         InstanceManager.Instance.gameStateManager.SwitchToStateIngame();
     }
 
-    private void UseButtonOnClick()
+    private void AddButtonOnClick()
     {
         if (currentSelectSlot == null)
         {
             Debug.Log("Please choose an item!");
             return;
         }
+        ItemBase addItem = Instantiate(currentSelectSlot.GetItem());
+        addItem.SetQuantity(1);
+        Receipts.instance.AddItemIntoWishList(addItem);
+        /**
         currentSelectSlot.UseItem();
         inventory.DestroyItemCheck(currentSelectSlot.GetItem());
         UpdateUI();
+        */
+        //Need to refactor this
     }
 
-    public void SlotSelected(InventorySlot slot)
+    public void SlotSelected(ShopSlot slot)
     {
         if (currentSelectSlot == slot)
         {
@@ -124,4 +120,11 @@ public class InventoryUI : MonoBehaviour
         currentSelectSlot = null;
         UpdateUI();
     }
+
+    public Inventory GetInventory()
+    {
+        return inventory;
+    }
+
+
 }

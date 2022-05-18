@@ -48,3 +48,4 @@ MonoBehaviour:
   pfBroadSword: {fileID: 8773443280070863204, guid: c9bab3216fdcd4a4199f6e8496b3a4dd, type: 3}
   pfBow: {fileID: 4573756891674337669, guid: c05b85a64c132904c8766eb308ac7177, type: 3}
   pfGolemAttack: {fileID: 3339870211505268610, guid: 2b8cefb5bc618634ca3100f9a520ad27, type: 3}
+  pfCartTextHolder: {fileID: 2685645938752270046, guid: cce6e6f47b3d2884695a52d1cdf0a96c, type: 3}

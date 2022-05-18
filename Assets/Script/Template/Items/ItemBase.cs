@@ -40,6 +40,11 @@ public abstract class ItemBase : ScriptableObject, IUsable
     {
         return itemDescription;
     }
+
+    public int GetPrice()
+    {
+        return price;
+    }
     public Sprite GetIcon()
     {
         return icon;

@@ -4,20 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory instance;
-
-    void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(this);
-        instance = this;
-        InstanceManager.Instance.currentInventory = this;
-    }
-
     public int space = 14;
 
     public delegate void OnItemChanged();
@@ -33,6 +19,16 @@ public class Inventory : MonoBehaviour
             Debug.Log(items);
         }
         return;
+    }
+
+    public void FirstTimeOpenInventoryCheck()
+    {
+        //Check quantity = 0 items
+        for (int i = 0; i < items.Count; i++)
+        {
+            DestroyItemCheck(items[i]);
+        }
+
     }
 
     //Add item function, if item's limit has been reached, function'll not create more items 

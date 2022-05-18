@@ -21,6 +21,9 @@ public class Player : EntityBase
     protected WeaponBase currentWeapon;
     protected List<GameObject> weaponList;
     protected int currentWeaponIndex;
+    //Inventory
+    [SerializeField]
+    private Inventory inventory;
     //Targeting
     public GameObject target;
     //Phasing
@@ -46,6 +49,8 @@ public class Player : EntityBase
         currentWeaponIndex = 1;
         SwitchNextWeapon();
         inAttackAnimation = false;
+        //Inventory initialize
+        InstanceManager.Instance.currentInventory = inventory;
         //Phasing
         collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
     }
