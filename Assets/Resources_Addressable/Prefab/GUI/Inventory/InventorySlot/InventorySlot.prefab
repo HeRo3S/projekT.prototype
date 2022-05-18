@@ -50,9 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3334a8a7348780040890986dae726f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  removeButton: {fileID: 0}
-  quantity: {fileID: 0}
+  icon: {fileID: 3883183335754142181}
+  removeButton: {fileID: 3883183335149576923}
+  itemButton: {fileID: 3883183335378618236}
+  quantity: {fileID: 535005285469100190}
 --- !u!1 &3883183335149576901
 GameObject:
   m_ObjectHideFlags: 0

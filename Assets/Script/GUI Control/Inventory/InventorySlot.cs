@@ -11,18 +11,15 @@ public class InventorySlot : MonoBehaviour
 
     [SerializeField]
     private Button removeButton;
+    [SerializeField]
     private Button itemButton;
     [SerializeField]
     private TextMeshProUGUI quantity;
 
     private void Awake()
     {
-        itemButton = transform.Find("ItemButton").GetComponent<Button>();
         itemButton.onClick.AddListener(ItemButtonOnclick);
-        removeButton = transform.Find("RemoveButton").GetComponent<Button>();
         removeButton.onClick.AddListener(OnRemoveButton);
-        icon = itemButton.transform.Find("Icon").GetComponent<Image>();
-        quantity = itemButton.transform.Find("QuantityTextHolder").GetComponent<TextMeshProUGUI>();
     }
 
     public void AddItem(ItemBase newItem)

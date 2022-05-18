@@ -8,9 +8,23 @@ public class Inventory : MonoBehaviour
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
-
+    [SerializeField]
+    private List<ItemBase> defaultInventory;
+    [HideInInspector]
     public List<ItemBase> items = new List<ItemBase>();
 
+    public void Awake()
+    {
+        //Load default inventory into inventory
+        if(defaultInventory != null)
+        {
+            foreach(ItemBase item in defaultInventory)
+            {
+                items.Add(Instantiate(item));
+            }
+            defaultInventory = null;
+        }
+    }
     public void DestroyItemCheck(ItemBase item)
     {
         if (item.GetQuantity() <= 0)

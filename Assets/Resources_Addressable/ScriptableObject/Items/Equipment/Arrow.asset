@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: 
   itemDescription: 
   price: 0
-  quantityCarrying: 0
+  quantityCarrying: 1
   quantityLimit: 30
   icon: {fileID: -6890301164988981815, guid: a83787ad2d05ab94b973e53151f5e079, type: 3}
   weaponImplementation: {fileID: 0}

@@ -34,7 +34,7 @@ public class SaveSlot : MonoBehaviour
             case Enumeration.GameState.IN_MAINMENU:
                 if (SaveSystem.DataExist(slotIndex))
                 {
-                    SaveSystem.LoadFromSlot(slotIndex);
+                    SaveSystem.loadSlot = slotIndex;
                     ScenesController.Instance.LoadScene("Ingame");
                 }
                 break;

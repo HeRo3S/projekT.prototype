@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 1986144657990992834}
   - component: {fileID: 8243352617867594221}
   - component: {fileID: 1710597482}
+  - component: {fileID: 3386702975915685359}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -251,7 +252,7 @@ MonoBehaviour:
   stamina: 300
   staminaRegen: 20
   currentWeaponObject: {fileID: 1986144659231727230}
-  inventory: {fileID: 4468991148281194235, guid: 645f364da3f116f49aeb93eb2be064be, type: 3}
+  inventory: {fileID: 3386702975915685359}
   target: {fileID: 0}
 --- !u!60 &8243352617867594221
 PolygonCollider2D:
@@ -332,6 +333,21 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &3386702975915685359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986144657990992843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37246c919c9f9046bad4e3384bedbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  space: 14
+  defaultInventory: []
+  items: []
 --- !u!1 &1986144659231727230
 GameObject:
   m_ObjectHideFlags: 0

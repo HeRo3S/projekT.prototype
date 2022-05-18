@@ -30,18 +30,12 @@ public class GameStateManager : MonoBehaviour
 
     void UpdateGameState()
     {
-        switch (ScenesController.Instance.CurrentSceneName())
+        state = ScenesController.Instance.CurrentSceneName() switch
         {
-            case "TitleScene":
-                state = GameState.IN_MAINMENU;
-                break;
-            case "Ingame":
-                state = GameState.INGAME_NORMAL;
-                break;
-            default:
-                state = GameState.IN_MAINMENU;
-                break;
-        }
+            "TitleScene" => GameState.IN_MAINMENU,
+            "Ingame" => GameState.INGAME_NORMAL,
+            _ => GameState.IN_MAINMENU,
+        };
     }
 
     public void SwitchToStateTitleScreen()

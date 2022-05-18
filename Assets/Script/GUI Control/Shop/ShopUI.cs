@@ -91,7 +91,9 @@ public class ShopUI: MonoBehaviour
             Debug.Log("Please choose an item!");
             return;
         }
-        ItemBase addItem = Instantiate(currentSelectSlot.GetItem());
+        ItemBase selectedItem = currentSelectSlot.GetItem();
+        ItemBase addItem = Instantiate(selectedItem);
+        selectedItem.SetQuantity(selectedItem.GetQuantity() - 1);
         addItem.SetQuantity(1);
         Receipts.instance.AddItemIntoWishList(addItem);
         /**

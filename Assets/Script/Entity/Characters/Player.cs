@@ -51,6 +51,7 @@ public class Player : EntityBase
         inAttackAnimation = false;
         //Inventory initialize
         InstanceManager.Instance.currentInventory = inventory;
+        SaveSystem.Load();
         //Phasing
         collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
     }
@@ -212,6 +213,8 @@ public class Player : EntityBase
             collisionBorder.isTrigger = false;
         }
     }
+    
+    //Interacting
     public void Interact()
     {
         if (interactList.Count == 0)

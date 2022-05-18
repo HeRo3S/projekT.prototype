@@ -6,6 +6,7 @@ using UnityEngine;
 public static class SaveSystem
 {
     private static readonly string saveDirectory = Application.persistentDataPath + "/Save/";
+    public static int loadSlot = -1;
     public static void SaveToSlot(int slot)
     {
         ValidateDirectory();
@@ -36,7 +37,15 @@ public static class SaveSystem
         }
         return false;
     }
-    public static void LoadFromSlot(int slot)
+    public static void Load()
+    {
+        if(loadSlot != -1)
+        {
+            LoadFromSlot(loadSlot);
+        }
+        loadSlot = -1;
+    }
+    private static void LoadFromSlot(int slot)
     {
         if (DataExist(slot))
         {

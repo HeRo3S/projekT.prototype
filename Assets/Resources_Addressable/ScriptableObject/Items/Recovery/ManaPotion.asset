@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Mana Potion
   itemDescription: Refill 100 MP
   price: 100
-  quantityCarrying: 4
+  quantityCarrying: 1
   quantityLimit: 99
   icon: {fileID: 21300000, guid: a145404056f518e43bb5a232ff7e66fa, type: 3}
   healthRefillPotency: 0

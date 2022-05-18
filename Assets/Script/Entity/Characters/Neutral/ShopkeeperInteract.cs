@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ShopkeeperInteract : MonoBehaviour, IIteractable
 {
-    Inventory inventory;
+    [SerializeField]
+    private Inventory inventory;
 
     private void Awake()
     {
-        inventory = transform.parent.GetComponent<Shopkeeper>().GetInventory();
         inventory.FirstTimeOpenInventoryCheck();
     }
     public void OnInteract()
