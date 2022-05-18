@@ -11,10 +11,11 @@ public class ShopUI: MonoBehaviour
     private Transform itemsParent;
     private Button backbtn;
     private Button addbtn;
+    private Button buybtn;
     private TextMeshProUGUI itemName;
     private TextMeshProUGUI desc;
+    private TextMeshProUGUI playerBudget;
 
-    Receipts receipts;
     Inventory inventory;
 
     ShopSlot[] slots;
@@ -36,8 +37,11 @@ public class ShopUI: MonoBehaviour
         backbtn.onClick.AddListener(BackButtonOnClick);
         addbtn = transform.Find("ItemDesc").Find("AddButton").GetComponent<Button>();
         addbtn.onClick.AddListener(AddButtonOnClick);
+        buybtn = transform.Find("Cart").Find("BuyButton").GetComponent<Button>();
+        buybtn.onClick.AddListener(BuyButtonOnClick);
         itemName = transform.Find("ItemDesc").Find("ItemName").GetComponent<TextMeshProUGUI>();
         desc = transform.Find("ItemDesc").Find("Desc").GetComponent<TextMeshProUGUI>();
+        playerBudget = transform.Find("ItemDesc").Find("PlayerBudget").GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -70,6 +74,8 @@ public class ShopUI: MonoBehaviour
             }
         }
 
+        playerBudget.text = InstanceManager.Instance.player.GetBudget().ToString();
+
         if (currentSelectSlot != null )
         {
             itemName.text = currentSelectSlot.GetItem().GetItemName();
@@ -93,7 +99,7 @@ public class ShopUI: MonoBehaviour
         }
         ItemBase selectedItem = currentSelectSlot.GetItem();
         ItemBase addItem = Instantiate(selectedItem);
-        selectedItem.SetQuantity(selectedItem.GetQuantity() - 1);
+        //selectedItem.SetQuantity(selectedItem.GetQuantity() - 1);
         addItem.SetQuantity(1);
         Receipts.instance.AddItemIntoWishList(addItem);
         /**
@@ -102,6 +108,12 @@ public class ShopUI: MonoBehaviour
         UpdateUI();
         */
         //Need to refactor this
+    }
+
+    private void BuyButtonOnClick()
+    {
+        Receipts.instance.Transaction();
+        UpdateUI();
     }
 
     public void SlotSelected(ShopSlot slot)
@@ -127,6 +139,5 @@ public class ShopUI: MonoBehaviour
     {
         return inventory;
     }
-
 
 }

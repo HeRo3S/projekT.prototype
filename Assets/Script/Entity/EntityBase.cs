@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class EntityBase : MonoBehaviour, IMovable
 {
@@ -31,6 +32,10 @@ public abstract class EntityBase : MonoBehaviour, IMovable
     //Animator
     [SerializeField]
     protected Animator anim;
+
+    //Health display
+    [SerializeField]
+    protected Image hpBar;
 
     public virtual void Awake()
     {

@@ -95,6 +95,20 @@ public class Receipts : MonoBehaviour
         CartsTextHolder.Add(go);
     }
     
+    private void ClearListAfterBuy()
+    {
+        //clear bought item
+        WishListItems.Clear();
+        //clear TextUI of the order
+        foreach(GameObject cartTextHolder in CartsTextHolder)
+        {
+            Destroy(cartTextHolder);
+        }
+        CartsTextHolder.Clear();
+        //clear total price text UI
+        totalPriceTextHolder.text = "";
+    }
+
     public void CalculateTotalPrice()
     {
         totalPrice = 0;
@@ -103,6 +117,16 @@ public class Receipts : MonoBehaviour
             totalPrice += WishListItems[i].GetPrice() * WishListItems[i].GetQuantity();
         }
         totalPriceTextHolder.text = totalPrice.ToString();
+    }
+
+    public void Transaction()
+    {
+        foreach (ItemBase WishListItem in WishListItems)
+        {
+            InstanceManager.Instance.currentInventory.Add(WishListItem);
+        }
+        InstanceManager.Instance.player.SpendBudget(totalPrice);
+        ClearListAfterBuy();
     }
 
 }

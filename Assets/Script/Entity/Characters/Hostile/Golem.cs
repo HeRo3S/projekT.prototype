@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Golem : EnemyBase 
 {
@@ -8,6 +9,7 @@ public class Golem : EnemyBase
     {
         attackRange = 3f;
         anim = gameObject.GetComponent<Animator>();
+        hpBar = transform.Find("Canvas").GetChild(0).GetChild(0).GetComponent<Image>();
         base.Awake();
         
     }
@@ -47,6 +49,7 @@ public class Golem : EnemyBase
                 Move(Vector2.zero);
             }
         }
+        UpdateHealthbar();
     }
 
     public override bool Move(Vector2 moveDirection)
@@ -60,5 +63,12 @@ public class Golem : EnemyBase
     public void AfterAttackAnimation()
     {
         inAttackAnimation = false;
+    }
+
+    protected void UpdateHealthbar()
+    {
+
+        Debug.Log(healthPts / maxHealth);
+        hpBar.fillAmount = (healthPts / maxHealth);
     }
 }

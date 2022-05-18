@@ -20,6 +20,7 @@ public class ShopkeeperInteract : MonoBehaviour, IIteractable
     public void SetupShopCanvas()
     {
         CanvasController.GetInstance().EnableOnlyCanvas("ShopCanvas");
+        InstanceManager.Instance.gameStateManager.SwitchToStateIngameMenuOpened();
         ShopUI.instance.SetupInventory(inventory);
     }
 }

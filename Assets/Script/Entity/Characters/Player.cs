@@ -24,6 +24,8 @@ public class Player : EntityBase
     //Inventory
     [SerializeField]
     private Inventory inventory;
+    [SerializeField]
+    protected int budget;
     //Targeting
     public GameObject target;
     //Phasing
@@ -164,6 +166,14 @@ public class Player : EntityBase
     public float GetMaxMana()
     {
         return maxMana;
+    }
+    public int GetBudget()
+    {
+        return budget;
+    }
+    public void SpendBudget(int value)
+    {
+        budget -= value;
     }
     public void SwitchNextWeapon()
     {

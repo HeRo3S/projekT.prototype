@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Shopkeeper: EntityBase 
 {
-    [SerializeField]
-    private Inventory inventory;
     protected float detectionRange = 8f;
     private GameObject target;
 
@@ -47,9 +45,10 @@ public class Shopkeeper: EntityBase
         //}
         return true;
     }
-    public Inventory GetInventory()
-    {
-        return inventory;
-    }
+
+    //public Inventory GetInventory()
+    //{
+    //   return inventory;
+    //}
 
 }

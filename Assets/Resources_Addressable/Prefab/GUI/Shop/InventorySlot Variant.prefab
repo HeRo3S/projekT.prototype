@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4727340101085045649, guid: 6b337d007dabf4e49bf3ddc91478d7d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4133388716774942424, guid: 6b337d007dabf4e49bf3ddc91478d7d5, type: 3}
     - {fileID: 2772823807131595446, guid: 6b337d007dabf4e49bf3ddc91478d7d5, type: 3}
