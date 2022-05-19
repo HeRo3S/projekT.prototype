@@ -41,6 +41,9 @@ public class LoadSave : MonoBehaviour
                 CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
                 //gameState.SwitchToStateIngame();
                 break;
+            case Enumeration.GameState.INGAME_PLAYER_DIED:
+                CanvasController.GetInstance().EnableOnlyCanvas("DiedDialogue");
+                break;
             default:
                 Debug.Log("Something's wrong with game state.");
                 break;
