@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: 3b449053be03172489578a4a760e782e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/LoadSave.unity
-    guid: f5db81af8e215e7439acab840ee57b26
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: dfdc9424be200724ab1c707bec10f3c1
   - enabled: 1
     path: Assets/Scenes/Ingame.unity
     guid: d3c4341ec12cf1144829bf90026c94a5

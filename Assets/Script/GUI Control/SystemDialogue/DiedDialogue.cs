@@ -18,20 +18,19 @@ public class DiedDialogue : MonoBehaviour
         resurrectBtn.onClick.AddListener(RessurrectButtonOnClick);
         ragequitBtn = transform.GetChild(0).Find("RagequitButton").GetComponent<Button>();
         ragequitBtn.onClick.AddListener(RagequitButtonOnClick);
+
     }
 
     private void BackButtonOnClick()
     {
         CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
-        GameStateManager.Instance.SwitchToStateIngame();
+        //GameStateManager.Instance.SwitchToStateIngame();
     }
 
 
     private void RessurrectButtonOnClick()
     {
-        GameStateManager.Instance.SwitchToStateTitleScreen();
         CanvasController.GetInstance().EnableOnlyCanvas("LoadSave");
-
     }
 
     private void RagequitButtonOnClick()

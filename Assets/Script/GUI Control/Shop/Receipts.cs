@@ -95,7 +95,7 @@ public class Receipts : MonoBehaviour
         CartsTextHolder.Add(go);
     }
     
-    private void ClearListAfterBuy()
+    public void ClearListAfterBuy()
     {
         //clear bought item
         WishListItems.Clear();
@@ -125,8 +125,14 @@ public class Receipts : MonoBehaviour
         {
             InstanceManager.Instance.currentInventory.Add(WishListItem);
         }
-        InstanceManager.Instance.player.SpendBudget(totalPrice);
-        ClearListAfterBuy();
+        if (InstanceManager.Instance.player.SpendBudget(totalPrice) == false) {
+            Debug.Log("Can't buy things without money.");
+            return;
+        }
+        else
+        {
+            ClearListAfterBuy();
+        }
     }
 
 }

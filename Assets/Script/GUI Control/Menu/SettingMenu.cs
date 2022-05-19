@@ -64,11 +64,11 @@ public class SettingMenu : MonoBehaviour
         {
             case Enumeration.GameState.IN_MAINMENU:
                 CanvasController.GetInstance().EnableOnlyCanvas("OptionsList");
-                gameState.SwitchToStateTitleScreen();
+                //gameState.SwitchToStateTitleScreen();
                 break;
             case Enumeration.GameState.INGAME_UI_OPEN:
                 CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
-                gameState.SwitchToStateIngame();
+                //gameState.SwitchToStateIngame();
                 break;
             default:
                 Debug.Log("Something's wrong with game state.");

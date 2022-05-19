@@ -172,9 +172,14 @@ public class Player : EntityBase
     {
         return budget;
     }
-    public void SpendBudget(int value)
+    public bool SpendBudget(int value)
     {
-        budget -= value;
+        if (budget < value) return false;
+        else
+        {
+            budget -= value;
+            return true;
+        }
     }
     public void SetBudget(int value)
     {

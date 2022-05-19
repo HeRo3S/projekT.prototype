@@ -23,7 +23,7 @@ public class SystemTrayButton : MonoBehaviour
             return;
         }
         CanvasController.GetInstance().EnableOnlyCanvas(linkedCanvas.name);
-        GameStateManager.Instance.SwitchToStateIngameMenuOpened();
+        //GameStateManager.Instance.SwitchToStateIngameMenuOpened();
     }
 
 }

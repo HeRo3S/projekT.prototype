@@ -58,6 +58,6 @@ public class Altar : MonoBehaviour, IIteractable
     public void OnInteract()
     {
         CanvasController.GetInstance().EnableOnlyCanvas("LoadSave");
-        GameStateManager.Instance.SwitchToStateIngameMenuOpened();
+        //GameStateManager.Instance.SwitchToStateIngameMenuOpened();
     }
 }

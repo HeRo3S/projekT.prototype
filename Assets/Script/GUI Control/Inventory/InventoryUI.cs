@@ -83,15 +83,12 @@ public class InventoryUI : MonoBehaviour
             itemName.text = currentSelectSlot.GetItem().GetItemName();
             desc.text = currentSelectSlot.GetItem().GetDescription();
         }
-
-        Debug.Log("Updating UI");
     }
 
     private void BackButtonOnClick()
     {
-        CanvasController.GetInstance().DisableCanvas(transform.GetComponent<Canvas>());
-        CanvasController.GetInstance().EnableCanvas("IngameHUDCanvas");
-        GameStateManager.Instance.SwitchToStateIngame();
+        CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
+        //GameStateManager.Instance.SwitchToStateIngame();
     }
 
     private void UseButtonOnClick()

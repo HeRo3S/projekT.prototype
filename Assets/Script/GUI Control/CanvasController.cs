@@ -16,7 +16,7 @@ public class CanvasController: MonoBehaviour
         {
             Destroy(gameObject);
         }
-        InstanceManager.Instance.canvasController = this;
+        InstanceManager.Instance.canvasController = _instance;
         AttachAllCanvasIntoList();
     }
 
@@ -42,6 +42,7 @@ public class CanvasController: MonoBehaviour
     {
         Canvas target = canvasList.Find(c => c.name == canvasName);
         target.gameObject.SetActive(true);
+        GameStateManager.Instance.UpdateGameState();
     }
     //Enable Canvas and turn all the others off
     public void EnableOnlyCanvas(string canvasName)
@@ -49,12 +50,26 @@ public class CanvasController: MonoBehaviour
         Canvas target = canvasList.Find(c => c.name == canvasName);
         foreach (Canvas c in canvasList)
         {
-            DisableCanvas(c);
+            PrivateDisableCanvas(c);
         }
         target.gameObject.SetActive(true);
+        GameStateManager.Instance.UpdateGameState();
     }
-    public void DisableCanvas(Canvas target)
+    //Disable canvas
+    public void DisableCanvas(string canvasName)
+    {
+        Canvas target = canvasList.Find(c => c.name == canvasName);
+        target.gameObject.SetActive(false);
+    }
+
+    private void PrivateDisableCanvas(Canvas target)
     {
         target.gameObject.SetActive(false);
+    }
+       //Check status of the canvas
+    public bool IsCanvasActive(string canvasName)
+    {
+        Canvas target = canvasList.Find(c => c.name == canvasName);
+        return target.gameObject.activeInHierarchy;
     }
 }

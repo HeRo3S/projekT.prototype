@@ -2047,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 221515333545383826, guid: fd3ef1565b9953a4a9fd7f462987f34d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3363620536891046864, guid: fd3ef1565b9953a4a9fd7f462987f34d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2133,7 +2137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6643175498020755264, guid: fd3ef1565b9953a4a9fd7f462987f34d, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd3ef1565b9953a4a9fd7f462987f34d, type: 3}

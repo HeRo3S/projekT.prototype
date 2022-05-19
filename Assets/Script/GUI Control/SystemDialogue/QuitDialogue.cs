@@ -19,7 +19,7 @@ public class QuitDialogue : MonoBehaviour
     private void BackButtonOnClick()
     {
         CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
-        GameStateManager.Instance.SwitchToStateIngame();
+        //GameStateManager.Instance.SwitchToStateIngame();
     }
     private void RagequitButtonOnClick()
     {

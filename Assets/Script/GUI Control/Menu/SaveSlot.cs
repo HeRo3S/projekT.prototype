@@ -32,6 +32,7 @@ public class SaveSlot : MonoBehaviour
         switch(GameStateManager.Instance.GetGameState())
         {
             case Enumeration.GameState.IN_MAINMENU:
+            case Enumeration.GameState.INGAME_PLAYER_DIED:
                 if (SaveSystem.DataExist(slotIndex))
                 {
                     SaveSystem.loadSlot = slotIndex;

@@ -85,9 +85,9 @@ public class ShopUI: MonoBehaviour
 
     private void BackButtonOnClick()
     {
-        CanvasController.GetInstance().DisableCanvas(transform.GetComponent<Canvas>());
-        CanvasController.GetInstance().EnableCanvas("IngameHUDCanvas");
-        GameStateManager.Instance.SwitchToStateIngame();
+        CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
+        //GameStateManager.Instance.SwitchToStateIngame();
+        Receipts.instance.ClearListAfterBuy();
     }
 
     private void AddButtonOnClick()

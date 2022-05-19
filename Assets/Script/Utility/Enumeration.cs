@@ -15,6 +15,7 @@ public static class Enumeration
     {
         IN_MAINMENU,
         INGAME_NORMAL,
-        INGAME_UI_OPEN
+        INGAME_UI_OPEN,
+        INGAME_PLAYER_DIED
     }
 }
