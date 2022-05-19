@@ -9,9 +9,9 @@ public class QuitDialogue : MonoBehaviour
     Button ragequitBtn;
     private void Awake()
     {
-        backBtn = transform.GetChild(0).Find("BackButton").GetComponent<Button>();
+        backBtn = transform.Find("Panel").Find("BackButton").GetComponent<Button>();
         backBtn.onClick.AddListener(BackButtonOnClick);
-        ragequitBtn = transform.GetChild(0).Find("RagequitButton").GetComponent<Button>();
+        ragequitBtn = transform.Find("Panel").Find("RagequitButton").GetComponent<Button>();
         ragequitBtn.onClick.AddListener(RagequitButtonOnClick);
 
     }
