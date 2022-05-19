@@ -6,5 +6,6 @@ using UnityEngine;
 [Serializable]
 public class Save
 {
+    public int budget;
     public List<Item> inventory = new List<Item>();
 }

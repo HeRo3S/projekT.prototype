@@ -7,6 +7,8 @@ public class EnemyBase : EntityBase, ITargetable
     protected float attackRange = 1.2f;
     protected GameObject target;
     protected float detectionRange = 8f;
+    [SerializeField]
+    protected int creditDrop;
     public GameObject GetTarget()
     {
         return target;
@@ -34,5 +36,10 @@ public class EnemyBase : EntityBase, ITargetable
         {
             rBody.velocity = Vector2.zero;
         }
+    }
+    public override void SelfDestruct()
+    {
+        base.SelfDestruct();
+        InstanceManager.Instance.player.SpendBudget(-creditDrop); 
     }
 }

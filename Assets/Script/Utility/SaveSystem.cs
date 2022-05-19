@@ -17,6 +17,7 @@ public static class SaveSystem
             Item itemData = new Item(item.GetItemID(), item.GetQuantity());
             saveData.inventory.Add(itemData);
         }
+        saveData.budget = InstanceManager.Instance.player.GetBudget();
         using StreamWriter writer = new StreamWriter(saveFileLocation, false);
         writer.Write(JsonUtility.ToJson(saveData, true));
     }
@@ -60,6 +61,7 @@ public static class SaveSystem
                 item.SetQuantity(itemData.amount);
                 InstanceManager.Instance.currentInventory.Add(item);
             }
+            InstanceManager.Instance.player.SetBudget(saveData.budget);
         }
     }
 }

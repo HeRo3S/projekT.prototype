@@ -176,6 +176,10 @@ public class Player : EntityBase
     {
         budget -= value;
     }
+    public void SetBudget(int value)
+    {
+        budget = value;
+    }
     public void SwitchNextWeapon()
     {
         if (!inAttackAnimation)

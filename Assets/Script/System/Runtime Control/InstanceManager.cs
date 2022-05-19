@@ -26,10 +26,6 @@ public class InstanceManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Reload()
-    {
-        _instance = null;
-    }
     public PlayerInputSystem inputSystem;
     public Camera mainCamera;
     public Player player;
