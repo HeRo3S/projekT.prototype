@@ -29,7 +29,9 @@ public class DiedDialogue : MonoBehaviour
 
     private void RessurrectButtonOnClick()
     {
-        ScenesController.Instance.ReloadScene();
+        GameStateManager.Instance.SwitchToStateTitleScreen();
+        CanvasController.GetInstance().EnableOnlyCanvas("LoadSave");
+
     }
 
     private void RagequitButtonOnClick()

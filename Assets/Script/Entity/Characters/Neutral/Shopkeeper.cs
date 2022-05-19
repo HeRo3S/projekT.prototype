@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Shopkeeper: EntityBase 
 {
-    protected float detectionRange = 8f;
+    [SerializeField]
+    protected float detectionRange;
     private GameObject target;
 
     public override void Awake()
@@ -24,7 +25,7 @@ public class Shopkeeper: EntityBase
         target = InstanceManager.Instance.player.gameObject;
     }
     // Update is called once per frame
-    public void FixedUpdate()
+    public void Update()
     {
         if (target == null) { return; }
         else

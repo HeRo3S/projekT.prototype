@@ -21446,6 +21446,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 4468991148281194235, guid: 645f364da3f116f49aeb93eb2be064be, type: 3}
+    - target: {fileID: 3983702528153255415, guid: 5d18071703eda954ea2feea978ca1343, type: 3}
+      propertyPath: detectionRange
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6779722927070382143, guid: 5d18071703eda954ea2feea978ca1343, type: 3}
       propertyPath: defaultInventory.Array.size
       value: 4

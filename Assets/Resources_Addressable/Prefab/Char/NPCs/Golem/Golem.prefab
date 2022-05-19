@@ -264,6 +264,7 @@ MonoBehaviour:
   inAttackAnimation: 0
   anim: {fileID: 0}
   hpBar: {fileID: 0}
+  creditDrop: 200
 --- !u!1 &5756013293956269823
 GameObject:
   m_ObjectHideFlags: 0
