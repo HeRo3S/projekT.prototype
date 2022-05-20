@@ -46,11 +46,11 @@ public class GameStateManager : MonoBehaviour
     public void UpdateGameState()
     {
         //??? For some reason after player died InstanceManager.Instance.player won't be null????
-        if (InstanceManager.Instance.player == null)
-        {
-            state = GameState.INGAME_PLAYER_DIED;
-            return;
-        }
+        //if (InstanceManager.Instance.player == null)
+        //{
+        //    state = GameState.INGAME_PLAYER_DIED;
+        //    return;
+        //}
        
         switch(currentSceneName)
         {
@@ -61,7 +61,7 @@ public class GameStateManager : MonoBehaviour
                 if (InstanceManager.Instance.canvasController.IsCanvasActive("IngameHUDCanvas")) 
                 {
                     state = GameState.INGAME_NORMAL;
-                } else if (InstanceManager.Instance.canvasController.IsCanvasActive("DiedDialogue"))
+                } else if (InstanceManager.Instance.player == null)
                 {
                     state = GameState.INGAME_PLAYER_DIED;
                 }
