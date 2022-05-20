@@ -40,6 +40,7 @@ public abstract class AbilityBase : ScriptableObject
     }
     public virtual bool CanActive()
     {
+        if (InstanceManager.Instance.player == null) return false;
         return (
                 manaCost <= InstanceManager.Instance.player.GetMana() &&
                 staminaCost <= InstanceManager.Instance.player.GetStamina() &&

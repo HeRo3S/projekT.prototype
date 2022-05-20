@@ -203,8 +203,9 @@ public class Player : EntityBase
 
     public override void SelfDestruct()
     {
-        CanvasController.GetInstance().EnableOnlyCanvas("DiedDialogue");
         base.SelfDestruct();
+        InstanceManager.Instance.player = null;
+        CanvasController.GetInstance().EnableOnlyCanvas("DiedDialogue");
     }
 
     //Phasing make player ignore all collision

@@ -67,6 +67,7 @@ public class SettingMenu : MonoBehaviour
                 //gameState.SwitchToStateTitleScreen();
                 break;
             case Enumeration.GameState.INGAME_UI_OPEN:
+            case Enumeration.GameState.INGAME_PLAYER_DIED:
                 CanvasController.GetInstance().EnableOnlyCanvas("IngameHUDCanvas");
                 //gameState.SwitchToStateIngame();
                 break;
