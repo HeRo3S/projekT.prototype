@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  player: {fileID: 1986144657990992834, guid: 85523fbf966bd754e95c9973bf264580, type: 3}
+  player: {fileID: 0}
   groundEntityFilter:
     useTriggers: 1
     useLayerMask: 1
@@ -54,8 +54,13 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 192
+      m_Bits: 2240
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  currentSkillList: []
+  currentInventory: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  canvasController: {fileID: 0}
+  interactButton: {fileID: 0}

@@ -11,7 +11,6 @@ public class GameStateManager : MonoBehaviour
     private string lastSceneName;
     private string currentSceneName;
 
-    // Start is called before the first frame update
 
     public static GameStateManager Instance
     {
@@ -26,17 +25,9 @@ public class GameStateManager : MonoBehaviour
             return _instance;
         }
     }
-    private void Awake()
+    public void Awake()
     {
-        //Singleton
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        _instance = this;
-        DontDestroyOnLoad(this);
-
+        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
@@ -45,8 +36,7 @@ public class GameStateManager : MonoBehaviour
 
     public void UpdateGameState()
     {
-        //??? For some reason after player died InstanceManager.Instance.player won't be null????
-        if (InstanceManager.Instance.player == null)
+        if (InstanceManager.Instance.player == null && state != GameState.IN_MAINMENU)
         {
             state = GameState.INGAME_PLAYER_DIED;
             return;

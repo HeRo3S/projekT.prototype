@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
-using System.Collections;
 using UnityEngine.AddressableAssets;
 using System.Linq;
 
@@ -14,7 +13,7 @@ public class AudioManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                var op = Addressables.LoadAssetAsync<GameObject>("AudioManager.prefab");
+                var op = Addressables.LoadAssetAsync<GameObject>("PrefabAudioManager");
                 _instance = Instantiate(op.WaitForCompletion()).GetComponent<AudioManager>();
                 Addressables.Release(op);
             }
@@ -48,14 +47,8 @@ public class AudioManager : MonoBehaviour
     }
     private void Awake()
     {
-        //Singleton
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
         _instance = this;
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
         MergeSoundsArray();
         LoadAudioSourceIntoGameobject();
     }

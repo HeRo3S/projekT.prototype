@@ -14,7 +14,7 @@ public class AssetManager : MonoBehaviour
             {
                 var op = Addressables.LoadAssetAsync<GameObject>("PrefabAssetManager");
                 _instance = Instantiate(op.WaitForCompletion()).GetComponent<AssetManager>();
-                Addressables.Release(op);
+                //Addressables.Release(op);
             }
             return _instance;
         }

@@ -42,6 +42,15 @@ public class Player : EntityBase
         //Register to manager
         InstanceManager.Instance.player = this;
         anim = gameObject.GetComponent<Animator>();
+        //Inventory initialize
+        InstanceManager.Instance.currentInventory = inventory;
+        SaveSystem.Load();
+        //Phasing
+        collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
+        audioManager = AudioManager.Instance;
+    }
+    public void Start()
+    {
         //Weapon Initilization
         weaponList = new List<GameObject>
         {
@@ -51,17 +60,6 @@ public class Player : EntityBase
         currentWeaponIndex = 1;
         SwitchNextWeapon();
         inAttackAnimation = false;
-        //Inventory initialize
-        InstanceManager.Instance.currentInventory = inventory;
-        SaveSystem.Load();
-        //Phasing
-        collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
-    }
-    public void Start()
-    {
-        //Audio Manager
-        //audioManager = InstanceManager.Instance.audioManager;
-        audioManager = AudioManager.Instance;
     }
 
     public void FixedUpdate()

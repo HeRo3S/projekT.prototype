@@ -246,6 +246,7 @@ MonoBehaviour:
   speed: 6
   inAttackAnimation: 0
   anim: {fileID: 0}
+  hpBar: {fileID: 0}
   maxMana: 1000
   mana: 1000
   maxStamina: 300

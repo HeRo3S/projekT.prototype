@@ -7,7 +7,7 @@ public class Dash : AbilityBase
 {
     [SerializeField]
     private float executionTime;
-    private float executingTime;
+    private float executingTime = -1;
     [SerializeField]
     private float speedModification;
     public override void Active()

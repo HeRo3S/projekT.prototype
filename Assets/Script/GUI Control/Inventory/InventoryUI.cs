@@ -55,6 +55,10 @@ public class InventoryUI : MonoBehaviour
     }
     void UpdateUI()
     {
+        if(InstanceManager.Instance.player == null)
+        {
+            return;
+        }
         hp.text = InstanceManager.Instance.player.GetHealth() + " / " + InstanceManager.Instance.player.GetMaxHP();
         mp.text = InstanceManager.Instance.player.GetMana() + " / " + InstanceManager.Instance.player.GetMaxMana();
 

@@ -38,11 +38,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: c05b85a64c132904c8766eb308ac7177
-    m_Address: Assets/Resources_Addressable/Prefab/Weapon/Bow.prefab
+    m_Address: Weapon/Bow
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: c9bab3216fdcd4a4199f6e8496b3a4dd
-    m_Address: Assets/Resources_Addressable/Prefab/Weapon/Broadsword.prefab
+    m_Address: Weapon/Broadsword
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 2b8cefb5bc618634ca3100f9a520ad27
@@ -55,10 +55,6 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 85523fbf966bd754e95c9973bf264580
     m_Address: Assets/Resources_Addressable/Prefab/Char/Player.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f6fb87f28c8e2884596cd20c202fc5c7
-    m_Address: Ability/Sorcery/HealIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 99e9a48f4c0e3ac409704f4c1221d6c8
@@ -78,7 +74,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 06381d241f58ec840a86f0c32d3537f1
-    m_Address: AudioManager.prefab
+    m_Address: PrefabAudioManager
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 5344b3195a51dd24fbf377d5f3794c92
@@ -115,6 +111,10 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: f04dac9a4fddb0048a39849ff7e70fa3
     m_Address: PrefabSceneManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5d18071703eda954ea2feea978ca1343
+    m_Address: Assets/Resources_Addressable/Prefab/Char/NPCs/Shopkeeper/Shopkeeper.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
