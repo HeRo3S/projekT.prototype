@@ -35,7 +35,8 @@ public class DiedDialogue : MonoBehaviour
 
     private void RagequitButtonOnClick()
     {
-        Application.Quit();
+        //Application.Quit();
+        ScenesController.Instance.LoadScene("TitleScene");
     }
 
 }
