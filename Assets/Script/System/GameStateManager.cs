@@ -41,17 +41,17 @@ public class GameStateManager : MonoBehaviour
             state = GameState.INGAME_PLAYER_DIED;
             return;
         }
-       
+
         switch(currentSceneName)
         {
             case "TitleScene":
                 state = GameState.IN_MAINMENU;
                 break;
             case "Ingame":
-                if (InstanceManager.Instance.canvasController.IsCanvasActive("IngameHUDCanvas")) 
+                if (InstanceManager.Instance.canvasController.IsCanvasActive("IngameHUDCanvas"))
                 {
                     state = GameState.INGAME_NORMAL;
-                } else if (InstanceManager.Instance.canvasController.IsCanvasActive("DiedDialogue"))
+                } else if (InstanceManager.Instance.player == null)
                 {
                     state = GameState.INGAME_PLAYER_DIED;
                 }
