@@ -36,11 +36,11 @@ public class GameStateManager : MonoBehaviour
 
     public void UpdateGameState()
     {
-        if (InstanceManager.Instance.player == null && state != GameState.IN_MAINMENU)
-        {
-            state = GameState.INGAME_PLAYER_DIED;
-            return;
-        }
+        //if (InstanceManager.Instance.player == null && state != GameState.IN_MAINMENU)
+        //{
+        //   state = GameState.INGAME_PLAYER_DIED;
+        //   return;
+        //}
 
         switch(currentSceneName)
         {
