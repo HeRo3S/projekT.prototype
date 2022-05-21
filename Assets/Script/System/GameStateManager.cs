@@ -20,7 +20,7 @@ public class GameStateManager : MonoBehaviour
             {
                 var op = Addressables.LoadAssetAsync<GameObject>("PrefabGameStateManager");
                 _instance = Instantiate(op.WaitForCompletion()).GetComponent<GameStateManager>();
-                Addressables.Release(op);
+                //Addressables.Release(op);
             }
             return _instance;
         }

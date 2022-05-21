@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
             {
                 var op = Addressables.LoadAssetAsync<GameObject>("PrefabAudioManager");
                 _instance = Instantiate(op.WaitForCompletion()).GetComponent<AudioManager>();
-                Addressables.Release(op);
+                //Addressables.Release(op);
             }
             return _instance;
         }

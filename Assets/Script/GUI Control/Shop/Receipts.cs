@@ -12,7 +12,6 @@ public class Receipts : MonoBehaviour
     private List<ItemBase> WishListItems = new List<ItemBase>();
     private List<GameObject> CartsTextHolder = new List<GameObject>();
     private int totalPrice;
-    AsyncOperationHandle<GameObject> opHandle;
     GameObject cartTextHolderPrefab;
 
     private TextMeshProUGUI totalPriceTextHolder;

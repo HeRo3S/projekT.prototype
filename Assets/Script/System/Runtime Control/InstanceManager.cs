@@ -14,7 +14,7 @@ public class InstanceManager : MonoBehaviour
             {
                 var op = Addressables.LoadAssetAsync<GameObject>("PrefabInstanceManager");
                 _instance = Instantiate(op.WaitForCompletion()).GetComponent<InstanceManager>();
-                Addressables.Release(op);
+                //Addressables.Release(op);
             }
             return _instance;
         }

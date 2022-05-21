@@ -15,7 +15,7 @@ public class ScenesController : MonoBehaviour
             {
                 var op = Addressables.LoadAssetAsync<GameObject>("PrefabSceneManager");
                 _instance = Instantiate(op.WaitForCompletion()).GetComponent<ScenesController>();
-                Addressables.Release(op);
+                //Addressables.Release(op);
             }
             return _instance;
         }
