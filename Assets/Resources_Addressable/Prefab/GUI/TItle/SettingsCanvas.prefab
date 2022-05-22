@@ -662,7 +662,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 6.136902, y: 0}
   m_SizeDelta: {x: 22.2739, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1468,7 +1468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2767081015000917938
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2767081015000917939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,10 +1648,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2767081014639601431}
   m_HandleRect: {fileID: 2767081015689175565}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 75
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2434,8 +2434,8 @@ RectTransform:
   m_Father: {fileID: 2767081015391233929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.75, y: 0}
+  m_AnchorMax: {x: 0.75, y: 1}
   m_AnchoredPosition: {x: 38.575317, y: -0.87670135}
   m_SizeDelta: {x: 97.1507, y: -26.3014}
   m_Pivot: {x: 0.5, y: 0.5}

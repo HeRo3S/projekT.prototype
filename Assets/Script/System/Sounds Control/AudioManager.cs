@@ -23,7 +23,8 @@ public class AudioManager : MonoBehaviour
     private Sound[] sounds;
     public Sound[] weaponSounds;
     public Sound[] sceneSounds;
-    public AudioMixerGroup audioMixer;
+    //public AudioListener audioListener;
+    //public AudioMixerGroup audioMixer;
     private void MergeSoundsArray()
     {
         sounds = weaponSounds.Concat(sceneSounds).ToArray();
@@ -41,7 +42,7 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
 
-            s.source.outputAudioMixerGroup = audioMixer;
+            //s.source.outputAudioMixerGroup = audioMixer;
         }
 
     }
@@ -92,6 +93,14 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
+    }
+
+    public void changeVolune(float volume)
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = volume;
+        }
     }
 
 }

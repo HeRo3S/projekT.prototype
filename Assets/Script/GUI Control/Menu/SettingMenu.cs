@@ -7,8 +7,8 @@ using TMPro;
 
 public class SettingMenu : MonoBehaviour
 {
-    [SerializeField]
-    private AudioMixer audioMixer;
+    //[SerializeField]
+    //private AudioMixer audioMixer;
     [SerializeField]
     private TMP_Dropdown resolutionDropdown;
 
@@ -48,7 +48,8 @@ public class SettingMenu : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        //audioMixer.SetFloat("volume", volume);
+        AudioManager.Instance.changeVolune(volume);
     }
 
     public void SetQuality(int qualityIndex)
