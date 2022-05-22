@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class Golem : EnemyBase 
 {
+    protected Vector2 homePos;
     public override void Awake()
     {
         attackRange = 3f;
         anim = gameObject.GetComponent<Animator>();
         hpBar = transform.Find("Canvas").GetChild(0).GetChild(0).GetComponent<Image>();
         base.Awake();
-        
+        homePos = rBody.position;
     }
     public void DoAttack()
     {
@@ -47,7 +48,17 @@ public class Golem : EnemyBase
             }
             else
             {
-                Move(Vector2.zero);
+                moveDirection = homePos - (Vector2)transform.position;
+                if (moveDirection.magnitude > 0.25f)
+                {
+                    Move(moveDirection / moveDirection.magnitude);
+                    anim.SetBool("isMoving", true);
+                    anim.SetFloat("LatestAngle", SplitRotationAngleInto(2));
+                }
+                else
+                {
+                    Move(Vector2.zero);
+                }
             }
         }
         UpdateHealthbar();

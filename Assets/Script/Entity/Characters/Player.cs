@@ -44,7 +44,6 @@ public class Player : EntityBase
         anim = gameObject.GetComponent<Animator>();
         //Inventory initialize
         InstanceManager.Instance.currentInventory = inventory;
-        SaveSystem.Load();
         //Phasing
         collisionBorder = transform.GetChild(1).GetComponent<Collider2D>();
         audioManager = AudioManager.Instance;
@@ -60,6 +59,7 @@ public class Player : EntityBase
         currentWeaponIndex = 1;
         SwitchNextWeapon();
         inAttackAnimation = false;
+        SaveSystem.Load();
     }
 
     public void FixedUpdate()
@@ -112,6 +112,15 @@ public class Player : EntityBase
             rotation = (float)(System.Math.Atan2(direction.y, direction.x) / System.Math.PI * 180f);
 
     }
+    //Teleportation
+    public Vector2 GetPosition()
+    {
+        return rBody.position;
+    }
+    public void TeleportTo(Vector2 position)
+    {
+        rBody.position = position;
+    }
 
     //Adjust recovery stats algorithm
     public virtual void AdjustMana(float amount)
@@ -154,6 +163,10 @@ public class Player : EntityBase
     {
         return stamina;
     }
+    public void SetStamina(float value)
+    {
+        stamina = Mathf.Clamp(value, 0, maxStamina);
+    }
     public float GetMaxStamina()
     {
         return maxStamina;
@@ -166,18 +179,37 @@ public class Player : EntityBase
     {
         return maxMana;
     }
+    public void SetMana(float value)
+    {
+        mana = Mathf.Clamp(value, 0, maxMana);
+    }
+    public void SetHeath(float value)
+    {
+        healthPts = Mathf.Clamp(value, 0, maxHealth);
+    }
     public int GetBudget()
     {
         return budget;
     }
     public bool SpendBudget(int value)
     {
+        if (value < 0) return false;
         if (budget < value) return false;
         else
         {
             budget -= value;
             return true;
         }
+    }
+
+    public void AddBudget(int value)
+    {
+        if (value < 0) return;
+        budget += value;
+        Vector3 popUpPos = new Vector3(transform.position.x + Random.Range(-1f, 1f),
+                                transform.position.y + Random.Range(-1f, 1f),
+                                transform.position.z);
+        TextPopUp.Create(value.ToString() + "G", popUpPos, 1.75f).textMesh.color = Color.yellow;
     }
     public void SetBudget(int value)
     {

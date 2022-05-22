@@ -40,6 +40,6 @@ public class EnemyBase : EntityBase, ITargetable
     public override void SelfDestruct()
     {
         base.SelfDestruct();
-        InstanceManager.Instance.player.SpendBudget(-creditDrop); 
+        InstanceManager.Instance.player.AddBudget(creditDrop); 
     }
 }

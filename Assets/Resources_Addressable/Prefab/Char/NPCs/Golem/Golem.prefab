@@ -160,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1081923561
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4628221225906215552, guid: fa4670cbd6a590e4d8522220e3e10199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -258,9 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33580ee66c39b4e40b7ea18c5ea28cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  healthPts: 0
-  speed: 1
+  maxHealth: 1000
+  healthPts: 1000
+  speed: 3
   inAttackAnimation: 0
   anim: {fileID: 0}
   hpBar: {fileID: 0}

@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 public class TextPopUp : MonoBehaviour
 {
     private float timeToLive;
-    private TextMeshPro textMesh;
+    public TextMeshPro textMesh { get; private set; }
     public static TextPopUp Create(string text, Vector3 position, float timeToLive)
     {
         TextPopUp target = Instantiate(AssetManager.Instance.pfTextPopUp, position, Quaternion.identity).GetComponent<TextPopUp>();

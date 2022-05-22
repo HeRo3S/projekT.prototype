@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Cainos.PixelArtTopDown_Basic
-{
-    //let camera follow target
     public class CameraFollow : MonoBehaviour
     {
         public Transform target;
@@ -32,6 +29,10 @@ namespace Cainos.PixelArtTopDown_Basic
             targetPos = target.position + offset;
             transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
         }
+        public void Calibrate()
+        {
+            if (target == null) return;
 
+            offset = transform.position - target.position;
+        }
     }
-}

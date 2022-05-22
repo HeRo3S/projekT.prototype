@@ -93,5 +93,17 @@ public class Inventory : MonoBehaviour
             onItemChangedCallBack.Invoke();
         }
     }
+    //Find item
+    public ItemBase FindItem(string itemID)
+    {
+        foreach (ItemBase item in items)
+        {
+            if (item.GetItemID() == itemID)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
 
 }

@@ -6,12 +6,12 @@ public class ShopkeeperInteract : MonoBehaviour, IIteractable
 {
     [SerializeField]
     private Inventory inventory;
-    private Dialogue dialogue;
+    //private Dialogue dialogue;
 
     private void Awake()
     {
         inventory.FirstTimeOpenInventoryCheck();
-        dialogue = transform.GetComponent<Dialogue>();
+        //dialogue = transform.GetComponent<Dialogue>();
     }
     public void OnInteract()
     {

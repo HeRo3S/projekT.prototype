@@ -9,6 +9,7 @@ public static class SaveSystem
     public static int loadSlot = -1;
     public static void SaveToSlot(int slot)
     {
+        Player player = InstanceManager.Instance.player;
         ValidateDirectory();
         string saveFileLocation = saveDirectory + "save" + slot;
         Save saveData = new Save();
@@ -17,7 +18,13 @@ public static class SaveSystem
             Item itemData = new Item(item.GetItemID(), item.GetQuantity());
             saveData.inventory.Add(itemData);
         }
-        saveData.budget = InstanceManager.Instance.player.GetBudget();
+        saveData.budget = player.GetBudget();
+        Vector2 position = player.GetPosition();
+        saveData.health = player.GetHealth();
+        saveData.mana = player.GetMana();
+        saveData.stamina = player.GetStamina();
+        saveData.position.x = position.x;
+        saveData.position.y = position.y;
         using StreamWriter writer = new StreamWriter(saveFileLocation, false);
         writer.Write(JsonUtility.ToJson(saveData, true));
     }
@@ -50,6 +57,7 @@ public static class SaveSystem
     {
         if (DataExist(slot))
         {
+            Player player = InstanceManager.Instance.player;
             string saveFileLocation = saveDirectory + "save" + slot;
 
             StreamReader reader = new StreamReader(saveFileLocation);
@@ -61,7 +69,13 @@ public static class SaveSystem
                 item.SetQuantity(itemData.amount);
                 InstanceManager.Instance.currentInventory.Add(item);
             }
-            InstanceManager.Instance.player.SetBudget(saveData.budget);
+            player.SetBudget(saveData.budget);
+            player.SetHeath(saveData.health);
+            player.SetMana(saveData.mana);
+            player.SetStamina(saveData.stamina);
+            Vector2 position = new Vector2(saveData.position.x, saveData.position.y);
+            player.TeleportTo(position);
+
         }
     }
 }
