@@ -112,7 +112,17 @@ public class ShopUI: MonoBehaviour
 
     private void BuyButtonOnClick()
     {
-        Receipts.instance.Transaction();
+        currentSelectSlot = null;
+        if (Receipts.instance.Transaction() == true)
+        {     
+            itemName.text = "TRANSACTION SUCCESS";
+            desc.text = "";
+        }
+        else
+        {
+            itemName.text = "TRANSACTION FAILED";
+            desc.text = "Can't buy everthing without enough money.";
+        }
         UpdateUI();
     }
 

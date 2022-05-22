@@ -118,20 +118,20 @@ public class Receipts : MonoBehaviour
         totalPriceTextHolder.text = totalPrice.ToString();
     }
 
-    public void Transaction()
+    public bool Transaction()
     {
+        if (InstanceManager.Instance.player.SpendBudget(totalPrice) == false) {
+            Debug.Log("Can't buy things without money.");
+            ClearListAfterBuy();
+            return false;
+        }
+
         foreach (ItemBase WishListItem in WishListItems)
         {
             InstanceManager.Instance.currentInventory.Add(WishListItem);
         }
-        if (InstanceManager.Instance.player.SpendBudget(totalPrice) == false) {
-            Debug.Log("Can't buy things without money.");
-            return;
-        }
-        else
-        {
-            ClearListAfterBuy();
-        }
+        ClearListAfterBuy();
+        return true;
     }
 
 }

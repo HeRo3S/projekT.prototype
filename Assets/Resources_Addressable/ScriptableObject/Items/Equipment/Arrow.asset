@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   itemID: Arrow
-  itemName: 
-  itemDescription: 
-  price: 10
+  itemName: Wood arrow
+  itemDescription: Normal arrow, nothing special.
+  price: 15
   quantityCarrying: 1
-  quantityLimit: 30
+  quantityLimit: 300
   icon: {fileID: -6890301164988981815, guid: a83787ad2d05ab94b973e53151f5e079, type: 3}
   weaponImplementation: {fileID: 0}
